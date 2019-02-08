@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2377214886f9b75459c86ca1d073ff2c
+guid: 34689cb7e39a67f44b216f9def414a3e
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,7 +11,8 @@ TrueTypeFontImporter:
   fontName: JazzCreateBubble
   fontNames:
   - JazzCreateBubble
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2377214886f9b75459c86ca1d073ff2c, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
