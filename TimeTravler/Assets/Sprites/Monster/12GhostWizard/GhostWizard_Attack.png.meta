@@ -1,0 +1,490 @@
+fileFormatVersion: 2
+guid: 2e5ec10a05272bd4ba51eb78f2b72758
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GhostWizard_Attack_0
+    21300002: GhostWizard_Attack_1
+    21300004: GhostWizard_Attack_2
+    21300006: GhostWizard_Attack_3
+    21300008: GhostWizard_Attack_4
+    21300010: GhostWizard_Attack_5
+    21300012: GhostWizard_Attack_6
+    21300014: GhostWizard_Attack_7
+    21300016: GhostWizard_Attack_8
+    21300018: GhostWizard_Attack_9
+    21300020: GhostWizard_Attack_10
+    21300022: GhostWizard_Attack_11
+    21300024: GhostWizard_Attack_12
+    21300026: GhostWizard_Attack_13
+    21300028: GhostWizard_Attack_14
+    21300030: GhostWizard_Attack_15
+    21300032: GhostWizard_Attack_16
+    21300034: GhostWizard_Attack_17
+    21300036: GhostWizard_Attack_18
+    21300038: GhostWizard_Attack_19
+    21300040: GhostWizard_Attack_20
+    21300042: GhostWizard_Attack_21
+    21300044: GhostWizard_Attack_22
+    21300046: GhostWizard_Attack_23
+    21300048: GhostWizard_Attack_24
+    21300050: GhostWizard_Attack_25
+    21300052: GhostWizard_Attack_26
+    21300054: GhostWizard_Attack_27
+    21300056: GhostWizard_Attack_28
+    21300058: GhostWizard_Attack_29
+    21300060: GhostWizard_Attack_30
+    21300062: GhostWizard_Attack_31
+    21300064: GhostWizard_Attack_32
+    21300066: GhostWizard_Attack_33
+    21300068: GhostWizard_Attack_34
+    21300070: GhostWizard_Attack_35
+    21300072: GhostWizard_Attack_36
+    21300074: GhostWizard_Attack_37
+    21300076: GhostWizard_Attack_38
+    21300078: GhostWizard_Attack_39
+    21300080: GhostWizard_Attack_40
+    21300082: GhostWizard_Attack_41
+    21300084: GhostWizard_Attack_42
+    21300086: GhostWizard_Attack_43
+    21300088: GhostWizard_Attack_44
+    21300090: GhostWizard_Attack_45
+    21300092: GhostWizard_Attack_46
+    21300094: GhostWizard_Attack_47
+    21300096: GhostWizard_Attack_48
+    21300098: GhostWizard_Attack_49
+    21300100: GhostWizard_Attack_50
+    21300102: GhostWizard_Attack_51
+    21300104: GhostWizard_Attack_52
+    21300106: GhostWizard_Attack_53
+    21300108: GhostWizard_Attack_54
+    21300110: GhostWizard_Attack_55
+    21300112: GhostWizard_Attack_56
+    21300114: GhostWizard_Attack_57
+    21300116: GhostWizard_Attack_58
+    21300118: GhostWizard_Attack_59
+    21300120: GhostWizard_Attack_60
+    21300122: GhostWizard_Attack_61
+    21300124: GhostWizard_Attack_62
+    21300126: GhostWizard_Attack_63
+    21300128: GhostWizard_Attack_64
+    21300130: GhostWizard_Attack_65
+    21300132: GhostWizard_Attack_66
+    21300134: GhostWizard_Attack_67
+    21300136: GhostWizard_Attack_68
+    21300138: GhostWizard_Attack_69
+    21300140: GhostWizard_Attack_70
+    21300142: GhostWizard_Attack_71
+    21300144: GhostWizard_Attack_72
+    21300146: GhostWizard_Attack_73
+    21300148: GhostWizard_Attack_74
+    21300150: GhostWizard_Attack_75
+    21300152: GhostWizard_Attack_76
+    21300154: GhostWizard_Attack_77
+    21300156: GhostWizard_Attack_78
+    21300158: GhostWizard_Attack_79
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GhostWizard_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 208.8
+        height: 178
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae658636c0959c04ca64d8e8977d89e3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 156
+        height: 178
+      alignment: 9
+      pivot: {x: 0.44, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc1e33c064c5e040849ad60082c02a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 265
+        height: 178
+      alignment: 9
+      pivot: {x: 0.54, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82dba33031d21794bb53765d7d277df5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 0
+        width: 212
+        height: 178
+      alignment: 9
+      pivot: {x: 0.51, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a5c7ab39af5044e9b651fa6648a983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 0
+        width: 200
+        height: 178
+      alignment: 9
+      pivot: {x: 0.54, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6013a68404f6aa5429b1043affc1ecee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 0
+        width: 206
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c3f42d746347d45999ff7a24f5cc3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 0
+        width: 206
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7910ecb616ee7214e9aad9619c3c9661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 0
+        width: 213
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9288a9f55d6ed6942a4ad55d42a9237e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 1737
+        y: 0
+        width: 205
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935c67d357fcb8d49a57d0ba2862bbe7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 1943
+        y: 0
+        width: 207
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9e9be1030e0b249910c1aaf84e9b45
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 0
+        width: 196
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f6bd8c4c9648242aa585192c01bd14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 2345
+        y: 0
+        width: 205
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe419adafb450fd4b926ae4f5666a89a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 0
+        width: 199
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0216fa2655a3624fae4de2f2012c230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 2749
+        y: 0
+        width: 206
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54796f66cd71ba429156083d2751b9a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2957
+        y: 0
+        width: 175
+        height: 178
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0c998870231b1419ac1e1c1b49ff52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 483cc096697b9d548996c850fd397b8c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
