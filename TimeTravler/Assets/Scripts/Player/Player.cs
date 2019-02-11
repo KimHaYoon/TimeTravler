@@ -329,5 +329,11 @@ public class Player : MonoBehaviour
         knockBack = false;
         superArmor = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+       Inventory.instance.Add(other.gameObject.GetComponent<Item_string>().code);
+    }
 }
 

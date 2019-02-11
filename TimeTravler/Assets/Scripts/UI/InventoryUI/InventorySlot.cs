@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour
 {
-    //public ItemInfo info;
-
+    public ItemInfo info;
+    public static bool sheild = true;
 
     public void OnPointerClick(BaseEventData Data)
     {
@@ -56,23 +56,24 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
-   /* public void OnTriggerEnter2D()
+    public void OnTriggerEnter2D()
     {
-        //Debug.Log(item);
-        //Debug.Log(item.name);
-        //info.SetItem();
-        info.gameObject.SetActive(true);
+        if (this.GetComponent<Item_string>().code != null)
+        {
+            info.SetItem(ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5))));
+            info.gameObject.SetActive(true);
+        }
         //info.gameObject.GetComponent<RectTransform>().position = 
 
         Vector3 position = gameObject.GetComponent<RectTransform>().position;
 
-        info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x + 140, position.y);
+        info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x -120, position.y - 40);
     }
 
     public void OnTriggerExit2D()
     {
         info.gameObject.SetActive(false);
-    }*/
+    }
 
 
 
@@ -82,7 +83,8 @@ public class InventorySlot : MonoBehaviour
         string item_string = Inventory.instance.copy(item.code);
         Item_string target = null;
 
-        Inventory.instance.pop_list(this.GetComponent<index>().Index);
+        if (!(item_string.Substring(1, 1) == "5" && sheild == false))
+            Inventory.instance.pop_list(this.GetComponent<index>().Index);
 
         switch (item_string.Substring(1, 1))
         {
@@ -110,7 +112,23 @@ public class InventorySlot : MonoBehaviour
                 Debug.Log("무기장착");
                 target = Inventory.instance.equipment_weapon.GetComponent<Item_string>();
                 if (target.code != null)
+                {
                     Inventory.instance.Add(Inventory.instance.equipment_weapon.GetComponent<Item_string>().code);
+                }
+                if (int.Parse(item_string.Substring(2, 1)) != 0)
+                {
+                    Debug.Log("대검이다");
+                    GameObject Shield = Inventory.instance.equipment_Shield;
+                    Inventory.instance.Add(Shield.GetComponent<Item_string>().code);
+                    Shield.GetComponent<Image>().sprite = Inventory.instance.closeImage;
+                    Shield.GetComponent<Item_string>().code = null;
+                    sheild = false;
+                }
+                else if (Inventory.instance.equipment_Shield.GetComponent<Item_string>().code == null)
+                {
+                    Inventory.instance.equipment_Shield.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
+                    sheild = true;
+                }
                 break;
 
             case "5":
@@ -118,10 +136,13 @@ public class InventorySlot : MonoBehaviour
                 if (target.code != null)
                     Inventory.instance.Add(Inventory.instance.equipment_Shield.GetComponent<Item_string>().code);
                 break;
-               
+
         }
         Debug.Log(item.code);
-        target.code = item_string;
-        target.GetComponent<Image>().sprite = Resources.Load<Sprite>("Item/ItemStandard/" + target.code.Substring(0, 4));
+        if (!(item_string.Substring(1, 1) == "5" && sheild == false))
+        {
+            target.code = item_string;
+            target.GetComponent<Image>().sprite = Resources.Load<Sprite>("Item/ItemStandard/" + target.code.Substring(0, 4));
+        }
     }
 }
