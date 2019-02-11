@@ -118,12 +118,12 @@ TextureImporter:
       name: Berserkie_Attack_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 59
         y: 0
-        width: 244
+        width: 160
         height: 130
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.694417, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,12 +138,12 @@ TextureImporter:
       name: Berserkie_Attack_1
       rect:
         serializedVersion: 2
-        x: 244
+        x: 291
         y: 0
-        width: 244
+        width: 175
         height: 130
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.68935895, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,7 +163,7 @@ TextureImporter:
         width: 244
         height: 130
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.6826149, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: Berserkie_Attack_3
       rect:
         serializedVersion: 2
-        x: 732
+        x: 844
         y: 0
-        width: 244
+        width: 123
         height: 130
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.4257103, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,12 +198,12 @@ TextureImporter:
       name: Berserkie_Attack_4
       rect:
         serializedVersion: 2
-        x: 976
+        x: 1049
         y: 0
-        width: 244
+        width: 144
         height: 130
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.62447274, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
