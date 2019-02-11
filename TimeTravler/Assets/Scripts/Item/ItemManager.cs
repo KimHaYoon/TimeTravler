@@ -26,6 +26,7 @@ public class ItemManager : MonoBehaviour
     private string strLine;
     private int lineCount;
 
+    // Start is called before the first frame update
     void Awake()
     {
         instance = this;
@@ -33,11 +34,7 @@ public class ItemManager : MonoBehaviour
         // 문자 구분을 위한 변수 선언
         text = csvFile.text;
         stringList = text.Split('\n');
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         reader = new StringReader(csvFile.text);
         strLine = reader.ReadLine();
 
@@ -60,15 +57,15 @@ public class ItemManager : MonoBehaviour
             item.name = getName(j);
             item.maxcount = getMaxcount(j);
             item.sellprice = getSellprice(j);
-            item.buyprice= getBuyprice(j);
-            item.option1= getOpt1(j);
+            item.buyprice = getBuyprice(j);
+            item.option1 = getOpt1(j);
             item.option1_1= getOpt1_1(j);
             item.option2 = getOpt2(j);
             item.option2_1= getOpt2_1(j);
             
             itemList.Add(item);
         }
-    }
+    } 
 
     // Update is called once per frame
     void Update()
@@ -255,6 +252,28 @@ public class ItemManager : MonoBehaviour
         return -1;
     }
 
+    // 코드번호 앞에서 3자리 숫자 -> 해당하는 아이템 목록 다 리턴 (ex. 121 -> 121xx인 아이템들)
+    public List<ItemData> GetItems(int code)
+    {
+        List<ItemData> items = new List<ItemData>();
+
+        int icode;
+
+        for (int i = 0; i < itemList.Count; ++i)
+        {
+            icode = itemList[i].code / 100;
+
+            if (icode == code )
+            {
+                //Debug.Log(itemList[i].code);
+                items.Add(itemList[i]);
+            }
+
+        }
+
+        return items;
+    }
+
     // 코드번호 min ~ max 범위까지 (ex. min = 0, max = 3 이면 0, 1, 2, 3 값 리턴)
     public List<ItemData> GetItems(int min, int max)
     {
@@ -271,6 +290,54 @@ public class ItemManager : MonoBehaviour
         }
 
         return items;
+    }
+
+    // 코드번호 앞에서 3자리 숫자, 랜덤으로 뽑을 아이템 개수
+    public List<ItemData> GetItem(int code, int num)
+    {
+        List<ItemData> items = new List<ItemData>();
+        List<ItemData> returnitems = new List<ItemData>();
+
+        int icode;
+        int[] rand = new int[num];
+        bool isSame = false;
+
+        for (int i = 0; i < itemList.Count; ++i)
+        {
+            icode = itemList[i].code / 100;
+
+            if (icode == code)
+            {
+                items.Add(itemList[i]);
+            }
+        }
+
+        for (int i = 0; i < num; ++i)
+        {
+            while (true)
+            {
+                rand[i] = Random.Range(0, items.Count);
+                isSame = false;
+                for (int j = 0; j < i; ++j)
+                {
+                    if (rand[i] == rand[j])
+                    {
+                        isSame = true;
+                        break;
+                    }
+                }
+
+                if (!isSame)
+                    break;
+            }
+        }
+        
+        for(int  i = 0; i < num; ++i)
+        {
+            returnitems.Add(items[rand[i]]);
+        }
+
+        return returnitems;
     }
 
     // 코드번호(4자리수) -> 해당 아이템 코드들(5자리) 
