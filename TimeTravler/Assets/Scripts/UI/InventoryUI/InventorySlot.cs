@@ -67,7 +67,7 @@ public class InventorySlot : MonoBehaviour
 
         Vector3 position = gameObject.GetComponent<RectTransform>().position;
 
-        info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x -100, position.y - 40);
+        info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x -120, position.y - 40);
     }
 
     public void OnTriggerExit2D()
