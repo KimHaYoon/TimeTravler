@@ -32,6 +32,8 @@ public class Mouse : MonoBehaviour
                     storeTitleText.text = "장비";
                     storeTitleText.name = "장비";
                     storeUI.gameObject.SetActive(true);
+                    storeUI.salesList.ItemTag("장비");
+                    storeUI.SalesListUpdate();
 
                 }
 
@@ -40,6 +42,8 @@ public class Mouse : MonoBehaviour
                     storeTitleText.text = "잡화";
                     storeTitleText.name = "잡화";
                     storeUI.gameObject.SetActive(true);
+                    storeUI.salesList.ItemTag("잡화");
+                    storeUI.SalesListUpdate();
                 }
             }
         }

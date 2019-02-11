@@ -7,6 +7,7 @@ public class Slot : MonoBehaviour
 {
     public ItemData item;
     public ItemInfo info;
+    public Image slotItemImage;
 
     private void Start()
     {
@@ -15,25 +16,23 @@ public class Slot : MonoBehaviour
 
     public void SetItem(ItemData Item)
     {
-        if (item == null)
+        if (Item.code == 0)
         {
             gameObject.name = "Empty";
+            slotItemImage.sprite = null;
+            slotItemImage.name = "0";
         }
 
-        else
+        else if (Item.code > 0)
         {
+            Debug.Log(item.code);
             item = Item;
             string code = item.code.ToString();
             gameObject.name = item.name;
 
-            // 리소스 수정하는거 해결하기
-            
-            GameObject slotItemImage = GameObject.Find(gameObject.name + "/slotItemImage");
-            Image image = slotItemImage.GetComponent<Image>();
-
             Sprite sprite = (Sprite)Resources.Load("Item/ItemStandard/" + code.Substring(0, 4), typeof(Sprite));
-            
-            image.sprite = sprite;
+
+            slotItemImage.sprite = sprite;
             slotItemImage.name = code.Substring(0, 4);
         }
     }

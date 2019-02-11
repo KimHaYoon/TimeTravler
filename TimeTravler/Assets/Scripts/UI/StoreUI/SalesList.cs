@@ -12,14 +12,14 @@ public class SalesList : MonoBehaviour
     public List<ItemData> EquipmentSales = new List<ItemData>();
     public List<ItemData> GrocerySales = new List<ItemData>();
 
-    public string storeTitleText;
+    public Text storeTitleText;
 
     //private int iItemTag;
 
     void Awake()
     {
-        storeTitleText = GameObject.Find("Canvas/storeui/title/titleText").GetComponent<Text>().text;
-        ItemTag(storeTitleText);
+        //storeTitleText = GameObject.Find("Canvas/storeui/title/titleText").GetComponent<Text>().text;
+        GetWeapons();
     }
 
     // Update is called once per frame
@@ -28,15 +28,20 @@ public class SalesList : MonoBehaviour
         
     }
 
-    private void ItemTag(string strTag)
+    public void ItemTag(string strTag)
     {
         if("장비" == strTag)
         {
-            GetWeapons();
+            salesList.Clear();
+            for(int  i =0; i < EquipmentSales.Count; ++i)
+                salesList.Add(EquipmentSales[i]);
         }
 
-        else if("소비" == strTag)
+        else if("잡화" == strTag)
         {
+            salesList.Clear();
+            for (int i = 0; i < GrocerySales.Count; ++i)
+                salesList.Add(GrocerySales[i]);
         }
     }
 
@@ -90,5 +95,4 @@ public class SalesList : MonoBehaviour
         else
             return EquipmentSales;
     }
-
 }
