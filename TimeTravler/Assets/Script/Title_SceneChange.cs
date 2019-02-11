@@ -7,7 +7,7 @@ public class Title_SceneChange : MonoBehaviour
 {
     public  void    ChangeNewGameScene()
     {
-        SceneManager.LoadScene("Village0");
+        SceneManager.LoadScene("StoreUI");
     }
 
     public void ChangeLoadGameScene()
