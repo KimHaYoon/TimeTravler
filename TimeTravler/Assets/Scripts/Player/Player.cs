@@ -83,7 +83,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         CheckGround();
-        Debug.Log("공" + power + "    방" + defence  + "치" + dex);
+        Debug.Log(isJump);
+        //Debug.Log("공" + power + "    방" + defence  + "치" + dex);
     }
 
     void FixedUpdate()
@@ -149,14 +150,11 @@ public class Player : MonoBehaviour
             {
                 if (!downJump)
                 {
-                    
                     if (isPassGround || isNoPassGround)
                     {
-                        
                         if (Input.GetKey(KeyCode.LeftControl))
                         {
                             myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-
                             switch (weapon)
                             {
                                 case 1:
@@ -194,18 +192,8 @@ public class Player : MonoBehaviour
                             isJump = true;
                             return;
                         }
-                        if (!isJump)
-                        {
-                            if (horizontal == 0)
-                                myAnimator.Play("Player_Idle");
-                            else
-                            {
-                                myAnimator.Play("Player_Move");
-                                myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
-                            }
-                        }
+                        
                     }
-
                     if (Input.GetKeyDown(KeyCode.LeftShift) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
                     {
                         myAnimator.Play("Player_Jump");
@@ -213,7 +201,18 @@ public class Player : MonoBehaviour
                         myRigidbody.velocity = Vector2.up * jumpForce;
                         isJump = true;
                     }
+                    if (!isJump)
+                    {
+                        if (horizontal == 0)
+                            myAnimator.Play("Player_Idle");
+                        else
+                        {
+                            myAnimator.Play("Player_Move");
+
+                        }
+                    }
                 }
+                myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
                 Flip(horizontal);
             }
         }

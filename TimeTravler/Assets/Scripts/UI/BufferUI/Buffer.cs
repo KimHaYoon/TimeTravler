@@ -35,6 +35,12 @@ public class Buffer : MonoBehaviour
         this.time = time;
     }
 
+    public void SetPos(int num)
+    {
+        GetComponent<RectTransform>().localPosition = new Vector3(-30 - num * 35, -30, 0);
+        GetComponent<RectTransform>().localScale = new Vector3(1, 1, 0);
+    }
+
     public IEnumerator BufferCount()
     {
         ImBuffer.sprite = (Sprite)Resources.Load("UI/Buffer/Buffer" + Convert.ToString(buf), typeof(Sprite));

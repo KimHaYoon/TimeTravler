@@ -13,10 +13,14 @@ public class BufferUI : MonoBehaviour
 
     private float[,] buf;//공방치
     private GameObject[,] ObjBuffer;
+    private List<GameObject> PosList;
+
+
     private void Awake()
     {
         ObjBuffer = new GameObject[3, 2];
         buf = new float[3, 2];
+        PosList = new List<GameObject>();
     }
 
     public void StartBuf(GameObject gameObject, bool who, int num, int type, float crease, float time)//버프류
@@ -53,8 +57,10 @@ public class BufferUI : MonoBehaviour
             else
             {
                 ObjBuffer[num, type] = Instantiate(Resources.Load("UI/Prefabs/Buffer")) as GameObject;
+                PosList.Add(ObjBuffer[num, type]);
                 ObjBuffer[num, type].transform.parent = transform.Find("Canvas");
                 ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num * 2 + type, time);
+                ObjBuffer[num, type].GetComponent<Buffer>().SetPos(PosList.Count);
             }
             buf[num, type] += crease;
         }
@@ -125,5 +131,15 @@ public class BufferUI : MonoBehaviour
             }
         }
         buf[num, type] = 0;
+        PosList.Remove(ObjBuffer[num, type]);//끝난놈 지우기
+        for(int i = 0; i< ObjBuffer.GetLength(0); i++)
+        {
+            for(int j = 0; j< ObjBuffer.GetLength(1); j++)
+            {
+                if(i * ObjBuffer.GetLength(1) + j < PosList.Count)
+                    ObjBuffer[num, type].GetComponent<Buffer>().SetPos(i * ObjBuffer.GetLength(1) + j);
+            }
+        }
+        //포지션 전체변경
     }
 }
