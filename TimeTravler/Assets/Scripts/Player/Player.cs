@@ -83,7 +83,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         CheckGround();
-        Debug.Log(isJump);
         //Debug.Log("공" + power + "    방" + defence  + "치" + dex);
     }
 
@@ -333,7 +332,7 @@ public class Player : MonoBehaviour
 
     public void SetBuf(int num, int type, float crease, float time)//버프류
     {
-        transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
+        transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
     }
 }
 

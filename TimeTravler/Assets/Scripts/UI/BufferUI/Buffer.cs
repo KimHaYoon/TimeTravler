@@ -9,6 +9,7 @@ public class Buffer : MonoBehaviour
 
     private Image ImBuffer;
     private Image ImBufferBackground;
+    private RectTransform BufferBackground;
 
     public int buf;
     public float time;
@@ -27,6 +28,9 @@ public class Buffer : MonoBehaviour
     {
         StartCoroutine(BufferCount());
     }
+    
+
+
 
     public void Init(bool who, int buf, float time)
     {
@@ -35,10 +39,19 @@ public class Buffer : MonoBehaviour
         this.time = time;
     }
 
-    public void SetPos(int num)
+    public void SetPlayerPos(int num)
     {
         GetComponent<RectTransform>().localPosition = new Vector3(-30 - num * 35, -30, 0);
         GetComponent<RectTransform>().localScale = new Vector3(1, 1, 0);
+    }
+    public void SetMonsterPos(int num)
+    {
+        BufferBackground = transform.Find("BufferBackground").GetComponent<RectTransform>();
+        GetComponent<RectTransform>().localPosition = new Vector3(0.5f -num * 0.5f, 0f, 0);
+        GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0); ;
+        GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
+        //BufferBackground.localScale = new Vector3(0.5f, 0.5f, 0); ;
+        BufferBackground.sizeDelta = new Vector2(1, 1);
     }
 
     public IEnumerator BufferCount()

@@ -6755,7 +6755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterNum: 20
+  monsterNum: 4
   monsterBoss: 1
   monsterCount: 1
   monsterPos:
@@ -48163,6 +48163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1359299868558296258}
+  - {fileID: 5186154956389490608}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48218,7 +48219,6 @@ Transform:
   - {fileID: 1359299869089933347}
   - {fileID: 1359299867362643377}
   - {fileID: 1789033141}
-  - {fileID: 5186154956389490608}
   m_Father: {fileID: 1359299868304679714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48820,6 +48820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1359299868558296260}
   monster: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &3675780688295536891
 GameObject:
   m_ObjectHideFlags: 0
@@ -48849,8 +48850,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 258121288237978532}
-  m_Father: {fileID: 1359299868558296258}
-  m_RootOrder: 4
+  m_Father: {fileID: 1359299868304679714}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6003678272520858083
 MonoBehaviour:
