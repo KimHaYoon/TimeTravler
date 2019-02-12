@@ -63,7 +63,6 @@ public class Player : MonoBehaviour
     public int _power;
     public int _defence;
     public int _dex;
-    private float[,] buf;//공방치
 
 
     // Start is called before the first frame update
@@ -81,7 +80,6 @@ public class Player : MonoBehaviour
 
     }
     
-    // Update is called once per frame
     void Update()
     {
         CheckGround();
@@ -92,12 +90,10 @@ public class Player : MonoBehaviour
     {
         InputKey();
         CheckHp();
-        //currentHp--;
         
     }
     private void InitStat()
     {
-        buf = new float[3, 2];
         currentHp = Hp;
         power = 20;
         defence = 10;
@@ -335,52 +331,10 @@ public class Player : MonoBehaviour
         knockBack = false;
         superArmor = false;
     }
-    public IEnumerator Buf(int num, int type, float crease, float time)//버프류
-    {
-        int pm = 1;
-        switch (type)//0버프 1디버프
-        {
-            case 0:
-                pm = 1;
-                break;
-            case 1:
-                pm = -1;
-                break;
-        }
-        
-        if (buf[num, type] <= crease)//증감률이 더 높다면
-        {
-            switch (num)
-            {
-                case 0://공격력
-                    power += (int)(_power * pm * crease);
-                    break;
-                case 1://방어력
-                    defence += (int)(_defence * pm * crease);
-                    break;
-                case 2://치명타
-                    dex += (int)(_dex * pm * crease);
-                    break;
-            }
-            buf[num, type] = crease;
-        }
-        else
-            yield break;
-        yield return new WaitForSeconds(time);
-        switch (num)//원상태로 복구
-        {
-            case 0://공격력
-                power = _power;
-                break;
-            case 1://방어력
-                defence = _defence;
-                break;
-            case 2://치명타
-                dex = _dex;
-                break;
-        }
-        buf[num, type] = 0;
-    }
 
+    public void SetBuf(int num, int type, float crease, float time)//버프류
+    {
+        transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
+    }
 }
 
