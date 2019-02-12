@@ -55,11 +55,16 @@ public class Player : MonoBehaviour
     private bool superArmor = false;//캐릭터 무적(true = 무적, false = 무적해제)
 
     //stat
-    private int Hp = 200;
+    public int Hp = 20000;
     public int currentHp;
     public int power = 20;
     public int defence;
     public int dex;
+    public int _power;
+    public int _defence;
+    public int _dex;
+    private float[,] buf;//공방치
+
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +85,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         CheckGround();
+        Debug.Log("공" + power + "    방" + defence  + "치" + dex);
     }
 
     void FixedUpdate()
@@ -91,10 +97,14 @@ public class Player : MonoBehaviour
     }
     private void InitStat()
     {
+        buf = new float[3, 2];
         currentHp = Hp;
         power = 20;
         defence = 10;
         dex = 50;
+        _power = power;
+        _defence = defence;
+        _dex = dex;
     }
     private void CheckHp()
     {
@@ -208,10 +218,6 @@ public class Player : MonoBehaviour
                         isJump = true;
                     }
                 }
-
-
-                
-
                 Flip(horizontal);
             }
         }
@@ -228,29 +234,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void CreateDamageUI(GameObject target, GameObject owner, bool who, bool knockBack, bool cri)//false player true monster
+    private void CreateDamageUI(GameObject target, GameObject owner, bool who, bool knockBack, bool cri, float damagePump)//false player true monster
     {
         GameObject damageUI = Instantiate(Resources.Load("UI/Prefabs/DamageUI")) as GameObject;//데미지UI 오브젝트생성
-        damageUI.GetComponent<DamageUI>().SetDamage(target, owner, who, knockBack, cri);//false player true monster
+        damageUI.GetComponent<DamageUI>().SetDamage(target, owner, who, knockBack, cri, damagePump);//false player true monster
     }
 
-    public void Hurt(GameObject owner, bool cri)
+    public void Hurt(GameObject owner, bool cri, float damagePump)
     {
-        CreateDamageUI(gameObject, owner, false, false, cri);
+        CreateDamageUI(gameObject, owner, false, false, cri, damagePump);
     }
 
-    public void KnockBackHurt(GameObject owner, bool cri)
+    public void KnockBackHurt(GameObject owner, bool cri, float damagePump)
     {
         if (!knockBack)
         {
-            CreateDamageUI(gameObject, owner, false, true, cri);
+            CreateDamageUI(gameObject, owner, false, true, cri, damagePump);
             knockBack = true;
             superArmor = true;
             StartCoroutine(KnockBackTimer());
         }
         else if(!superArmor)
         {
-            CreateDamageUI(gameObject, owner, false, false, cri);
+            CreateDamageUI(gameObject, owner, false, false, cri, damagePump);
         }
     }
 
@@ -329,11 +335,52 @@ public class Player : MonoBehaviour
         knockBack = false;
         superArmor = false;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public IEnumerator Buf(int num, int type, float crease, float time)//버프류
     {
+        int pm = 1;
+        switch (type)//0버프 1디버프
+        {
+            case 0:
+                pm = 1;
+                break;
+            case 1:
+                pm = -1;
+                break;
+        }
         
-       Inventory.instance.Add(other.gameObject.GetComponent<Item_string>().code);
+        if (buf[num, type] <= crease)//증감률이 더 높다면
+        {
+            switch (num)
+            {
+                case 0://공격력
+                    power += (int)(_power * pm * crease);
+                    break;
+                case 1://방어력
+                    defence += (int)(_defence * pm * crease);
+                    break;
+                case 2://치명타
+                    dex += (int)(_dex * pm * crease);
+                    break;
+            }
+            buf[num, type] = crease;
+        }
+        else
+            yield break;
+        yield return new WaitForSeconds(time);
+        switch (num)//원상태로 복구
+        {
+            case 0://공격력
+                power = _power;
+                break;
+            case 1://방어력
+                defence = _defence;
+                break;
+            case 2://치명타
+                dex = _dex;
+                break;
+        }
+        buf[num, type] = 0;
     }
+
 }
 

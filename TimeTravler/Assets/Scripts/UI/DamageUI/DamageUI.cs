@@ -14,7 +14,7 @@ public class DamageUI : MonoBehaviour
             return false;
     }
 
-    public void SetDamage(GameObject target, GameObject owner, bool who, bool knockBack, bool cri)
+    public void SetDamage(GameObject target, GameObject owner, bool who, bool knockBack, bool cri, float damagePump)
     {
         //who false player true monster
         //knockBack false no true yes
@@ -29,6 +29,7 @@ public class DamageUI : MonoBehaviour
             player = owner.GetComponent<Player>();
             monster = target.GetComponent<Monster>();
             damage = player.power - monster.defence;//공-방
+            damage = (int)(damage * damagePump);
             if (Probability(player.dex) && cri)
             {
                 damage *= 2;
@@ -51,6 +52,7 @@ public class DamageUI : MonoBehaviour
             player = target.GetComponent<Player>();
             monster = owner.GetComponent<Monster>();
             damage = monster.power - player.defence;//공-방
+            damage = (int)(damage * damagePump);
             if (Probability(monster.dex) && cri)
             {
                 damage *= 2;

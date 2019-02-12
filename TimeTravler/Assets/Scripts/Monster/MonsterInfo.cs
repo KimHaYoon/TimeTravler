@@ -50,7 +50,7 @@ public class MonsterInfo : MonoBehaviour
                 mon.transform.localScale = new Vector3(1.5f, 1.5f, 1);
                 SetMonCollider(monster, -0.00653702f, 0.42f, 1.266574f, 0.81f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
-                SetMonAttackSight(monster, 0f, 1.16f, 4f, 2.62f);
+                SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffectPos(monster, "center");
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -64,7 +64,7 @@ public class MonsterInfo : MonoBehaviour
                 mon.transform.localScale = new Vector3(1.5f, 1.5f, 1);
                 SetMonCollider(monster, -0.00653702f, 0.42f, 1.266574f, 0.81f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
-                SetMonAttackSight(monster, 0f, 1.16f, 4f, 2.62f);
+                SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffectPos(monster, "center");
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -90,9 +90,9 @@ public class MonsterInfo : MonoBehaviour
                 break;
             case 4://Giant
                 mon.transform.localScale = new Vector3(1.5f, 1.5f, 1);
-                SetMonCollider(monster, 0.36f, 0.592597f, 0.7f, 1.155194f);
+                SetMonCollider(monster, 0f, 0.592597f, 0.7f, 1.155194f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
-                SetMonAttackSight(monster, 0f, 1.16f, 7f, 2.62f);
+                SetMonAttackSight(monster, 0f, 1.16f, 9f, 2.62f);
                 SetMonAttackEffectPos(monster, "bottom");
                 uiPos = new Vector3(0, -0.5f, 0);
                 mon.moveType = true;
@@ -107,7 +107,7 @@ public class MonsterInfo : MonoBehaviour
                 mon.transform.localScale = new Vector3(2f, 2f, 1);
                 SetMonCollider(monster, 0f, 0.29f, 0.58f, 0.57f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
-                SetMonAttackSight(monster, 0f, 1.16f, 7f, 2.62f);
+                SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffectPos(monster, "center");
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -221,7 +221,7 @@ public class MonsterInfo : MonoBehaviour
                 mon.transform.localScale = new Vector3(1.5f, 1.5f, 1);
                 SetMonCollider(monster, 0f, 0.5211064f, 0.91f, 1.032213f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
-                SetMonAttackSight(monster, 0f, 1.16f, 2f, 2.62f);
+                SetMonAttackSight(monster, 0f, 1.16f, 4f, 2.62f);
                 SetMonAttackEffectPos(monster, "bottom");
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -240,7 +240,7 @@ public class MonsterInfo : MonoBehaviour
                 mon.firstAttack = true;
                 mon.attackTimeValue = 0f;
                 mon.hp = 50;
-                mon.power = 20;
+                mon.power = 10;
                 mon.defence = 10;
                 mon.moveSpeed = 2;
                 break;
@@ -277,7 +277,7 @@ public class MonsterInfo : MonoBehaviour
                 mon.transform.localScale = new Vector3(4f, 4f, 1);
                 SetMonCollider(monster, 0.03f, 0.1882393f, 0.29f, 0.3664786f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
-                SetMonAttackSight(monster, 0f, 1.16f, 2f, 2.62f);
+                SetMonAttackSight(monster, 0f, 1.16f, 4f, 2.62f);
                 uiPos = new Vector3(0, -0.6f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -405,10 +405,10 @@ public class MonsterInfo : MonoBehaviour
 
     void SetMonCollider(GameObject mon, float offsetX, float offsetY, float sizeX, float sizeY)
     {
-        BoxCollider2D monCollider = mon.GetComponent<BoxCollider2D>();
+        CapsuleCollider2D monCollider = mon.GetComponent<CapsuleCollider2D>();
         BoxCollider2D monInCollider = mon.transform.Find("MonsterCollider").GetComponent<BoxCollider2D>();
         monCollider.offset = new Vector2(offsetX, offsetY);
-        monCollider.size = new Vector2(sizeX, sizeY);
+        monCollider.size = new Vector2(0.25f, sizeY);
         monInCollider.offset = new Vector2(offsetX, offsetY);
         monInCollider.size = new Vector2(sizeX + 0.1f, sizeY + 0.1f);
     }
@@ -425,6 +425,7 @@ public class MonsterInfo : MonoBehaviour
         monAttackSight.offset = new Vector2(offsetX, offsetY);
         monAttackSight.size = new Vector2(sizeX, sizeY);
     }
+
     void SetMonAttackEffectPos(GameObject mon, string position)
     {
         switch (position)
@@ -433,8 +434,7 @@ public class MonsterInfo : MonoBehaviour
                 mon.GetComponent<Monster>().attackEffectPos = new Vector3(0, 0.2f, 0);
                 break;
             case "bottom":
-                //미정
-                mon.GetComponent<Monster>().attackEffectPos = new Vector3(0, 0f, 0);
+                mon.GetComponent<Monster>().attackEffectPos = new Vector3(0, -0.4f, 0);
                 break;
         }
     }

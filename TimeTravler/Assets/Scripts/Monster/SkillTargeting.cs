@@ -9,6 +9,7 @@ public class SkillTargeting : MonoBehaviour
     public int monsterNum;//몬스터 번호
     public int effectNum;
     private GameObject player;
+    private GameObject monster;
     private Monster monsterBossCS;
     private RuntimeAnimatorController runtimeAnimatorController;
     public Vector3 setPos;
@@ -17,19 +18,11 @@ public class SkillTargeting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        monster = transform.parent.gameObject;
         monsterBossCS = GetComponent<Monster>();
         player = GameObject.Find("Player");
         transform.position = player.transform.position + setPos;
-        if (effectNum == 0)//스킬1
-        {
-            GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Monster/AnimationControllers/" + Convert.ToString(monsterNum) + "/" + Convert.ToString(monsterNum) + "Targeting" + Convert.ToString(effectNum)) as RuntimeAnimatorController;
-            //애니매이션 컨트롤러만 변경
-        }
-        else//스킬2
-        {
-            GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Monster/AnimationControllesrs/" + Convert.ToString(monsterNum) + "/" + Convert.ToString(monsterNum) + "Targeting" + Convert.ToString(effectNum)) as RuntimeAnimatorController;
-            //애니매이션 컨트롤러만 변경
-        }
+        GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Monster/AnimationControllers/" + Convert.ToString(monsterNum) + "/" + Convert.ToString(monsterNum) + "Targeting" + Convert.ToString(effectNum)) as RuntimeAnimatorController;
     }
 
     // Update is called once per frame
@@ -41,5 +34,16 @@ public class SkillTargeting : MonoBehaviour
     private void EndEffect()
     {
         Destroy(gameObject);
+    }
+
+    private void TargetDamage()
+    {
+        CreateDamageUI(player, monster, false, false, true, 2f);
+    }
+
+    private void CreateDamageUI(GameObject target, GameObject owner, bool who, bool knockBack, bool cri, float damagePump)//false player true monster
+    {
+        GameObject damageUI = Instantiate(Resources.Load("UI/Prefabs/DamageUI")) as GameObject;//데미지UI 오브젝트생성
+        damageUI.GetComponent<DamageUI>().SetDamage(target, owner, who, knockBack, cri, damagePump);//false player true monster
     }
 }
