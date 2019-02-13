@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Itemslot : MonoBehaviour
+public class skillslot : MonoBehaviour
 {
-    public static Itemslot instance = null;
+    public static skillslot instance = null;
     public static List<GameObject> slots = null;
-    
+    public static int slotcount = 0;
 
     private void Awake()
     {
@@ -20,39 +20,40 @@ public class Itemslot : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
         slots = new List<GameObject>();
+        slotcount = transform.childCount;
         for (int i = 0, max = transform.childCount; i < max;i++)
         {
             slots.Add(transform.GetChild(i).gameObject);
-            slots[i].GetComponent<Item_string>().code = null;
+            slots[i].GetComponent<skill_ob>().skill = null;
         }
     }
 
     public static void Add(GameObject input)
     {
         Inventory inventory = Inventory.instance;
-        string input_string = string.Copy(input.GetComponent<Item_string>().code);
-        Item_string temp = null;
-
-        for (int j = 0, max = slots.Count; j < max; j++)
-            if (slots[j].GetComponent<Item_string>().code != null)
-                if (slots[j].GetComponent<Item_string>().code.Equals(input_string))
+        GameObject input_skill = input.GetComponent<skill_ob>().skill;
+        skill_ob temp = null;
+        //slots를 다 Skill_window.instance.slot_now 로 바꿔야함
+        for (int j = 0, max = Skill_window.instance.slot_now.Length; j < max; j++)
+            if (slots[j].GetComponent<skill_ob>().skill != null)
+                if (slots[j].GetComponent<skill_ob>().skill == input_skill)
                     return;
 
         for (int j = 0, max = slots.Count; j < max; j++)
         {
-            temp = slots[j].GetComponent<Item_string>();
+            temp = slots[j].GetComponent<skill_ob>();
 
-            if (temp.code == null)
+            if (temp.skill == null)
             {
-                temp.code = input_string;// == clone
-                slots[j].GetComponent<Image>().sprite = Resources.Load<Sprite>("Item/ItemStandard/" + temp.code.Substring(0, 4));
-                slots[j].GetComponentInChildren<Text>().text = int.Parse(temp.code.Substring(5, 2)) > 0 ? " " + int.Parse(temp.code.Substring(5, 2)) : " ";
+                temp.skill = input_skill;// == clone
+                //slots[j].GetComponent<Image>().sprite = Resources.Load<Sprite>("Item/ItemStandard/" + temp.code.Substring(0, 4));
+                //slots[j].GetComponentInChildren<Text>().text = int.Parse(temp.code.Substring(5, 2)) > 0 ? " " + int.Parse(temp.code.Substring(5, 2)) : " ";
                 return;
             }
         }
 
 
-        //빈자리가 없을 때
+        /*//빈자리가 없을 때
         int i = 0;
         for (int max = slots.Count-1 ; i < max; i++)
         {
@@ -66,7 +67,15 @@ public class Itemslot : MonoBehaviour
         slots[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Item/ItemStandard/" + temp.code.Substring(0, 4));
         slots[i].GetComponentInChildren<Text>().text = int.Parse(temp.code.Substring(5, 2)) > 0 ? " " + int.Parse(temp.code.Substring(5, 2)) : " ";
 
+        */
+    }
 
+    public void update()
+    {
+        for(int i =0; i < skillslot.slotcount; i++)
+        {
+            //Skill_window.instance.slot_now를 slots에 복사
+        }
     }
 }
 
