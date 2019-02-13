@@ -55,6 +55,12 @@ public class SkillManager : MonoBehaviour
         player = GameObject.Find("Player");
         ScPlayer = player.GetComponent<Player>();
     }
+
+    void Update()
+    {
+        Debug.Log("Power은 "+monsterBS.power + "_Power은 " + monsterBS._power + "Defence은 " + monsterBS.defence + "_Defence은 " + monsterBS._defence + "Dex은 " + monsterBS.dex + "_Dex은 " + monsterBS._dex);
+    }
+
     public void SkillInfo(int num)
     {
         monsterBoss = num;

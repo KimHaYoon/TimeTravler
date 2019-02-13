@@ -23,7 +23,7 @@ public class SkillWideArea : MonoBehaviour
     private IEnumerator DamageCor()
     {
         if (x > Objx - 1f && x < Objx + 1f && y > Objy - 10f && y < Objy + 10f)
-            player.GetComponent<Player>().Hurt(monster, false, 1.5f);//충돌 데미지
+            player.GetComponent<Player>().Hurt(monster, true, 1.5f);//충돌 데미지
         yield return new WaitForSeconds(0.2f);
         
         StartCoroutine(DamageCor());
