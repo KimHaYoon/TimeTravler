@@ -89,6 +89,7 @@ public class SkillManager : MonoBehaviour
         randomSkill = UnityEngine.Random.Range(0, skillAmount); //0~3번까지 스킬 선택
         randomEffect = UnityEngine.Random.Range(0, effectAmount); // 해당 스킬의 effect 선택 0,1
         
+
         // 중보 일시 자신의 테마 서브 몬스터 4개 중 하나를 선택하고(submonnum 배열의 인덱스만 선택) 페이지에 맞는 몬스터 갯수(getpagenum함수에서) 생성
         // 최보 일시 중간 보스 몬스터 6개 중 하나를 선택하고 페이지에 맞는 몬스터 갯수 생성
         if (monsterBoss == 2)
@@ -185,14 +186,13 @@ public class SkillManager : MonoBehaviour
 
         for (int i = 0; i < wideArea.Length; i++) //5개 생성
         {
-            wideArea[i] = Instantiate(Resources.Load("Monster/Prefabs/SkillWideAreaStart"), dir, Quaternion.identity) as GameObject;
-            wideArea[i].GetComponent<SkillWideAreaStart>().player = player.GetComponent<Player>();
-            wideArea[i].GetComponent<SkillWideAreaStart>().monster = gameObject;
-            wideArea[i].GetComponent<SkillWideAreaStart>().monsterNum = GetComponent<Monster>().monsterNum;
-            wideArea[i].GetComponent<SkillWideAreaStart>().effectNum = 0;
-            wideArea[i].GetComponent<SkillWideAreaStart>().setPos = SetMonAttackEffectPos(effectPos[GetComponent<Monster>().monsterNum / 4 -1, 4]);
+            wideArea[i] = Instantiate(Resources.Load("Monster/Prefabs/SkillWideArea"), dir, Quaternion.identity) as GameObject;
+            wideArea[i].transform.parent = transform.parent;
+            wideArea[i].GetComponent<SkillWideArea>().monsterNum = GetComponent<Monster>().monsterNum;
+            wideArea[i].GetComponent<SkillWideArea>().effectNum = 0;
+            wideArea[i].GetComponent<SkillWideArea>().setPos = SetMonAttackEffectPos(effectPos[GetComponent<Monster>().monsterNum / 4 -1, 4]);
             widePos = widePos + dir;
-            wideArea[i].GetComponent<SkillWideAreaStart>().widePos = widePos;
+            wideArea[i].GetComponent<SkillWideArea>().widePos = widePos;
         }
 
     }

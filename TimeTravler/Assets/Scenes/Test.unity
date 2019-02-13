@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 70095120}
   - component: {fileID: 70095119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 39936
+    m_Bits: 7168
   m_RotationalOffset: 0.2
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -6755,11 +6755,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterNum: 20
+  monsterNum: 4
   monsterBoss: 1
   monsterCount: 1
   monsterPos:
-  - -14 -15
+  - -14 -14
   - 3.5 -1.6
   - 5.4 2.3
   responseTime: 1

@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Monster
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -15,13 +14,13 @@ TagManager:
   - 
   - 
   - 
-  - MonsterBlock
-  - Player
-  - Monster
-  - Item
-  - PassGround
-  - NoPassGround
-  - SkillEffect
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
