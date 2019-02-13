@@ -65,6 +65,20 @@ public class Player : MonoBehaviour
     public int _dex;
 
 
+    public void Consume(bool onoff, string item, int type, int opt1, int opt2){
+        /*
+         * onoff (true = 장착, false = 탈착)
+         * item (4자리 코드)
+         * type(1 = 모자, 2 = 갑옷, 3 = 신발, 4 = 무기, 5 = 방패, 6 = 회복물약(2101,2201) 7 >>이후 버프물약)
+         * opt1, opt2 itemData에 적힌 순서대로 없으면 0으로
+         */
+    }
+
+
+    void Awake()
+    {
+        Application.targetFrameRate = 40;
+    }
     // Start is called before the first frame update
     void Start()
     {

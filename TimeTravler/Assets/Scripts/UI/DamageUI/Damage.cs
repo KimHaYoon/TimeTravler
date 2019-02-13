@@ -63,7 +63,7 @@ public class Damage : MonoBehaviour
             tmp = Convert.ToString(Convert.ToByte(20+ i*10), 16);
             color = color.Substring(0, 7) + tmp;
             text.text = "<color=" + color + ">" + Convert.ToString(damage) + "</color>";
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.05f);
         }
         yield return new WaitForSeconds(0.5f);
         Destroy(transform.parent.transform.parent.gameObject);

@@ -23,6 +23,27 @@ TextureImporter:
     21300036: 03_1_strip21_18
     21300038: 03_1_strip21_19
     21300040: 03_1_strip21_20
+    21300042: Giant_WideArea0_0
+    21300044: Giant_WideArea0_1
+    21300046: Giant_WideArea0_2
+    21300048: Giant_WideArea0_3
+    21300050: Giant_WideArea0_4
+    21300052: Giant_WideArea0_5
+    21300054: Giant_WideArea0_6
+    21300056: Giant_WideArea0_7
+    21300058: Giant_WideArea0_8
+    21300060: Giant_WideArea0_9
+    21300062: Giant_WideArea0_10
+    21300064: Giant_WideArea0_11
+    21300066: Giant_WideArea0_12
+    21300068: Giant_WideArea0_13
+    21300070: Giant_WideArea0_14
+    21300072: Giant_WideArea0_15
+    21300074: Giant_WideArea0_16
+    21300076: Giant_WideArea0_17
+    21300078: Giant_WideArea0_18
+    21300080: Giant_WideArea0_19
+    21300082: Giant_WideArea0_20
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -116,421 +137,421 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 03_1_strip21_0
+      name: Giant_WideArea0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25d60212d8313154aa1bf9efa5d0bc78
+      spriteID: b540e5060812ae941972a7903cc71050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_1
+      name: Giant_WideArea0_1
       rect:
         serializedVersion: 2
         x: 352
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69893eec5dc74fa4283ac3b18ac9e0b3
+      spriteID: 136a2f68e24d9c846b505bd0d154b3f8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_2
+      name: Giant_WideArea0_2
       rect:
         serializedVersion: 2
         x: 704
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e508a5ab918d32646863472f86f7fb87
+      spriteID: 56322caef17665d4494df185a9e42cc9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_3
+      name: Giant_WideArea0_3
       rect:
         serializedVersion: 2
         x: 1056
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efe7c4007ceeb454b8238723558fd807
+      spriteID: 4174f5f3c43d1a8408874f0a059067bb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_4
+      name: Giant_WideArea0_4
       rect:
         serializedVersion: 2
         x: 1408
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c2472a92d9dfe14c8fa47a5be2217e4
+      spriteID: 0fd7954c35fbdb44d8d4c37eb497260e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_5
+      name: Giant_WideArea0_5
       rect:
         serializedVersion: 2
         x: 1760
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c65898be0c6d48e428940d04588a0eeb
+      spriteID: b5459dab44f6e854c80a333a9b9c32a2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_6
+      name: Giant_WideArea0_6
       rect:
         serializedVersion: 2
         x: 2112
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5b1fc4ed8525194ca1178f3495e5004
+      spriteID: 249b235f55cfbdb4ea60f5d504062e81
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_7
+      name: Giant_WideArea0_7
       rect:
         serializedVersion: 2
         x: 2464
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9ad14d971334b447b21d37b674b7781
+      spriteID: 7fe9249ee5e671447b8b33b5af4453fc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_8
+      name: Giant_WideArea0_8
       rect:
         serializedVersion: 2
         x: 2816
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06befbc15461e584b97bfcb1736f6a30
+      spriteID: f16a0288d78f96c438df4cbd3aea4de0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_9
+      name: Giant_WideArea0_9
       rect:
         serializedVersion: 2
         x: 3168
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59b289cae2abec744a68432955a57f96
+      spriteID: f0e2d43e3fe826745a978604d4097ccb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_10
+      name: Giant_WideArea0_10
       rect:
         serializedVersion: 2
         x: 3520
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c90b14614f2e8c41ac47870b3e4c898
+      spriteID: 682c74afd1df1e545a8baf4650dc3f60
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_11
+      name: Giant_WideArea0_11
       rect:
         serializedVersion: 2
         x: 3872
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e1c419b4a6c05f49af67b789865d878
+      spriteID: b0fbf029d64860a43bd508e15329db09
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_12
+      name: Giant_WideArea0_12
       rect:
         serializedVersion: 2
         x: 4224
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46d85efa4edd87043ac988f376103505
+      spriteID: 20350e68ecc6f03408b8499ecdf6f7c5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_13
+      name: Giant_WideArea0_13
       rect:
         serializedVersion: 2
         x: 4576
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 468bc9bd7d5e2c14989ae153fc02f6bb
+      spriteID: f6e8bbcf3e465824c972688450888005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_14
+      name: Giant_WideArea0_14
       rect:
         serializedVersion: 2
         x: 4928
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 873228cf3270fdf4baba1d416326edd1
+      spriteID: ff8e7baa07d97e94a9a22bb788c27a32
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_15
+      name: Giant_WideArea0_15
       rect:
         serializedVersion: 2
         x: 5280
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c288a5f114b6e68449827404fbb70e50
+      spriteID: 21ba36021337b684fbfe37b4c63578cb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_16
+      name: Giant_WideArea0_16
       rect:
         serializedVersion: 2
         x: 5632
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3feff71137ec234390013ee86a03ce0
+      spriteID: cdd4ca08b3434a04f9e4a847885b99a4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_17
+      name: Giant_WideArea0_17
       rect:
         serializedVersion: 2
         x: 5984
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcb08d021e154cc45bf390a8b2c2b46a
+      spriteID: 0dc407167d8202d429f3e82b853a8530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_18
+      name: Giant_WideArea0_18
       rect:
         serializedVersion: 2
         x: 6336
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c378481f8b211e642a928a7733f37f43
+      spriteID: 2454bdca787ed9049ab61a58929a4e7a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_19
+      name: Giant_WideArea0_19
       rect:
         serializedVersion: 2
         x: 6688
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ff1be6410895c4a9b1c78884583a2f
+      spriteID: 26acddfa5a394524188182b418f758c0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 03_1_strip21_20
+      name: Giant_WideArea0_20
       rect:
         serializedVersion: 2
         x: 7040
         y: 0
         width: 352
         height: 504
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.29879272, y: 0.11890652}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26045edfebbcdc54fa465c79d33fc84b
+      spriteID: 2cb8f1b0b681c56439ede3429c71f80f
       vertices: []
       indices: 
       edges: []
