@@ -390,6 +390,7 @@ public class MonsterInfo : MonoBehaviour
                 break;
         }
         monsterUI.GetComponent<MonsterUI>().SetPos(uiPos);
+        monster.transform.parent.Find("BufferUI").GetComponent<BufferUI>().SetPos(uiPos);
         mon.dex = 10;
         dropItemCode = monsterItemManager.GetItemCodesProbability(num);
         for (int i = 0; i < dropItemCode.Length; i++)

@@ -8,6 +8,7 @@ public class Itemslot : MonoBehaviour
 {
     public static Itemslot instance = null;
     public static List<GameObject> slots = null;
+    
 
     private void Awake()
     {
@@ -19,7 +20,6 @@ public class Itemslot : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
         slots = new List<GameObject>();
-
         for (int i = 0, max = transform.childCount; i < max;i++)
         {
             slots.Add(transform.GetChild(i).gameObject);
@@ -41,9 +41,6 @@ public class Itemslot : MonoBehaviour
         for (int j = 0, max = slots.Count; j < max; j++)
         {
             temp = slots[j].GetComponent<Item_string>();
-            if(temp.code != null)
-                if (temp.code.Equals(input_string))
-                    return;
 
             if (temp.code == null)
             {

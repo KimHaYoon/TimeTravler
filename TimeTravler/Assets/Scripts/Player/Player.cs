@@ -63,9 +63,22 @@ public class Player : MonoBehaviour
     public int _power;
     public int _defence;
     public int _dex;
-    private float[,] buf;//공방치
 
 
+    public void Consume(bool onoff, string item, int type, int opt1, int opt2){
+        /*
+         * onoff (true = 장착, false = 탈착)
+         * item (4자리 코드)
+         * type(1 = 모자, 2 = 갑옷, 3 = 신발, 4 = 무기, 5 = 방패, 6 = 회복물약(2101,2201) 7 >>이후 버프물약)
+         * opt1, opt2 itemData에 적힌 순서대로 없으면 0으로
+         */
+    }
+
+
+    void Awake()
+    {
+        Application.targetFrameRate = 40;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -81,23 +94,20 @@ public class Player : MonoBehaviour
 
     }
     
-    // Update is called once per frame
     void Update()
     {
         CheckGround();
-        Debug.Log("공" + power + "    방" + defence  + "치" + dex);
+        //Debug.Log("공" + power + "    방" + defence  + "치" + dex);
     }
 
     void FixedUpdate()
     {
         InputKey();
         CheckHp();
-        //currentHp--;
         
     }
     private void InitStat()
     {
-        buf = new float[3, 2];
         currentHp = Hp;
         power = 20;
         defence = 10;
@@ -153,14 +163,11 @@ public class Player : MonoBehaviour
             {
                 if (!downJump)
                 {
-                    
                     if (isPassGround || isNoPassGround)
                     {
-                        
                         if (Input.GetKey(KeyCode.LeftControl))
                         {
                             myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-
                             switch (weapon)
                             {
                                 case 1:
@@ -198,18 +205,8 @@ public class Player : MonoBehaviour
                             isJump = true;
                             return;
                         }
-                        if (!isJump)
-                        {
-                            if (horizontal == 0)
-                                myAnimator.Play("Player_Idle");
-                            else
-                            {
-                                myAnimator.Play("Player_Move");
-                                myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
-                            }
-                        }
+                        
                     }
-
                     if (Input.GetKeyDown(KeyCode.LeftShift) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
                     {
                         myAnimator.Play("Player_Jump");
@@ -217,7 +214,18 @@ public class Player : MonoBehaviour
                         myRigidbody.velocity = Vector2.up * jumpForce;
                         isJump = true;
                     }
+                    if (!isJump)
+                    {
+                        if (horizontal == 0)
+                            myAnimator.Play("Player_Idle");
+                        else
+                        {
+                            myAnimator.Play("Player_Move");
+
+                        }
+                    }
                 }
+                myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
                 Flip(horizontal);
             }
         }
@@ -335,52 +343,10 @@ public class Player : MonoBehaviour
         knockBack = false;
         superArmor = false;
     }
-    public IEnumerator Buf(int num, int type, float crease, float time)//버프류
-    {
-        int pm = 1;
-        switch (type)//0버프 1디버프
-        {
-            case 0:
-                pm = 1;
-                break;
-            case 1:
-                pm = -1;
-                break;
-        }
-        
-        if (buf[num, type] <= crease)//증감률이 더 높다면
-        {
-            switch (num)
-            {
-                case 0://공격력
-                    power += (int)(_power * pm * crease);
-                    break;
-                case 1://방어력
-                    defence += (int)(_defence * pm * crease);
-                    break;
-                case 2://치명타
-                    dex += (int)(_dex * pm * crease);
-                    break;
-            }
-            buf[num, type] = crease;
-        }
-        else
-            yield break;
-        yield return new WaitForSeconds(time);
-        switch (num)//원상태로 복구
-        {
-            case 0://공격력
-                power = _power;
-                break;
-            case 1://방어력
-                defence = _defence;
-                break;
-            case 2://치명타
-                dex = _dex;
-                break;
-        }
-        buf[num, type] = 0;
-    }
 
+    public void SetBuf(int num, int type, float crease, float time)//버프류
+    {
+        transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
+    }
 }
 
