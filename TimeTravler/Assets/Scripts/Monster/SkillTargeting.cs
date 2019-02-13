@@ -13,6 +13,8 @@ public class SkillTargeting : MonoBehaviour
     private Monster monsterBossCS;
     private RuntimeAnimatorController runtimeAnimatorController;
     public Vector3 setPos;
+    public float xScale;
+    public float yScale;
 
 
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class SkillTargeting : MonoBehaviour
         player = GameObject.Find("Player");
         transform.position = player.transform.position + setPos;
         GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Monster/AnimationControllers/" + Convert.ToString(monsterNum) + "/" + Convert.ToString(monsterNum) + "Targeting" + Convert.ToString(effectNum)) as RuntimeAnimatorController;
+        transform.localScale = new Vector3(xScale, yScale, 1);
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class SkillTargeting : MonoBehaviour
 
     private void TargetDamage()
     {
-        CreateDamageUI(player, monster, false, false, true, 2f);
+        CreateDamageUI(player, monster, false, false, true, 3f);
     }
 
     private void CreateDamageUI(GameObject target, GameObject owner, bool who, bool knockBack, bool cri, float damagePump)//false player true monster

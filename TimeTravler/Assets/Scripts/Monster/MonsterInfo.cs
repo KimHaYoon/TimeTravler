@@ -93,7 +93,7 @@ public class MonsterInfo : MonoBehaviour
                 SetMonCollider(monster, 0f, 0.592597f, 0.7f, 1.155194f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 9f, 2.62f);
-                SetMonAttackEffectPos(monster, "bottom");
+                SetMonAttackEffectPos(monster, "center");
                 uiPos = new Vector3(0, -0.5f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -378,7 +378,7 @@ public class MonsterInfo : MonoBehaviour
                 SetMonCollider(monster, -0.1000729f, 1.058178f, 1.533021f, 2.106355f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
-                SetMonAttackEffectPos(monster, "bottom");
+                SetMonAttackEffectPos(monster, "center");
                 uiPos = new Vector3(0, 0.3f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
