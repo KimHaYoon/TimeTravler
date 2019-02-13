@@ -115,7 +115,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     Inventory.instance.Add(Inventory.instance.equipment_weapon.GetComponent<Item_string>().code);
                 }
-                if (int.Parse(item_string.Substring(2, 1)) != 0)
+                if (int.Parse(item_string.Substring(2, 1)) == 1)
                 {
                     Debug.Log("대검이다");
                     GameObject Shield = Inventory.instance.equipment_Shield;
@@ -123,12 +123,18 @@ public class InventorySlot : MonoBehaviour
                     Shield.GetComponent<Image>().sprite = Inventory.instance.closeImage;
                     Shield.GetComponent<Item_string>().code = null;
                     sheild = false;
+                    Skill_window.instance.slot_now = Skill_window.instance.two_slot;
                 }
                 else if (Inventory.instance.equipment_Shield.GetComponent<Item_string>().code == null)
                 {
                     Inventory.instance.equipment_Shield.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
                     sheild = true;
+                    if (int.Parse(item_string.Substring(2, 1)) == 0)
+                        Skill_window.instance.slot_now = Skill_window.instance.one_slot;
+                    else if (int.Parse(item_string.Substring(2, 1)) == 2)
+                        Skill_window.instance.slot_now = Skill_window.instance.three_slot;
                 }
+                skillslot.instance.update();
                 break;
 
             case "5":

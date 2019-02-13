@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class quickSlot : MonoBehaviour
+public class ItemquickSlot : MonoBehaviour
 {
     public void OnPointerClick(BaseEventData Data)
     {
