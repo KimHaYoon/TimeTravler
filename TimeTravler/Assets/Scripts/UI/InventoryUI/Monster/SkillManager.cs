@@ -38,12 +38,12 @@ public class SkillManager : MonoBehaviour
     {
         effectPos = new string[6, 5]
         {//pos,xscale,yscale
-            { "center,0.5,0.5", "center,1,1", "center,1,1", "center,1.5,1.5", "bottom,1,2" },
-            { "center,1,1", "center,1,1", "center,1,1", "center,1,1", "bottom,1,2" },
-            { "center", "center", "bottom", "center", "bottom" },
-            { "center", "center", "center", "center", "bottom" },
-            { "center", "center", "bottom", "center", "bottom" },
-            { "center", "center", "center", "center", "bottom" }
+            { "center,0.5,0.5", "center,1,1", "center,1,1", "center,1.5,1.5", "bottom,0.7,2" },
+            { "center,3,3", "center,1,1", "center,1.5,1.5", "center,1,1", "bottom,1,2" },
+            { "center,1,1", "center,0.5,0.5", "bottom,1,1", "center,1,1", "bottom,1,3" },
+            { "center,2,2", "center,3,3", "center,1,1", "center,1,1", "bottom,2,3" },
+            { "center,1,1", "center,1,1", "bottom,1,2", "center,1,1", "bottom,1,2" },
+            { "center,3,3", "center,1,1", "bottom,1,1", "center,3,3", "bottom,2,4" }
         };
     }
 
@@ -89,8 +89,7 @@ public class SkillManager : MonoBehaviour
         monsterNum = GetComponent<Monster>().monsterNum;
         randomSkill = UnityEngine.Random.Range(0, skillAmount); //0~3번까지 스킬 선택
         randomEffect = UnityEngine.Random.Range(0, effectAmount); // 해당 스킬의 effect 선택 0,1
-
-        randomSkill = 2;
+        
 
         // 중보 일시 자신의 테마 서브 몬스터 4개 중 하나를 선택하고(submonnum 배열의 인덱스만 선택) 페이지에 맞는 몬스터 갯수(getpagenum함수에서) 생성
         // 최보 일시 중간 보스 몬스터 6개 중 하나를 선택하고 페이지에 맞는 몬스터 갯수 생성
@@ -157,7 +156,6 @@ public class SkillManager : MonoBehaviour
     {
         bool tmp;
         string[] transfrom = effectPos[GetComponent<Monster>().monsterNum / 4 - 1, randomEffect].Split(',');
-        Debug.Log(effectPos[GetComponent<Monster>().monsterNum / 4 - 1, randomEffect]);
         bufferSkill = Instantiate(Resources.Load("Monster/Prefabs/SkillBuffer")) as GameObject;
         bufferSkill.transform.parent = transform;
         bufferSkill.GetComponent<SkillBuffer>().monsterNum = GetComponent<Monster>().monsterNum;
@@ -186,7 +184,6 @@ public class SkillManager : MonoBehaviour
         targeting.GetComponent<SkillTargeting>().setPos = SetMonAttackEffectPos(true, transfrom[0]);
         targeting.GetComponent<SkillTargeting>().xScale = (float)Convert.ToDouble(transfrom[1]);
         targeting.GetComponent<SkillTargeting>().yScale = (float)Convert.ToDouble(transfrom[2]);
-        Debug.Log(effectPos[GetComponent<Monster>().monsterNum / 4 - 1, 2 + randomEffect]);
     }
 
 
@@ -239,22 +236,25 @@ public class SkillManager : MonoBehaviour
 
     private Vector3 SetMonAttackEffectPos(bool target, string position)//target true player false monster
     {
-        if (!target)
+        if (!target)//monster
         {
             switch (position)
             {
                 case "center":
                     return new Vector3(0, 0.8f, 0);
                 case "bottom":
-                    return new Vector3(0, -0.2f, 0);
+                    return new Vector3(0, -0.2f, 0);//미정
             }
         }
-        switch (position)
+        else//player
         {
-            case "center":
-                return new Vector3(0, 0.2f, 0);
-            case "bottom":
-                return new Vector3(0, -0.4f, 0);
+            switch (position)
+            {
+                case "center":
+                    return new Vector3(0, 0.2f, 0);
+                case "bottom":
+                    return new Vector3(0, -0.6f, 0);
+            }
         }
         return new Vector3(0, 0, 0);
     }
