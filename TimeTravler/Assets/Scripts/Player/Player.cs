@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
 
     public void Consume(bool onoff, string item, int type, int opt1, int opt2)
     {
+        //Debug.Log(onoff + "  " + item + "  " + type + "  " + opt1 + "  " + opt2);
         bf = transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>();
         if (onoff)//착용
         {
@@ -76,58 +77,54 @@ public class Player : MonoBehaviour
             {
                 case 1://모자
                     HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
-                    defence += opt1 * (bf.buf[1, 0] + bf.buf[1, 1]);
                     _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1]);
                     return;
                 case 2://갑옷
                     BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
-                    defence += opt1 * (bf.buf[1, 0] + bf.buf[1, 1]);
                     _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1]);
                     return;
                 case 3://신발
-                    defence += opt1 * (bf.buf[1, 0] + bf.buf[1, 1]);
                     _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1]);
                     return;
                 case 4://무기
                     SwordSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
                     weapon = Convert.ToInt32(item.Substring(2, 1));//무기변경함
                                                                    //퀵슬롯 바껴야됨
-
-
-                    power += opt1 * (bf.buf[0, 0] + bf.buf[0, 1]);
-                    dex += opt1 * (bf.buf[2, 0] + bf.buf[2, 1]);
                     _power += opt1;
+                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1]);
+                    _dex += opt2;
+                    power = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1]);
                     return;
                 case 5://방패
                     ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
-                    defence += opt1 * (bf.buf[1, 0] + bf.buf[1, 1]);
                     _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1]);
                     return;
+
+
+                    
                 case 6://회복물약
                     currentHp += opt1;
                     if (currentHp > Hp)
                         currentHp = Hp;
-
-                    //opt1 체력회복량
                     return;
-
-
-
-
                 //opt1 체력회복량
                 //opt2 회복시간
 
                 case 7://버프
+                    SetBuf(0, 0, 2f, 5f);
                     return;
-                case 8://버프
+                case 8://공격력포션
                     return;
-                case 9://버프
+                case 9://방어력포션
                     return;
-                case 10://버프
+                case 10://치명타포션
                     return;
                 case 11://버프
                     return;
-
             }
         }
         else//제거
@@ -136,29 +133,29 @@ public class Player : MonoBehaviour
             {
                 case 1://모자
                     HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
-                    defence -= opt1 * (bf.buf[1, 0] + bf.buf[1, 1]);
                     _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1]);
                     return;
                 case 2://갑옷
                     BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/1201", typeof(Sprite));
-                    defence -= opt1 * (bf.buf[1, 0] + bf.buf[1, 1]);
                     _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1]);
                     return;
                 case 3://신발
-                    defence -= opt1 * (bf.buf[1, 0] + bf.buf[1, 1]);
                     _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1]);
                     return;
                 case 4://무기
                     SwordSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
-                    power -= opt1 * (bf.buf[0, 0] + bf.buf[0, 1]);
-                    dex -= opt1 * (bf.buf[2, 0] + bf.buf[2, 1]);
                     _power -= opt1;
+                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1]);
                     _dex -= opt2;
+                    dex = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1]);
                     return;
                 case 5://방패
                     ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
-                    defence -= opt1 * (bf.buf[1, 0] + bf.buf[1, 1]);
                     _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1]);
                     return;
             }
         }
@@ -181,19 +178,17 @@ public class Player : MonoBehaviour
         extraJumps = extraJumpsValue;
 
         StartCoroutine(FadeIn());
-        Inventory.instance.Add("1101301");
-        Inventory.instance.Add("1103301");
+        Inventory.instance.Add("1101201");
+        Inventory.instance.Add("1103201");
         Inventory.instance.Add("1401301");
         Inventory.instance.Add("1413301");
         Inventory.instance.Add("1425301");
-
-
+        
     }
     
     void Update()
     {
         CheckGround();
-        //Debug.Log("공" + power + "    방" + defence  + "치" + dex);
     }
 
     void FixedUpdate()
@@ -207,7 +202,7 @@ public class Player : MonoBehaviour
         currentHp = Hp;
         power = 20;
         defence = 10;
-        dex = 50;
+        dex = 10;
         _power = power;
         _defence = defence;
         _dex = dex;
@@ -238,7 +233,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             weapon = 1;
-
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1401", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))

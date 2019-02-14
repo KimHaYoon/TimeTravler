@@ -18,8 +18,8 @@ public class BufferUI : MonoBehaviour
 
     private void Awake()
     {
-        ObjBuffer = new GameObject[3, 2];
-        buf = new float[3, 2];
+        ObjBuffer = new GameObject[9, 2];
+        buf = new float[9, 2];
         PosList = new List<GameObject>();
     }
     
@@ -58,6 +58,28 @@ public class BufferUI : MonoBehaviour
                 case 2://치명타
                     player.dex += (int)(player._dex * pm * crease);
                     break;
+
+
+                //버프물약
+
+                case 3://회복지속물약
+                    player.dex += (int)(player._dex * pm * crease);
+                    break;
+                case 4://공격력버프물약
+                    monster.dex += (int)(monster._dex * pm * crease);
+                    break;
+                case 5://방어력버프물약
+                    monster.dex += (int)(monster._dex * pm * crease);
+                    break;
+                case 6://치명타버프물약
+                    monster.dex += (int)(monster._dex * pm * crease);
+                    break;
+                case 7://체력버프물약
+                    monster.dex += (int)(monster._dex * pm * crease);
+                    break;
+                case 8://점프물약
+                    monster.dex += (int)(monster._dex * pm * crease);
+                    break;
             }
             if (buf[num, type] != 0)
             {
@@ -71,7 +93,8 @@ public class BufferUI : MonoBehaviour
                 ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num * 2 + type, time);
                 ObjBuffer[num, type].GetComponent<Buffer>().SetPlayerPos(PosList.Count - 1);
             }
-            buf[num, type] += crease;
+            if(num < 3)//버프물약아닐경우에만
+                buf[num, type] += crease;
         }
         else//monster
         {
@@ -117,7 +140,7 @@ public class BufferUI : MonoBehaviour
                 pm = -1;
                 break;
         }
-        if (target)
+        if (target)//플레이어
         {
             switch (num)//원상태로 복구
             {
@@ -130,9 +153,15 @@ public class BufferUI : MonoBehaviour
                 case 2://치명타
                     player.dex -= (int)(player._dex * pm * buf[num, type]);
                     break;
+
+
+                    //버프뮬약류
+
+
+
             }
         }
-        else
+        else//몬스터
         {
             switch (num)//원상태로 복구
             {
