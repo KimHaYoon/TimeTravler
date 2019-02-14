@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     public int _dex;
 
 
-    public static void Consume(bool onoff, string item, int type, int opt1, int opt2){
+    public void Consume(bool onoff, string item, int type, int opt1, int opt2){
         /*
          * onoff (true = 장착, false = 탈착)
          * item (4자리 코드)

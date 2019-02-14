@@ -23,7 +23,7 @@ public class InventorySlot : MonoBehaviour
             {
                 if (Itemslot.instance.slots[i].GetComponent<Item_string>().code.Equals(item.code))
                 {
-                        Player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
+                        Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
                             ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
                             ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
                         Itemslot.instance.slots[i].GetComponent<ItemquickSlot>().minus_item(Itemslot.instance.slots[i].GetComponent<Item_string>());
@@ -127,7 +127,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     Inventory.instance.Add(Inventory.instance.equipment_Head.GetComponent<Item_string>().code);
                     part = Inventory.instance.equipment_Head.GetComponent<Item_string>().code;
-                    Player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
                             ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
                             ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
                 }
@@ -139,7 +139,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     Inventory.instance.Add(Inventory.instance.equipment_Armor.GetComponent<Item_string>().code);
                     part = Inventory.instance.equipment_Armor.GetComponent<Item_string>().code;
-                    Player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
                             ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
                             ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
                 }
@@ -151,7 +151,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     Inventory.instance.Add(Inventory.instance.equipment_Shoes.GetComponent<Item_string>().code);
                     part = Inventory.instance.equipment_Shoes.GetComponent<Item_string>().code;
-                    Player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
                             ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
                             ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
                 }
@@ -174,7 +174,7 @@ public class InventorySlot : MonoBehaviour
                     part = Shield.GetComponent<Item_string>().code;
                     if (part != null)
                     {
-                        Player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                        Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
                                 ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
                                 ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
                     }
@@ -197,7 +197,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     Inventory.instance.Add(Inventory.instance.equipment_weapon.GetComponent<Item_string>().code);
                     part = Inventory.instance.equipment_weapon.GetComponent<Item_string>().code;
-                    Player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
                             ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
                             ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
                 }
@@ -210,7 +210,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     Inventory.instance.Add(Inventory.instance.equipment_Shield.GetComponent<Item_string>().code);
                     part = Inventory.instance.equipment_Shield.GetComponent<Item_string>().code;
-                    Player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
                             ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
                             ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
                 }
@@ -222,7 +222,7 @@ public class InventorySlot : MonoBehaviour
         {
             target.code = item_string;
             target.GetComponent<Image>().sprite = Resources.Load<Sprite>("Item/ItemStandard/" + target.code.Substring(0, 4));
-            Player.Consume(true, target.code.Substring(0, 4), InventorySlot.GetType(target.code),
+            Inventory.instance.player.Consume(true, target.code.Substring(0, 4), InventorySlot.GetType(target.code),
                            ItemManager.instance.GetOpt1_1(int.Parse(target.code.Substring(0, 5))),
                            ItemManager.instance.GetOpt2_1(int.Parse(target.code.Substring(0, 5))));
         }

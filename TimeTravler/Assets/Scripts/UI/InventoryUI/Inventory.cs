@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public ItemInfo info;
+    public Player player;
     public static Inventory instance = null;
     GameObject inventory_window = null;
     GameObject status_window = null;
