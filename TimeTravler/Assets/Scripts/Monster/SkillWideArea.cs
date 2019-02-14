@@ -5,28 +5,27 @@ using UnityEngine;
 
 public class SkillWideArea : MonoBehaviour
 {
-    public Player player;
+    public GameObject player;
     public GameObject monster;
 
     float x, y, Objx, Objy;
 
+    public float xScale;
+    public float yScale;
 
     private void Start()
     {
-        x = player.transform.position.x;
-        y = player.transform.position.y;
+        transform.position = transform.position + new Vector3(0, -0.2f, 0);
         Objx = transform.position.x;
         Objy = transform.position.y;
-        StartCoroutine(DamageCor());
+        transform.localScale = new Vector3(xScale, yScale, 1);
     }
-
-    private IEnumerator DamageCor()
+    private void SetDamage()
     {
+        x = player.GetComponent<Player>().transform.position.x;
+        y = player.GetComponent<Player>().transform.position.y;
         if (x > Objx - 1f && x < Objx + 1f && y > Objy - 10f && y < Objy + 10f)
             player.GetComponent<Player>().Hurt(monster, true, 1.5f);//충돌 데미지
-        yield return new WaitForSeconds(0.2f);
-        
-        StartCoroutine(DamageCor());
     }
     private void EndEffect()
     {

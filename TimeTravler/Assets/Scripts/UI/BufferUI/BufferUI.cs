@@ -11,7 +11,7 @@ public class BufferUI : MonoBehaviour
     [SerializeField]
     private Monster monster;
 
-    private float[,] buf;//공방치
+    public float[,] buf;//공방치
     private GameObject[,] ObjBuffer;
     private List<GameObject> PosList;
     public Vector3 pos = Vector3.zero;

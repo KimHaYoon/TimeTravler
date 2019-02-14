@@ -21,11 +21,16 @@ public class equipslot : MonoBehaviour
         {
             //오른쪽클릭 && 아이템 장착해제
             Debug.Log("뺀다");
+            if (Inventory.instance.current_count >= Inventory.instance.inventory_max)
+                return;
             if ((item.code.Substring(0, 3) == "141" || item.code.Substring(0, 3) == "142"))
             {
                 Inventory.instance.equipment_Shield.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
                 InventorySlot.sheild = true;
             }
+            Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
+                            ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
             Inventory.instance.Add(this.gameObject.GetComponent<Item_string>().code);
             this.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
             item.code = null;
@@ -46,7 +51,7 @@ public class equipslot : MonoBehaviour
 
         Vector3 position = gameObject.GetComponent<RectTransform>().position;
 
-        info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x - 120, position.y - 40);
+        //info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x - 120, position.y - 40);
     }
 
     public void OnTriggerExit2D()

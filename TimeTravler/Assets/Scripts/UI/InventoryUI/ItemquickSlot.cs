@@ -16,28 +16,28 @@ public class ItemquickSlot : MonoBehaviour
 
         if (eventData.button == PointerEventData.InputButton.Right && item.code != null)
         {
-            Inventory.instance.minus_item(item.code);
-            int count = int.Parse(item.code.Substring(5, 2)) - 1;
-            if (count <= 0)
-            {
-                item.code = null;
-                this.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
-                this.GetComponentInChildren<Text>().text = " ";
-                return;
-            }
-            string count_string = ((count < 10 ? "0" + count : "" + count));
-            item.code = string.Copy(item.code.Substring(0, 5) + count_string);
-            //해당 슬롯의 갯수출력변경
-           this.GetComponentInChildren<Text>().text = (int.Parse(item.code.Substring(5, 2)) > 0 ?
-                " " + int.Parse(item.code.Substring(5, 2)) : " ");
-
-            //오른쪽클릭 && 아이템 장착해제
-            /*if (Inventory.window_show == true)
-            {
-                item.code = null;
-                this.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
-                this.GetComponentInChildren<Text>().text = " ";
-            }*/
+            Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
+                            ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
+            minus_item(item);
         }
+    }
+
+    public void minus_item(Item_string item)
+    {
+        Inventory.instance.minus_item(item.code);
+        int count = int.Parse(item.code.Substring(5, 2)) - 1;
+        if (count <= 0)
+        {
+            item.code = null;
+            this.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
+            this.GetComponentInChildren<Text>().text = " ";
+            return;
+        }
+        string count_string = ((count < 10 ? "0" + count : "" + count));
+        item.code = string.Copy(item.code.Substring(0, 5) + count_string);
+        //해당 슬롯의 갯수출력변경
+        this.GetComponentInChildren<Text>().text = (int.Parse(item.code.Substring(5, 2)) > 0 ?
+             " " + int.Parse(item.code.Substring(5, 2)) : " ");
     }
 }

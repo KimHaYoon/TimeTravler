@@ -16,8 +16,22 @@ public class InventorySlot : MonoBehaviour
         PointerEventData eventData = Data as PointerEventData;
 
         if (eventData.button == PointerEventData.InputButton.Left)
+        {
             Debug.Log("왼쪽클릭");
-        //왼쪽클릭
+            if(item.code.Substring(0,1) == "2")
+            for (int i = 0; i < Itemslot.instance.slots.Count; i++)
+            {
+                if (Itemslot.instance.slots[i].GetComponent<Item_string>().code.Equals(item.code))
+                {
+                        Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
+                            ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
+                        Itemslot.instance.slots[i].GetComponent<ItemquickSlot>().minus_item(Itemslot.instance.slots[i].GetComponent<Item_string>());
+                    break;
+                }
+            }
+
+        }
 
 
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -53,6 +67,23 @@ public class InventorySlot : MonoBehaviour
                 }
 
             }
+            else
+            {
+                GameObject slotnow = null;
+                //돈버는 코드 필요
+                for (int i = 0; i < Itemslot.instance.slots.Count; i++)
+                {
+                    slotnow = Itemslot.instance.slots[i];
+                    if (slotnow.GetComponent<Item_string>().code.Equals(item.code))
+                    {
+                        slotnow.GetComponent<Item_string>().code = null;
+                        slotnow.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
+                        slotnow.GetComponentInChildren<Text>().text = " ";
+                        break;
+                    }
+                }
+                Inventory.instance.pop_list(this.GetComponent<index>().Index);
+            }
         }
     }
 
@@ -77,9 +108,9 @@ public class InventorySlot : MonoBehaviour
 
 
 
-    void equip(Item_string part)
+    void equip(Item_string item)
     {
-        Item_string item = part;
+        string part;
         string item_string = Inventory.instance.copy(item.code);
         Item_string target = null;
 
@@ -93,33 +124,61 @@ public class InventorySlot : MonoBehaviour
                 target = Inventory.instance.equipment_Head.GetComponent<Item_string>();
                 Debug.Log(target.code);
                 if (target.code != null)
+                {
                     Inventory.instance.Add(Inventory.instance.equipment_Head.GetComponent<Item_string>().code);
+                    part = Inventory.instance.equipment_Head.GetComponent<Item_string>().code;
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                            ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
+                }
                 break;
 
             case "2":
                 target = Inventory.instance.equipment_Armor.GetComponent<Item_string>();
                 if (target.code != null)
+                {
                     Inventory.instance.Add(Inventory.instance.equipment_Armor.GetComponent<Item_string>().code);
+                    part = Inventory.instance.equipment_Armor.GetComponent<Item_string>().code;
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                            ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
+                }
                 break;
 
             case "3":
                 target = Inventory.instance.equipment_Shoes.GetComponent<Item_string>();
                 if (target.code != null)
+                {
                     Inventory.instance.Add(Inventory.instance.equipment_Shoes.GetComponent<Item_string>().code);
+                    part = Inventory.instance.equipment_Shoes.GetComponent<Item_string>().code;
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                            ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
+                }
                 break;
 
             case "4":
                 Debug.Log("무기장착");
                 target = Inventory.instance.equipment_weapon.GetComponent<Item_string>();
-                if (target.code != null)
-                {
-                    Inventory.instance.Add(Inventory.instance.equipment_weapon.GetComponent<Item_string>().code);
-                }
+ 
                 if (int.Parse(item_string.Substring(2, 1)) == 1)
                 {
+                    if (Inventory.instance.current_count >= Inventory.instance.inventory_max - 1 && Inventory.instance.equipment_Shield.GetComponent<Item_string>().code != null)
+                    {
+                        Inventory.instance.Add(item_string);
+                        return;
+                    }
                     Debug.Log("대검이다");
                     GameObject Shield = Inventory.instance.equipment_Shield;
                     Inventory.instance.Add(Shield.GetComponent<Item_string>().code);
+                    part = Shield.GetComponent<Item_string>().code;
+                    if (part != null)
+                    {
+                        Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                                ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
+                                ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
+                    }
+
                     Shield.GetComponent<Image>().sprite = Inventory.instance.closeImage;
                     Shield.GetComponent<Item_string>().code = null;
                     sheild = false;
@@ -134,13 +193,27 @@ public class InventorySlot : MonoBehaviour
                     else if (int.Parse(item_string.Substring(2, 1)) == 2)
                         Skill_window.instance.slot_now = Skill_window.instance.three_slot;
                 }
+                if (target.code != null)
+                {
+                    Inventory.instance.Add(Inventory.instance.equipment_weapon.GetComponent<Item_string>().code);
+                    part = Inventory.instance.equipment_weapon.GetComponent<Item_string>().code;
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                            ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
+                }
                 skillslot.instance.update();
                 break;
 
             case "5":
                 target = Inventory.instance.equipment_Shield.GetComponent<Item_string>();
                 if (target.code != null)
+                {
                     Inventory.instance.Add(Inventory.instance.equipment_Shield.GetComponent<Item_string>().code);
+                    part = Inventory.instance.equipment_Shield.GetComponent<Item_string>().code;
+                    Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
+                            ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
+                }
                 break;
 
         }
@@ -149,6 +222,26 @@ public class InventorySlot : MonoBehaviour
         {
             target.code = item_string;
             target.GetComponent<Image>().sprite = Resources.Load<Sprite>("Item/ItemStandard/" + target.code.Substring(0, 4));
+            Inventory.instance.player.Consume(true, target.code.Substring(0, 4), InventorySlot.GetType(target.code),
+                           ItemManager.instance.GetOpt1_1(int.Parse(target.code.Substring(0, 5))),
+                           ItemManager.instance.GetOpt2_1(int.Parse(target.code.Substring(0, 5))));
         }
+    }
+
+    public static int GetType(string code)
+    {
+        if (code.Substring(0, 1) == "1")
+            return int.Parse(code.Substring(1, 1));
+        else if (code.Substring(0, 1) == "2")
+            switch(code.Substring(1, 1))
+            {
+                case "1":
+                case "2":
+                    return 6;
+
+                case "3":
+                    return int.Parse(code.Substring(3, 1)) + 6;
+            }
+        return 0;
     }
 }

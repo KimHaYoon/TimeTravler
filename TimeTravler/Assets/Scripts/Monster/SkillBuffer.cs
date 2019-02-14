@@ -19,6 +19,8 @@ public class SkillBuffer : MonoBehaviour
     private RuntimeAnimatorController runtimeAnimatorController;
     public Vector3 setPos;//AttackEffectPosition, 중점에서 시작, 바닥에서 시작 정해주는 애, 몬스터 인포에 있음
                           //나중에 여기서 지정해 줘야함 버퍼, 디퍼버 는 센터일 것 같음
+    public float xScale;
+    public float yScale;
     public int damage;
 
     // Start is called before the first frame update
@@ -40,6 +42,7 @@ public class SkillBuffer : MonoBehaviour
             //애니매이션 컨트롤러만 변경
             transform.position = player.transform.position + setPos;//AttackEffectPosition 
         }
+        transform.localScale = new Vector3(xScale, yScale, 1);
 
     }
 
