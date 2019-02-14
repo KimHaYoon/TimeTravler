@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     public int _dex;
 
 
-    public void Consume(bool onoff, string item, int type, int opt1, int opt2){
+    public static void Consume(bool onoff, string item, int type, int opt1, int opt2){
         /*
          * onoff (true = 장착, false = 탈착)
          * item (4자리 코드)
@@ -347,6 +347,11 @@ public class Player : MonoBehaviour
     public void SetBuf(int num, int type, float crease, float time)//버프류
     {
         transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Inventory.instance.Add(collision.GetComponent<Item_string>().code);
     }
 }
 
