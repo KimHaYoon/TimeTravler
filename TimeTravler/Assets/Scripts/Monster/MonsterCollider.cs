@@ -22,9 +22,9 @@ public class MonsterCollider : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (!destroy)
+            if (!destroy && !monster.superArmor)
             {
-                player.GetComponent<Player>().KnockBackHurt(monster.gameObject, false);//충돌 데미지
+                player.GetComponent<Player>().KnockBackHurt(monster.gameObject, false, 1f);//충돌 데미지
             }
         }
     }
@@ -33,9 +33,9 @@ public class MonsterCollider : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (!destroy)
+            if (!destroy && !monster.superArmor)
             {
-                player.GetComponent<Player>().KnockBackHurt(monster.gameObject, false);//충돌 데미지
+                player.GetComponent<Player>().KnockBackHurt(monster.gameObject, false, 1f);//충돌 데미지
             }
         }
     }

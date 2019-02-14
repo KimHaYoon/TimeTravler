@@ -112,10 +112,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 122
+        width: 120
         height: 103
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.48457858, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,12 +130,12 @@ TextureImporter:
       name: Dwarf_Idle_1
       rect:
         serializedVersion: 2
-        x: 130
+        x: 133
         y: 0
-        width: 125
+        width: 120
         height: 103
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.48625973, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: Dwarf_Idle_2
       rect:
         serializedVersion: 2
-        x: 260
+        x: 265
         y: 0
-        width: 127
+        width: 120
         height: 103
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4849955, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: Dwarf_Idle_3
       rect:
         serializedVersion: 2
-        x: 390
+        x: 396
         y: 0
-        width: 130.66667
+        width: 120
         height: 103
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4863243, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: Dwarf_Idle_4
       rect:
         serializedVersion: 2
-        x: 520
+        x: 530
         y: 0
-        width: 130.66667
+        width: 120
         height: 103
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.48632458, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: Dwarf_Idle_5
       rect:
         serializedVersion: 2
-        x: 660
+        x: 664
         y: 0
-        width: 124
+        width: 120
         height: 103
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.48905945, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

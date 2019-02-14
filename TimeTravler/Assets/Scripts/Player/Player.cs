@@ -55,12 +55,30 @@ public class Player : MonoBehaviour
     private bool superArmor = false;//캐릭터 무적(true = 무적, false = 무적해제)
 
     //stat
-    private int Hp = 200;
+    public int Hp = 20000;
     public int currentHp;
     public int power = 20;
     public int defence;
     public int dex;
+    public int _power;
+    public int _defence;
+    public int _dex;
 
+
+    public void Consume(bool onoff, string item, int type, int opt1, int opt2){
+        /*
+         * onoff (true = 장착, false = 탈착)
+         * item (4자리 코드)
+         * type(1 = 모자, 2 = 갑옷, 3 = 신발, 4 = 무기, 5 = 방패, 6 = 회복물약(2101,2201) 7 >>이후 버프물약)
+         * opt1, opt2 itemData에 적힌 순서대로 없으면 0으로
+         */
+    }
+
+
+    void Awake()
+    {
+        Application.targetFrameRate = 40;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -76,17 +94,16 @@ public class Player : MonoBehaviour
 
     }
     
-    // Update is called once per frame
     void Update()
     {
         CheckGround();
+        //Debug.Log("공" + power + "    방" + defence  + "치" + dex);
     }
 
     void FixedUpdate()
     {
         InputKey();
         CheckHp();
-        //currentHp--;
         
     }
     private void InitStat()
@@ -95,6 +112,9 @@ public class Player : MonoBehaviour
         power = 20;
         defence = 10;
         dex = 50;
+        _power = power;
+        _defence = defence;
+        _dex = dex;
     }
     private void CheckHp()
     {
@@ -143,14 +163,11 @@ public class Player : MonoBehaviour
             {
                 if (!downJump)
                 {
-                    
                     if (isPassGround || isNoPassGround)
                     {
-                        
                         if (Input.GetKey(KeyCode.LeftControl))
                         {
                             myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-
                             switch (weapon)
                             {
                                 case 1:
@@ -188,18 +205,8 @@ public class Player : MonoBehaviour
                             isJump = true;
                             return;
                         }
-                        if (!isJump)
-                        {
-                            if (horizontal == 0)
-                                myAnimator.Play("Player_Idle");
-                            else
-                            {
-                                myAnimator.Play("Player_Move");
-                                myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
-                            }
-                        }
+                        
                     }
-
                     if (Input.GetKeyDown(KeyCode.LeftShift) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
                     {
                         myAnimator.Play("Player_Jump");
@@ -207,11 +214,18 @@ public class Player : MonoBehaviour
                         myRigidbody.velocity = Vector2.up * jumpForce;
                         isJump = true;
                     }
+                    if (!isJump)
+                    {
+                        if (horizontal == 0)
+                            myAnimator.Play("Player_Idle");
+                        else
+                        {
+                            myAnimator.Play("Player_Move");
+
+                        }
+                    }
                 }
-
-
-                
-
+                myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
                 Flip(horizontal);
             }
         }
@@ -228,29 +242,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void CreateDamageUI(GameObject target, GameObject owner, bool who, bool knockBack, bool cri)//false player true monster
+    private void CreateDamageUI(GameObject target, GameObject owner, bool who, bool knockBack, bool cri, float damagePump)//false player true monster
     {
         GameObject damageUI = Instantiate(Resources.Load("UI/Prefabs/DamageUI")) as GameObject;//데미지UI 오브젝트생성
-        damageUI.GetComponent<DamageUI>().SetDamage(target, owner, who, knockBack, cri);//false player true monster
+        damageUI.GetComponent<DamageUI>().SetDamage(target, owner, who, knockBack, cri, damagePump);//false player true monster
     }
 
-    public void Hurt(GameObject owner, bool cri)
+    public void Hurt(GameObject owner, bool cri, float damagePump)
     {
-        CreateDamageUI(gameObject, owner, false, false, cri);
+        CreateDamageUI(gameObject, owner, false, false, cri, damagePump);
     }
 
-    public void KnockBackHurt(GameObject owner, bool cri)
+    public void KnockBackHurt(GameObject owner, bool cri, float damagePump)
     {
         if (!knockBack)
         {
-            CreateDamageUI(gameObject, owner, false, true, cri);
+            CreateDamageUI(gameObject, owner, false, true, cri, damagePump);
             knockBack = true;
             superArmor = true;
             StartCoroutine(KnockBackTimer());
         }
         else if(!superArmor)
         {
-            CreateDamageUI(gameObject, owner, false, false, cri);
+            CreateDamageUI(gameObject, owner, false, false, cri, damagePump);
         }
     }
 
@@ -328,6 +342,11 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         knockBack = false;
         superArmor = false;
+    }
+
+    public void SetBuf(int num, int type, float crease, float time)//버프류
+    {
+        transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
     }
 }
 

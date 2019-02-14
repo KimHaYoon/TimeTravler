@@ -106,10 +106,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 118
+        width: 116
         height: 112
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.44242057, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -125,11 +125,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 126
-        y: 0
-        width: 121
-        height: 112
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 2
+        width: 118
+        height: 110
+      alignment: 9
+      pivot: {x: 0.43212593, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,12 +144,12 @@ TextureImporter:
       name: Dwarf_Die_2
       rect:
         serializedVersion: 2
-        x: 252
-        y: 0
-        width: 123
-        height: 112
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 256
+        y: 4
+        width: 116
+        height: 108
+      alignment: 9
+      pivot: {x: 0.41525322, y: -0.000000019868216}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: Dwarf_Die_3
       rect:
         serializedVersion: 2
-        x: 378
-        y: 0
-        width: 126.666664
-        height: 112
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 385
+        y: 4
+        width: 118
+        height: 108
+      alignment: 9
+      pivot: {x: 0.28647807, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Dwarf_Die_4
       rect:
         serializedVersion: 2
-        x: 505
-        y: 0
-        width: 132
-        height: 112
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 516
+        y: 2
+        width: 118
+        height: 110
+      alignment: 9
+      pivot: {x: 0.28647807, y: 0.000000078027895}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: Dwarf_Die_5
       rect:
         serializedVersion: 2
-        x: 639
-        y: 0
-        width: 121
-        height: 112
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 644
+        y: 2
+        width: 116
+        height: 110
+      alignment: 9
+      pivot: {x: 0.28647807, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

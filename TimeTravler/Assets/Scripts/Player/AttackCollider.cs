@@ -18,21 +18,7 @@ public class AttackCollider : MonoBehaviour
             Monster monster = other.gameObject.transform.parent.GetComponent<Monster>();
             if (!monster.superArmor)
             {
-                monster.Hurt(player, false, true);
-                Vector3 pos = monster.transform.position;
-                if (transform.position.x - pos.x < 0)
-                {
-                    monster.direction = true;
-                    if (monster.moveType)
-                        pos.x += 0.1f;
-                }
-                else
-                {
-                    monster.direction = false;
-                    if (monster.moveType)
-                        pos.x -= 0.1f;
-                }
-                monster.transform.position = pos;
+                monster.Hurt(player, false, true, 1f);
             }
         }
     }

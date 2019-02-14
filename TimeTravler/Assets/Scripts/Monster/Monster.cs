@@ -32,10 +32,15 @@ public class Monster : MonoBehaviour
     public int power;//공격력
     public int defence;//방어력
     public int dex;//치명타
+    public int _power;
+    public int _defence;
+    public int _dex;
     public float moveSpeed = 1f;//이동속도
-    public Vector3 attackEffectPos;//몬스터 AttackEffect 위치
+    public Vector3 attackEffectPos = Vector3.zero;//몬스터 AttackEffect 위치
     public string dropItem;//1,44,2,33,5,6~
-    
+    private float[,] buf;//공방치
+
+
     private Vector2 colliderSize;//플레이어 점프시 MonsterSight콜라이더 변환용
     public int currentHp;//현재체력
     public float attackTime;//공격시간
@@ -76,6 +81,10 @@ public class Monster : MonoBehaviour
         currentHp = hp;//현재 체력을 최대체력으로 맞춤
         first_Attack = firstAttack;//선공타입 기억
         move_Type = moveType;//이동타입 기억
+        buf = new float[3, 2];
+        _power = power;
+        _defence = defence;
+        _dex = dex;
         attackTime = attackTimeValue;
         if (move_Type)//이동몹
         {
@@ -85,19 +94,26 @@ public class Monster : MonoBehaviour
         else//고정몹
             movementFlag = UnityEngine.Random.Range(3, 5);//(3,4) 0 Idle, 1 Left이동, 2 Right이동, 3 LeftIdle, 4 RightIdle
     }
-
-
+    
     void FixedUpdate()
     {
-        if (noMove) movementFlag = 0;
         Move();//이동
         CheckHp();//체력확인
     }
     
     void Move()//이동
     {
+        if (die) return;
+        if (noMove)
+        {
+            movementFlag = 0;
+            myAnimator.Play("Idle");
+            return;
+        }
+
         Vector3 moveVelocity = Vector3.zero;
         Vector3 theScale = transform.localScale;//현재 scale기억
+        
         switch (movementFlag)//0 Idle, 1 Left이동, 2 Right이동, 3 LeftIdle, 4 RightIdle
         {
             case 0:
@@ -139,6 +155,10 @@ public class Monster : MonoBehaviour
                 theScale.x *= -1;//오른쪽방향인데 이미지가 왼쪽일때
             }
         }
+        if (movementFlag == 0)
+            myAnimator.Play("Idle");
+        else if(movementFlag == 1 || movementFlag == 2)
+            myAnimator.Play("Move");
         transform.localScale = theScale;//scale 수정(방향맞춰서)
         transform.position += moveVelocity * moveSpeed * Time.deltaTime;//좌표이동
     }
@@ -256,7 +276,7 @@ public class Monster : MonoBehaviour
         {
             if (moveType)//이동식
             {
-                if (currentHp < hp && !checkMoveCor)//체력 달아있음
+                if (!checkMoveCor)//체력 달아있음
                 {
                     corMove = StartCoroutine(ChangeMovement());//몬스터 이동AI (3초)
                     checkMoveCor = true;//ChangeMovement실행여부 true = 실행, false = 실행x
@@ -318,33 +338,40 @@ public class Monster : MonoBehaviour
                 StopCoroutine(corMove);//ChangeMovement코루틴 종료
             movementFlag = 0;
             myAnimator.Play("Die");
+            die = true;
         }
     }
 
-    public void Hurt(GameObject owner, bool knockBack, bool cri)//Player에서 호출
+    public void Hurt(GameObject owner, bool knockBack, bool cri, float damagePump)//Player에서 호출
     {
+        if (die)
+            return;
         if (!hurt)//피격여부 ture = 피격, false = 피격x
         {
-            CreateDamageUI(gameObject, owner, true, false, cri);
+            CreateDamageUI(gameObject, owner, true, false, cri, damagePump);
             move_Type = false;
             hurt = true;//피격여부 ture = 피격, false = 피격x
-            if(!attack && !die)
+            if(!attack)
+            {
                 myAnimator.Play("Hurt");
+            }
             corHurt = StartCoroutine(HurtTimer());//피격시 투명도 코루틴 (0.5초)
         }
     }
     
-    public void KnockBackHurt(GameObject owner, bool cri)
+    public void KnockBackHurt(GameObject owner, bool cri, float damagePump)
     {
+        if (die)
+            return;
         if (!knockBack)
         {
-            Hurt(owner, true, cri);
+            Hurt(owner, true, cri, damagePump);
             knockBack = true;
             StartCoroutine(KnockBackTimer());
         }
         else
         {
-            Hurt(owner, false, cri);
+            Hurt(owner, false, cri, damagePump);
         }
     }
     
@@ -380,7 +407,7 @@ public class Monster : MonoBehaviour
             GameObject AttackEffect = Instantiate(Resources.Load("Monster/Prefabs/MonsterAttackEffect")) as GameObject;//몬스터공격이펙트 오브젝트생성
             AttackEffect.GetComponent<MonsterAttackEffect>().monsterNum = monsterNum;//몬스터 번호 동기화
             AttackEffect.GetComponent<MonsterAttackEffect>().setPos = attackEffectPos;//몬스터 AttackEffect 위치
-            CreateDamageUI(player.gameObject, gameObject, false, false, true);
+            CreateDamageUI(player.gameObject, gameObject, false, false, true, 1.5f);
 
         }
         else
@@ -413,10 +440,10 @@ public class Monster : MonoBehaviour
         StartCoroutine(GoMove());//몬스터 공격후 이동까지 걸리는 GoMove코루틴 (0.5초)
     }
 
-    private void CreateDamageUI(GameObject target, GameObject owner, bool who, bool knockBack, bool cri)//false player true monster
+    private void CreateDamageUI(GameObject target, GameObject owner, bool who, bool knockBack, bool cri, float damagePump)//false player true monster
     {
         GameObject damageUI = Instantiate(Resources.Load("UI/Prefabs/DamageUI")) as GameObject;//데미지UI 오브젝트생성
-        damageUI.GetComponent<DamageUI>().SetDamage(target, owner, who, knockBack, cri);//false player true monster
+        damageUI.GetComponent<DamageUI>().SetDamage(target, owner, who, knockBack, cri, damagePump);//false player true monster
     }
 
     IEnumerator GoMove()//몬스터 공격후 이동까지 걸리는 GoMove코루틴 (0.5초)
@@ -450,19 +477,13 @@ public class Monster : MonoBehaviour
         
         yield return new WaitForSeconds(3f);
         movementFlag = UnityEngine.Random.Range(0, 3);//(0, 1, 2) 0 Idle, 1 Left이동, 2 Right이동, 3 LeftIdle, 4 RightIdle
-        if (noMove)
-        {
-            movementFlag = 0;
-        }
-        if (movementFlag == 0)
-            myAnimator.Play("Idle");
-        else
-            myAnimator.Play("Move");
+        
         corMove = StartCoroutine(ChangeMovement());//몬스터 이동AI (3초)
     }
 
     IEnumerator AttackTimer()//공격 딜레이 코루틴(attackTimeValue)
     {
+        if (die) yield break;
         if (attackTime == 0)//AttackEffect가 없으면
         {
             checkAttackCor = false;
@@ -471,23 +492,23 @@ public class Monster : MonoBehaviour
         move = false;
         if (attack)//공격여부 true = 공격, false = 공격x
             myAnimator.Play("Attack");
+        //----------------------------------------------------------------------------------
 
         if (!(Resources.Load("Monster/AnimationControllers/" + Convert.ToString(monsterNum) + "/" + Convert.ToString(monsterNum) + "AttackEffect") as RuntimeAnimatorController))//AttackEffect존재여부 확인
-            CreateDamageUI(player.gameObject, gameObject, false, false, true);
-
+            CreateDamageUI(player.gameObject, gameObject, false, true, false, 1.5f);
+        
         yield return new WaitForSeconds(attackTimeValue);
         checkAttackCor = false;
     }
 
     IEnumerator BossAttackEffect()//공격 딜레이 코루틴(attackTimeValue)
     {
+        if (die) yield break;
         move = false;
 
         if (attack)//공격여부 true = 공격, false = 공격x
             myAnimator.Play("Attack");
         skillManager.SelectattackTime();
-        if (attack)//공격여부 true = 공격, false = 공격x
-            myAnimator.Play("Attack");
         yield return new WaitForSeconds(attackTime);
 
         checkAttackCor = false;
@@ -506,12 +527,18 @@ public class Monster : MonoBehaviour
         }
         hurt = false;//피격여부 ture = 피격, false = 피격x
         move_Type = moveType;
-        myAnimator.Play("Idle");
+        if(!attack)
+            myAnimator.Play("Idle");
     }
 
     IEnumerator KnockBackTimer()//
     {
         yield return new WaitForSeconds(1f);
         knockBack = false;
+    }
+
+    public void SetBuf(int num, int type, float crease, float time)//버프류
+    {
+        transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, false, num, type, crease, time);
     }
 }

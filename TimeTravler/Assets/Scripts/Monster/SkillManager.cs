@@ -21,6 +21,9 @@ public class SkillManager : MonoBehaviour
     public int monsterNum; // 몬스터 스크립트에서 받아온 현재 보스 몬스터의 번호
 
     public int monsterBoss; //0은 일반 몬스터 1은 중간 보스 2는 최종보스 
+    private string[,] effectPos;
+
+
     public GameObject player;
     public GameObject bufferSkill; //스킬번호 0
     public GameObject targeting; //1
@@ -28,9 +31,21 @@ public class SkillManager : MonoBehaviour
     public GameObject callMonster; //3
     public Vector3 dir; //광역 스킬 생성 간격
     public Vector3 widePos; //광역 스킬 생성 위치
-
+    private Player ScPlayer;
     private Monster monsterBS;
     
+    void Awake()
+    {
+        effectPos = new string[6, 5]
+        {//pos,xscale,yscale
+            { "center,0.5,0.5", "center,1,1", "center,1,1", "center,1.5,1.5", "bottom,0.7,2" },
+            { "center,3,3", "center,1,1", "center,1.5,1.5", "center,1,1", "bottom,1,2" },
+            { "center,1,1", "center,0.5,0.5", "bottom,1,1", "center,1,1", "bottom,1,3" },
+            { "center,2,2", "center,3,3", "center,1,1", "center,1,1", "bottom,2,3" },
+            { "center,1,1", "center,1,1", "bottom,1,2", "center,1,1", "bottom,1,2" },
+            { "center,3,3", "center,1,1", "bottom,1,1", "center,3,3", "bottom,2,4" }
+        };
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +53,9 @@ public class SkillManager : MonoBehaviour
         monsterBS = GetComponent<Monster>();
        
         player = GameObject.Find("Player");
+        ScPlayer = player.GetComponent<Player>();
     }
-    
-    void updated()
-    {
-        Debug.Log(monsterBoss);
-    }
+
     public void SkillInfo(int num)
     {
         monsterBoss = num;
@@ -77,6 +89,8 @@ public class SkillManager : MonoBehaviour
         monsterNum = GetComponent<Monster>().monsterNum;
         randomSkill = UnityEngine.Random.Range(0, skillAmount); //0~3번까지 스킬 선택
         randomEffect = UnityEngine.Random.Range(0, effectAmount); // 해당 스킬의 effect 선택 0,1
+        
+
         // 중보 일시 자신의 테마 서브 몬스터 4개 중 하나를 선택하고(submonnum 배열의 인덱스만 선택) 페이지에 맞는 몬스터 갯수(getpagenum함수에서) 생성
         // 최보 일시 중간 보스 몬스터 6개 중 하나를 선택하고 페이지에 맞는 몬스터 갯수 생성
         if (monsterBoss == 2)
@@ -140,42 +154,57 @@ public class SkillManager : MonoBehaviour
 
     public void UsingBuffer(int effectNum) //버퍼 스킬 오브젝트 생성
     {
+        bool tmp;
+        string[] transfrom = effectPos[GetComponent<Monster>().monsterNum / 4 - 1, randomEffect].Split(',');
         bufferSkill = Instantiate(Resources.Load("Monster/Prefabs/SkillBuffer")) as GameObject;
-        bufferSkill.transform.parent = transform.parent;
+        bufferSkill.transform.parent = transform;
         bufferSkill.GetComponent<SkillBuffer>().monsterNum = GetComponent<Monster>().monsterNum;
         bufferSkill.GetComponent<SkillBuffer>().effectNum = randomEffect; // 스크립트에 접근, 리소스 에니메이터에 4단위로 애니메이터 집어 넣어 놓기
-                                                                  // effectNum이 0이면 버퍼, 1이면 디버퍼  
-        bufferSkill.GetComponent<SkillBuffer>().setPos = monsterBS.attackEffectPos;//몬스터 AttackEffect 위치
+                                                                          // effectNum이 0이면 버퍼, 1이면 디버퍼  
+        if (effectNum == 0) tmp = false;
+        else tmp = true;
+        bufferSkill.GetComponent<SkillBuffer>().setPos = SetMonAttackEffectPos(tmp, transfrom[0]);//몬스터 AttackEffect 위치
 
+        bufferSkill.GetComponent<SkillBuffer>().xScale = (float)Convert.ToDouble(transfrom[1]);
+        bufferSkill.GetComponent<SkillBuffer>().yScale = (float)Convert.ToDouble(transfrom[2]);
+        if (randomEffect == 0)
+            GetComponent<Monster>().SetBuf(UnityEngine.Random.Range(0, 3), 0, 0.5f, 5f);
+        else
+            player.GetComponent<Player>().SetBuf(UnityEngine.Random.Range(0, 3), 1, 0.5f, 5f);
     }
 
 
     public void UsingTargeting(int effectNum) //타겟팅 스킬 오브젝트 생성
     {
+        string[] transfrom = effectPos[GetComponent<Monster>().monsterNum / 4 - 1, 2 + randomEffect].Split(',');
         targeting = Instantiate(Resources.Load("Monster/Prefabs/SkillTargeting")) as GameObject;
-        //targeting.transform.parent = transform.parent;
+        targeting.transform.parent = transform;
         targeting.GetComponent<SkillTargeting>().monsterNum = GetComponent<Monster>().monsterNum;
         targeting.GetComponent<SkillTargeting>().effectNum = randomEffect;
-        targeting.GetComponent<SkillTargeting>().setPos = monsterBS.attackEffectPos;
-        
+        targeting.GetComponent<SkillTargeting>().setPos = SetMonAttackEffectPos(true, transfrom[0]);
+        targeting.GetComponent<SkillTargeting>().xScale = (float)Convert.ToDouble(transfrom[1]);
+        targeting.GetComponent<SkillTargeting>().yScale = (float)Convert.ToDouble(transfrom[2]);
     }
 
 
     public void UsingWideArea(int effectNum) // 광역 스킬 오브젝트 생성
     {
+        string[] transfrom = effectPos[GetComponent<Monster>().monsterNum / 4 - 1, 4].Split(',');
         wideArea = new GameObject[5];
         widePos = transform.position + new Vector3(-9, 0, 0);
         dir = new Vector3(3,0,0);
-
         for (int i = 0; i < wideArea.Length; i++) //5개 생성
         {
-            wideArea[i] = Instantiate(Resources.Load("Monster/Prefabs/SkillWideArea"), dir, Quaternion.identity) as GameObject;
-            wideArea[i].transform.parent = transform.parent;
-            wideArea[i].GetComponent<SkillWideArea>().monsterNum = GetComponent<Monster>().monsterNum;
-            wideArea[i].GetComponent<SkillWideArea>().effectNum = randomEffect;
-            wideArea[i].GetComponent<SkillWideArea>().setPos = monsterBS.attackEffectPos;
+            wideArea[i] = Instantiate(Resources.Load("Monster/Prefabs/SkillWideAreaArrow"), dir, Quaternion.identity) as GameObject;
+            wideArea[i].GetComponent<SkillWideAreaArrow>().player = player;
+            wideArea[i].GetComponent<SkillWideAreaArrow>().monster = gameObject;
+            wideArea[i].GetComponent<SkillWideAreaArrow>().monsterNum = GetComponent<Monster>().monsterNum;
+            wideArea[i].GetComponent<SkillWideAreaArrow>().effectNum = 0;
+            wideArea[i].GetComponent<SkillWideAreaArrow>().setPos = SetMonAttackEffectPos(false, transfrom[0]);
+            wideArea[i].GetComponent<SkillWideAreaArrow>().xScale = (float)Convert.ToDouble(transfrom[1]);
+            wideArea[i].GetComponent<SkillWideAreaArrow>().yScale = (float)Convert.ToDouble(transfrom[2]);
             widePos = widePos + dir;
-            wideArea[i].GetComponent<SkillWideArea>().widePos = widePos;
+            wideArea[i].GetComponent<SkillWideAreaArrow>().widePos = widePos;
         }
 
     }
@@ -196,7 +225,7 @@ public class SkillManager : MonoBehaviour
 
 
         for(int i = 0; i < subMonMakeAmount; i++)
-                pos[i] = Convert.ToString(transform.position.x + UnityEngine.Random.Range(-1f, 1f)) + " " + Convert.ToString(transform.position.y);
+                pos[i] = Convert.ToString(transform.position.x + UnityEngine.Random.Range(-2f, 2f)) + " " + Convert.ToString(transform.position.y);
 
 
         callMonster.GetComponent<MonsterManager>().monsterPos = pos;
@@ -205,4 +234,28 @@ public class SkillManager : MonoBehaviour
 
     }
 
+    private Vector3 SetMonAttackEffectPos(bool target, string position)//target true player false monster
+    {
+        if (!target)//monster
+        {
+            switch (position)
+            {
+                case "center":
+                    return new Vector3(0, 0.8f, 0);
+                case "bottom":
+                    return new Vector3(0, -0.2f, 0);//미정
+            }
+        }
+        else//player
+        {
+            switch (position)
+            {
+                case "center":
+                    return new Vector3(0, 0.2f, 0);
+                case "bottom":
+                    return new Vector3(0, -0.6f, 0);
+            }
+        }
+        return new Vector3(0, 0, 0);
+    }
 }

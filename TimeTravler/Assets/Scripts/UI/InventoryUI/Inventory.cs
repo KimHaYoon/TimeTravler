@@ -6,15 +6,16 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    public ItemInfo info;
     public static Inventory instance = null;
     GameObject inventory_window = null;
     GameObject status_window = null;
-    const int inventory_max = 30;
+    public int inventory_max = 30;
     public int current_count;
 
     public Sprite defaultImage = null;
     public Sprite closeImage;
-    bool window_show;
+    public static bool window_show;
     public bool isSHOP;
     public List<GameObject> slots;
     public GameObject equipment_Head = null;
@@ -79,6 +80,7 @@ public class Inventory : MonoBehaviour
                 inventory_window.SetActive(false);
                 status_window.SetActive(false);
                 window_show = false;
+                info.gameObject.SetActive(false);
             }
         }
 
@@ -188,6 +190,26 @@ public class Inventory : MonoBehaviour
         }
         
                
+    }
+
+    public void minus_item(string code)
+    {
+        for (int i = 0; i < current_count; i++)
+            if (slots[i].GetComponent<Item_string>().code.Equals(code))
+            {
+                int count = int.Parse(slots[i].GetComponent<Item_string>().code.Substring(5, 2)) - 1;
+                if (count <= 0) {
+                    pop_list(i+1);
+                    return;
+                }
+                string count_string = ((count < 10 ? "0" + count : "" + count));
+                slots[i].GetComponent<Item_string>().code = copy(slots[i].GetComponent<Item_string>().code.Substring(0, 5) + count_string);
+                //해당 슬롯의 갯수출력변경
+                slots[i].GetComponentInChildren<Text>().text = (int.Parse(slots[i].GetComponent<Item_string>().code.Substring(5, 2)) > 0 ?
+                    " " + int.Parse(slots[i].GetComponent<Item_string>().code.Substring(5, 2)) : " ");
+            }
+
+
     }
 
     public void clone(Item_string from, Item_string to)
