@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Itemslot : MonoBehaviour
 {
     public static Itemslot instance = null;
-    public static List<GameObject> slots = null;
+    public List<GameObject> slots = null;
     
 
     private void Awake()
@@ -32,6 +32,7 @@ public class Itemslot : MonoBehaviour
         Inventory inventory = Inventory.instance;
         string input_string = string.Copy(input.GetComponent<Item_string>().code);
         Item_string temp = null;
+        List<GameObject> slots = Itemslot.instance.slots;
 
         for (int j = 0, max = slots.Count; j < max; j++)
             if (slots[j].GetComponent<Item_string>().code != null)

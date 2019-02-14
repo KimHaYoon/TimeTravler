@@ -21,6 +21,8 @@ public class equipslot : MonoBehaviour
         {
             //오른쪽클릭 && 아이템 장착해제
             Debug.Log("뺀다");
+            if (Inventory.instance.current_count >= Inventory.instance.inventory_max)
+                return;
             if ((item.code.Substring(0, 3) == "141" || item.code.Substring(0, 3) == "142"))
             {
                 Inventory.instance.equipment_Shield.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
