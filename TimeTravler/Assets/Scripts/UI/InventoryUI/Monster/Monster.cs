@@ -37,6 +37,8 @@ public class Monster : MonoBehaviour
     public int _dex;
     public float moveSpeed = 1f;//이동속도
     public Vector3 attackEffectPos = Vector3.zero;//몬스터 AttackEffect 위치
+    public float attackEffectXScale;
+    public float attackEffectYScale;
     public string dropItem;//1,44,2,33,5,6~
     private float[,] buf;//공방치
 
@@ -406,7 +408,8 @@ public class Monster : MonoBehaviour
         {
             GameObject AttackEffect = Instantiate(Resources.Load("Monster/Prefabs/MonsterAttackEffect")) as GameObject;//몬스터공격이펙트 오브젝트생성
             AttackEffect.GetComponent<MonsterAttackEffect>().monsterNum = monsterNum;//몬스터 번호 동기화
-            AttackEffect.GetComponent<MonsterAttackEffect>().setPos = attackEffectPos;//몬스터 AttackEffect 위치
+            AttackEffect.GetComponent<MonsterAttackEffect>().xScale = attackEffectXScale;//몬스터 AttackEffect 크기
+            AttackEffect.GetComponent<MonsterAttackEffect>().yScale = attackEffectYScale;//몬스터 AttackEffect 크기
             CreateDamageUI(player.gameObject, gameObject, false, false, true, 1.5f);
 
         }

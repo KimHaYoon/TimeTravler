@@ -9332,8 +9332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterNum: 12
-  monsterBoss: 1
+  monsterNum: 23
+  monsterBoss: 0
   monsterCount: 1
   monsterPos:
   - -14 -15
