@@ -14,6 +14,18 @@ TextureImporter:
     21300018: 3sprite1_strip12_9
     21300020: 3sprite1_strip12_10
     21300022: 3sprite1_strip12_11
+    21300024: GhostWizard_Targeting0_0
+    21300026: GhostWizard_Targeting0_1
+    21300028: GhostWizard_Targeting0_2
+    21300030: GhostWizard_Targeting0_3
+    21300032: GhostWizard_Targeting0_4
+    21300034: GhostWizard_Targeting0_5
+    21300036: GhostWizard_Targeting0_6
+    21300038: GhostWizard_Targeting0_7
+    21300040: GhostWizard_Targeting0_8
+    21300042: GhostWizard_Targeting0_9
+    21300044: GhostWizard_Targeting0_10
+    21300046: GhostWizard_Targeting0_11
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -107,241 +119,241 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3sprite1_strip12_0
+      name: GhostWizard_Targeting0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 352e3d84644015c49bc7664d42d46a10
+      spriteID: 96fa980d6596ed04e9cb7cbd6f855a33
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_1
+      name: GhostWizard_Targeting0_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2365df418845784aa9680fe04358fa1
+      spriteID: b2bf13a1310350f4ab0f7bb30f9fcf3d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_2
+      name: GhostWizard_Targeting0_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8a6631c08bddb04db30382af516b60e
+      spriteID: edca54ace067a534281450d95393d4ac
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_3
+      name: GhostWizard_Targeting0_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c193afd68b7bdc849abe921ac93d75b3
+      spriteID: ce10e49da6b00cf47aead67139b5be38
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_4
+      name: GhostWizard_Targeting0_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6642b7264f7de7349a3d0f5d41764411
+      spriteID: c0956f59c95854542a536c8b7cd7644b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_5
+      name: GhostWizard_Targeting0_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efedea72c4417d74198c9207360a5c7e
+      spriteID: b82d06a58a6fbd74888f37de55e6f838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_6
+      name: GhostWizard_Targeting0_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1de7a7677c4f7614abdee9038cc60de7
+      spriteID: 3a7487b93f5b77046a0cf9ac6909a07c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_7
+      name: GhostWizard_Targeting0_7
       rect:
         serializedVersion: 2
         x: 448
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d157d766490c3854a897bad14bbd6eae
+      spriteID: 12009e8d24dd9524d971e4a88043d559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_8
+      name: GhostWizard_Targeting0_8
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c12da46bbae6ad3488ddeec58f125159
+      spriteID: cf89210f43be18e43baa6307454df9f5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_9
+      name: GhostWizard_Targeting0_9
       rect:
         serializedVersion: 2
         x: 576
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd53bfe9ad74f2f47ac9c8e2002ecd2b
+      spriteID: ff14d089e9773424384b547b574afdd3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_10
+      name: GhostWizard_Targeting0_10
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 474ea4d63d9050b489e5466f3ec1c3ed
+      spriteID: 779ee8c13b6be9a49949a83c84fddae6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3sprite1_strip12_11
+      name: GhostWizard_Targeting0_11
       rect:
         serializedVersion: 2
         x: 704
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0707771}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2628a956bf93d864681542834e6a7ff4
+      spriteID: 40aa0a9102733814fa156ca624924177
       vertices: []
       indices: 
       edges: []

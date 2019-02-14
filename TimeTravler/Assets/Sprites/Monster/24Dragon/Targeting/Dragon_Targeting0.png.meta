@@ -33,6 +33,37 @@ TextureImporter:
     21300056: 32sprite1_strip31_28
     21300058: 32sprite1_strip31_29
     21300060: 32sprite1_strip31_30
+    21300062: Dragon_Targeting0_0
+    21300064: Dragon_Targeting0_1
+    21300066: Dragon_Targeting0_2
+    21300068: Dragon_Targeting0_3
+    21300070: Dragon_Targeting0_4
+    21300072: Dragon_Targeting0_5
+    21300074: Dragon_Targeting0_6
+    21300076: Dragon_Targeting0_7
+    21300078: Dragon_Targeting0_8
+    21300080: Dragon_Targeting0_9
+    21300082: Dragon_Targeting0_10
+    21300084: Dragon_Targeting0_11
+    21300086: Dragon_Targeting0_12
+    21300088: Dragon_Targeting0_13
+    21300090: Dragon_Targeting0_14
+    21300092: Dragon_Targeting0_15
+    21300094: Dragon_Targeting0_16
+    21300096: Dragon_Targeting0_17
+    21300098: Dragon_Targeting0_18
+    21300100: Dragon_Targeting0_19
+    21300102: Dragon_Targeting0_20
+    21300104: Dragon_Targeting0_21
+    21300106: Dragon_Targeting0_22
+    21300108: Dragon_Targeting0_23
+    21300110: Dragon_Targeting0_24
+    21300112: Dragon_Targeting0_25
+    21300114: Dragon_Targeting0_26
+    21300116: Dragon_Targeting0_27
+    21300118: Dragon_Targeting0_28
+    21300120: Dragon_Targeting0_29
+    21300122: Dragon_Targeting0_30
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -126,621 +157,621 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 32sprite1_strip31_0
+      name: Dragon_Targeting0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 686bdb71ee09e414095d58e5860cd402
+      spriteID: 31e3478ebc4f29a48a09d784497449f6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_1
+      name: Dragon_Targeting0_1
       rect:
         serializedVersion: 2
         x: 200
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01b7ee58375637e468b8cc09f060b9ff
+      spriteID: db21e3cf0c169c64f98861df07bdbfcc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_2
+      name: Dragon_Targeting0_2
       rect:
         serializedVersion: 2
         x: 400
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f79d54b06a3573f4289e4c60fa0119cb
+      spriteID: 88a990f43094e9d459057f3524176166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_3
+      name: Dragon_Targeting0_3
       rect:
         serializedVersion: 2
         x: 600
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3dbb831ac43cb04fb1328c2a35b4677
+      spriteID: 50b835b564568154fa1275b82acdf942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_4
+      name: Dragon_Targeting0_4
       rect:
         serializedVersion: 2
         x: 800
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bf2571758d848944bfbb1d799a3b2a9
+      spriteID: 9ba1cf45b56ba514381d36a3baf17397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_5
+      name: Dragon_Targeting0_5
       rect:
         serializedVersion: 2
         x: 1000
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6326edd318440604296ab3f1cff4270e
+      spriteID: 93767bfabf651524ca8cf969f383bdd1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_6
+      name: Dragon_Targeting0_6
       rect:
         serializedVersion: 2
         x: 1200
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3b6abff37c0f5145a8450b4d36eeee9
+      spriteID: 168f0cd95920f14439fb937795baae87
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_7
+      name: Dragon_Targeting0_7
       rect:
         serializedVersion: 2
         x: 1400
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6e22404cb0b52e42857553ca5dd73f8
+      spriteID: 1145d156337d6f04099f246ddf369ce4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_8
+      name: Dragon_Targeting0_8
       rect:
         serializedVersion: 2
         x: 1600
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f23ae2e65c03e1e41a7ced4ee9a51281
+      spriteID: f1932e5d698d1324cae0bbd8d11ea10f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_9
+      name: Dragon_Targeting0_9
       rect:
         serializedVersion: 2
         x: 1800
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55dae07b78e824e4ab11d7189277a0b4
+      spriteID: 1a247fadafde9b940a7742e6f5a49bcd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_10
+      name: Dragon_Targeting0_10
       rect:
         serializedVersion: 2
         x: 2000
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6623570bd9b08ff4b9a84afa0ca365db
+      spriteID: 1ee665ae37b702c4e8e36beabc3882e4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_11
+      name: Dragon_Targeting0_11
       rect:
         serializedVersion: 2
         x: 2200
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6458e1c94b571e419b2033094b1f2c7
+      spriteID: 70efb8449288d04449b61cfe298466e3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_12
+      name: Dragon_Targeting0_12
       rect:
         serializedVersion: 2
         x: 2400
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20f389352ba74c641839de13944d5114
+      spriteID: 02bafface2eda40439aa624ee5b08572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_13
+      name: Dragon_Targeting0_13
       rect:
         serializedVersion: 2
         x: 2600
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da1e5c6d6cfee2c41bd9a204139ffa3f
+      spriteID: c17e9a0848b9b464a914542eaeca93e6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_14
+      name: Dragon_Targeting0_14
       rect:
         serializedVersion: 2
         x: 2800
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ae0efaa4ed55f47bbc51a0155e9511
+      spriteID: ec7c321f1aea7a74c962b82826ff55b3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_15
+      name: Dragon_Targeting0_15
       rect:
         serializedVersion: 2
         x: 3000
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: defff3ed85047924a8bf92f5f12d777a
+      spriteID: 5586a3521eac0564db2394ef2fbe926c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_16
+      name: Dragon_Targeting0_16
       rect:
         serializedVersion: 2
         x: 3200
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 197da1ec512ce2444a0a1119863766fd
+      spriteID: df4db0fdb44449445bb3d9e1964fe585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_17
+      name: Dragon_Targeting0_17
       rect:
         serializedVersion: 2
         x: 3400
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2de22ab730516e46935f6d8795deb53
+      spriteID: 92753c3495dd5b94eaf260b12fbab806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_18
+      name: Dragon_Targeting0_18
       rect:
         serializedVersion: 2
         x: 3600
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 720466dbc1e66c440b008d638281a197
+      spriteID: ec3561dfbf02b7748a1dcc8c7d6cc791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_19
+      name: Dragon_Targeting0_19
       rect:
         serializedVersion: 2
         x: 3800
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03afc91780db4b0419fdcaa395f45b60
+      spriteID: ec5aa7ae0ea4f484e874d5d11722445a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_20
+      name: Dragon_Targeting0_20
       rect:
         serializedVersion: 2
         x: 4000
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8745388683a115e4e985e30e76ad13e7
+      spriteID: ac619c404c3d783448b6a2acf4ab8ee0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_21
+      name: Dragon_Targeting0_21
       rect:
         serializedVersion: 2
         x: 4200
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b3eff5dcb9d83246b8f70181ca3112d
+      spriteID: ff3eb6fa63df5c14aa9003e13648ccc9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_22
+      name: Dragon_Targeting0_22
       rect:
         serializedVersion: 2
         x: 4400
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67fad200902ced14e979aecc8c8868b3
+      spriteID: 4740ea027fe6ae34bb7388f567e6f834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_23
+      name: Dragon_Targeting0_23
       rect:
         serializedVersion: 2
         x: 4600
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46715e159b9afbc41a9e5f386ae89182
+      spriteID: 0d0eb4fb41a041c4e88faf8ceca5b098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_24
+      name: Dragon_Targeting0_24
       rect:
         serializedVersion: 2
         x: 4800
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c370280e2784d734ebcfeaa1adccf856
+      spriteID: 679f8b5dac383494f8a38a87855d6c3c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_25
+      name: Dragon_Targeting0_25
       rect:
         serializedVersion: 2
         x: 5000
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a82f768b92a3bdc4c87b0c0cc32ada4b
+      spriteID: 48dab03c493fa6e48ab22b15496b6886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_26
+      name: Dragon_Targeting0_26
       rect:
         serializedVersion: 2
         x: 5200
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 820d86090df9fb040b6e6348d36b8b5d
+      spriteID: 24fe8b3ef0b8f704b993103aed933f8f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_27
+      name: Dragon_Targeting0_27
       rect:
         serializedVersion: 2
         x: 5400
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04befef334b17464598f711e486d5aaf
+      spriteID: e268119958c87ed4fb2c978d11041135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_28
+      name: Dragon_Targeting0_28
       rect:
         serializedVersion: 2
         x: 5600
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59af657ff247d124f9a7f3de8ec0fd93
+      spriteID: b17cca70a11c5504b834b348709a29f2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_29
+      name: Dragon_Targeting0_29
       rect:
         serializedVersion: 2
         x: 5800
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03246935fa2f0b2468fc7d20cbbaf00b
+      spriteID: 64f0517ee19567f479662646a442e897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32sprite1_strip31_30
+      name: Dragon_Targeting0_30
       rect:
         serializedVersion: 2
         x: 6000
         y: 0
         width: 200
         height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24561283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75dd249424a564b4d844aee891a2cd62
+      spriteID: 6687d57b447937e47a1728e7582f21d9
       vertices: []
       indices: 
       edges: []

@@ -15,6 +15,7 @@ public class SkillWideArea : MonoBehaviour
 
     private void Start()
     {
+        transform.position = transform.position + new Vector3(0, -0.2f, 0);
         Objx = transform.position.x;
         Objy = transform.position.y;
         transform.localScale = new Vector3(xScale, yScale, 1);

@@ -50,6 +50,54 @@ TextureImporter:
     21300090: bsprite0_strip48_45
     21300092: bsprite0_strip48_46
     21300094: bsprite0_strip48_47
+    21300096: Lycanthrope_WideArea0_0
+    21300098: Lycanthrope_WideArea0_1
+    21300100: Lycanthrope_WideArea0_2
+    21300102: Lycanthrope_WideArea0_3
+    21300104: Lycanthrope_WideArea0_4
+    21300106: Lycanthrope_WideArea0_5
+    21300108: Lycanthrope_WideArea0_6
+    21300110: Lycanthrope_WideArea0_7
+    21300112: Lycanthrope_WideArea0_8
+    21300114: Lycanthrope_WideArea0_9
+    21300116: Lycanthrope_WideArea0_10
+    21300118: Lycanthrope_WideArea0_11
+    21300120: Lycanthrope_WideArea0_12
+    21300122: Lycanthrope_WideArea0_13
+    21300124: Lycanthrope_WideArea0_14
+    21300126: Lycanthrope_WideArea0_15
+    21300128: Lycanthrope_WideArea0_16
+    21300130: Lycanthrope_WideArea0_17
+    21300132: Lycanthrope_WideArea0_18
+    21300134: Lycanthrope_WideArea0_19
+    21300136: Lycanthrope_WideArea0_20
+    21300138: Lycanthrope_WideArea0_21
+    21300140: Lycanthrope_WideArea0_22
+    21300142: Lycanthrope_WideArea0_23
+    21300144: Lycanthrope_WideArea0_24
+    21300146: Lycanthrope_WideArea0_25
+    21300148: Lycanthrope_WideArea0_26
+    21300150: Lycanthrope_WideArea0_27
+    21300152: Lycanthrope_WideArea0_28
+    21300154: Lycanthrope_WideArea0_29
+    21300156: Lycanthrope_WideArea0_30
+    21300158: Lycanthrope_WideArea0_31
+    21300160: Lycanthrope_WideArea0_32
+    21300162: Lycanthrope_WideArea0_33
+    21300164: Lycanthrope_WideArea0_34
+    21300166: Lycanthrope_WideArea0_35
+    21300168: Lycanthrope_WideArea0_36
+    21300170: Lycanthrope_WideArea0_37
+    21300172: Lycanthrope_WideArea0_38
+    21300174: Lycanthrope_WideArea0_39
+    21300176: Lycanthrope_WideArea0_40
+    21300178: Lycanthrope_WideArea0_41
+    21300180: Lycanthrope_WideArea0_42
+    21300182: Lycanthrope_WideArea0_43
+    21300184: Lycanthrope_WideArea0_44
+    21300186: Lycanthrope_WideArea0_45
+    21300188: Lycanthrope_WideArea0_46
+    21300190: Lycanthrope_WideArea0_47
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -119,14 +167,14 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 12
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
@@ -143,961 +191,961 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bsprite0_strip48_0
+      name: Lycanthrope_WideArea0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d1a2cd754fae9c44a86d523399e1832
+      spriteID: 96b72928711a70142864f7f1405a8578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_1
+      name: Lycanthrope_WideArea0_1
       rect:
         serializedVersion: 2
         x: 174
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75d5ed4ada2e98744b645426da0660cc
+      spriteID: fc535435377fe5f409f0a8cfda0d5c97
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_2
+      name: Lycanthrope_WideArea0_2
       rect:
         serializedVersion: 2
         x: 348
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be21e451e0f2ace4197846c594adba5d
+      spriteID: a42511b8bbae9ed4fa85d1a6f63ca975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_3
+      name: Lycanthrope_WideArea0_3
       rect:
         serializedVersion: 2
         x: 522
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb13410bbc7952846a76def17ca4d89f
+      spriteID: 1e23187fb2fe4dd4f87c623175583c48
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_4
+      name: Lycanthrope_WideArea0_4
       rect:
         serializedVersion: 2
         x: 696
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2cd36a9b69798344acf4b132566ae9b
+      spriteID: 1bf52c09b18ae1b47bcff8bbd558b74e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_5
+      name: Lycanthrope_WideArea0_5
       rect:
         serializedVersion: 2
         x: 870
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04ce72e66ef36c84da30f345af97c1f9
+      spriteID: 7d59a93309d60624ba45b50e7930cc78
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_6
+      name: Lycanthrope_WideArea0_6
       rect:
         serializedVersion: 2
         x: 1044
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1df1767d412beeb438f89e80015e6740
+      spriteID: 648fe144e34991b43b60dd97abcc4f63
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_7
+      name: Lycanthrope_WideArea0_7
       rect:
         serializedVersion: 2
         x: 1218
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2547a229b19b9ed4fbba16e60930a421
+      spriteID: 9a49adb6c74c0fb4e89fc2db8f0513c7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_8
+      name: Lycanthrope_WideArea0_8
       rect:
         serializedVersion: 2
         x: 1392
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2e7e6f712fea9548b70ee58da237790
+      spriteID: 972a5407a56458f45b43b91ce3f7e95f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_9
+      name: Lycanthrope_WideArea0_9
       rect:
         serializedVersion: 2
         x: 1566
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6ce5a7e1649c1443a101e86c0f684ca
+      spriteID: a47968e1ae531e64ebd9a184e4110c33
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_10
+      name: Lycanthrope_WideArea0_10
       rect:
         serializedVersion: 2
         x: 1740
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4fdf0ee16079614ba876dc0e01e2cb7
+      spriteID: 33c745c3f5ef01d4e92d113337f56412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_11
+      name: Lycanthrope_WideArea0_11
       rect:
         serializedVersion: 2
         x: 1914
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cdfe534d4ea098488fd355e74041c8d
+      spriteID: be846ab98d3d2fd4daf6c9e95a18f670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_12
+      name: Lycanthrope_WideArea0_12
       rect:
         serializedVersion: 2
         x: 2088
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 442e3c7e076f9b74081a82faf7c707b2
+      spriteID: bb460bbe926cbed4ba5df5f0b9bf027b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_13
+      name: Lycanthrope_WideArea0_13
       rect:
         serializedVersion: 2
         x: 2262
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0824e7a58410054384749a887e92598
+      spriteID: 345814f3ee37b204d866bb6af0b85e89
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_14
+      name: Lycanthrope_WideArea0_14
       rect:
         serializedVersion: 2
         x: 2436
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2e794a5ca8854748bb428e3d0232060
+      spriteID: f8fed2c976598b84890d3e52dfe2fd36
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_15
+      name: Lycanthrope_WideArea0_15
       rect:
         serializedVersion: 2
         x: 2610
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5925e5d781ded1e43b7da6188d0e0036
+      spriteID: 3a33c4e3ed854cc4e8c5e79f2ba64a6a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_16
+      name: Lycanthrope_WideArea0_16
       rect:
         serializedVersion: 2
         x: 2784
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56176ce00e5824a4bb847ba495d7e8fa
+      spriteID: eb9c4a1604959d74c97d593b346ea136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_17
+      name: Lycanthrope_WideArea0_17
       rect:
         serializedVersion: 2
         x: 2958
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b05647c14dd9e5e4d8259c861646db2e
+      spriteID: c49101c99709e9f4cad468a624034818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_18
+      name: Lycanthrope_WideArea0_18
       rect:
         serializedVersion: 2
         x: 3132
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 389f670fd6f6eee4d99cc76173979cd9
+      spriteID: e668c1055b4bda246a85c86be51d1a63
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_19
+      name: Lycanthrope_WideArea0_19
       rect:
         serializedVersion: 2
         x: 3306
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7017ab99e66388b479262bafb329ccd6
+      spriteID: 8fd0d376776251640b93130b9671dbbc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_20
+      name: Lycanthrope_WideArea0_20
       rect:
         serializedVersion: 2
         x: 3480
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 508a1f9f03c9e2644be7b4115348709c
+      spriteID: 6c8685a9d2ae4e241b3e6f37dfe21fb2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_21
+      name: Lycanthrope_WideArea0_21
       rect:
         serializedVersion: 2
         x: 3654
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab3b44cdd9cf250449f6414f7bb30387
+      spriteID: 01e2e11f8cbcb224da9637053789f8a0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_22
+      name: Lycanthrope_WideArea0_22
       rect:
         serializedVersion: 2
         x: 3828
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16734029d2ae56547978ef394d68f427
+      spriteID: 2ea2cf243a1a3314790997fd26ec5c64
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_23
+      name: Lycanthrope_WideArea0_23
       rect:
         serializedVersion: 2
         x: 4002
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24ea8ba942a80f841a53e3bff6a79672
+      spriteID: a3378929759f7104599675671a082ba3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_24
+      name: Lycanthrope_WideArea0_24
       rect:
         serializedVersion: 2
         x: 4176
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5977564b030fb7047a1f1174936932d1
+      spriteID: 6e1c1b29f2cca4d45888af7cc9bddf9f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_25
+      name: Lycanthrope_WideArea0_25
       rect:
         serializedVersion: 2
         x: 4350
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73fd35bd7caae9b4397acb4b484ce765
+      spriteID: 934889f8da8918d45bca3caf6a073eec
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_26
+      name: Lycanthrope_WideArea0_26
       rect:
         serializedVersion: 2
         x: 4524
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c27c9b42596ef64684eb0579a619e29
+      spriteID: b9b1ab83bee8fb34dbcc591d234fff7a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_27
+      name: Lycanthrope_WideArea0_27
       rect:
         serializedVersion: 2
         x: 4698
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f33f827fe6ee024096be49f624b8bc0
+      spriteID: dd4a56469d3b89c4b98092a05dbbeb07
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_28
+      name: Lycanthrope_WideArea0_28
       rect:
         serializedVersion: 2
         x: 4872
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a345e0e1be9c5054696f6244b844522e
+      spriteID: 0d1fc1e87cb83cc42b3304ededcac81e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_29
+      name: Lycanthrope_WideArea0_29
       rect:
         serializedVersion: 2
         x: 5046
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc5b715ae87b3144bb3d29bcd76e6785
+      spriteID: a70752300a5bb99469fdad3178181a0d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_30
+      name: Lycanthrope_WideArea0_30
       rect:
         serializedVersion: 2
         x: 5220
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cdd55d404765c84da70810e2fc941e3
+      spriteID: 5689bdde2aa658c4eab472be31944cc1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_31
+      name: Lycanthrope_WideArea0_31
       rect:
         serializedVersion: 2
         x: 5394
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a153d468f2fd3504bab32b884ade4631
+      spriteID: 8ac461653481b304f88698eaae4a5dfe
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_32
+      name: Lycanthrope_WideArea0_32
       rect:
         serializedVersion: 2
         x: 5568
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b26f9ccee9488043826da481082f5f9
+      spriteID: 2943ed19246c63e4db1206ff334aaede
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_33
+      name: Lycanthrope_WideArea0_33
       rect:
         serializedVersion: 2
         x: 5742
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed87e10a06b1e8648abf642a8acb4e8c
+      spriteID: 9f09bf7a5514bc446be89060249062d0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_34
+      name: Lycanthrope_WideArea0_34
       rect:
         serializedVersion: 2
         x: 5916
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6de0621e05e482469a944abcf6447d1
+      spriteID: a1d7af30c5ec21147878f1cd809f413a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_35
+      name: Lycanthrope_WideArea0_35
       rect:
         serializedVersion: 2
         x: 6090
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcafff8e1c8cbba459dd082cb48793ac
+      spriteID: 355ae2a35f44fa94183e05e5d2bb1bee
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_36
+      name: Lycanthrope_WideArea0_36
       rect:
         serializedVersion: 2
         x: 6264
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d0012c0a88630846b2cfaa721877400
+      spriteID: 29418dc170c27584183a3516fc72eca8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_37
+      name: Lycanthrope_WideArea0_37
       rect:
         serializedVersion: 2
         x: 6438
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8531c58eb46941c46bc6457661a1f25a
+      spriteID: 35f81e196b888e74c95f14c2083a68be
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_38
+      name: Lycanthrope_WideArea0_38
       rect:
         serializedVersion: 2
         x: 6612
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 541c504118b36e0429bf1b5982102fd5
+      spriteID: 9371c8d7966feb241b22ed85886de8a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_39
+      name: Lycanthrope_WideArea0_39
       rect:
         serializedVersion: 2
         x: 6786
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 616b7015294cb0e418ee9db6906566e0
+      spriteID: 391c6a8c0a4162641a1e555683ec11ff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_40
+      name: Lycanthrope_WideArea0_40
       rect:
         serializedVersion: 2
         x: 6960
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b5a59fa80373bb4dbd8de82b919cba1
+      spriteID: c0d732c8ea7be324a95631c2a6f1ef6f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_41
+      name: Lycanthrope_WideArea0_41
       rect:
         serializedVersion: 2
         x: 7134
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f480afaf70a2e7646a6a59631ecb28e2
+      spriteID: b8e73a9d09eaa004c999e85ea0f60a4c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_42
+      name: Lycanthrope_WideArea0_42
       rect:
         serializedVersion: 2
         x: 7308
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37d12ba0bd6a63b4fbd35149a6b5867a
+      spriteID: c36449b38b365354aa210906b457e9e6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_43
+      name: Lycanthrope_WideArea0_43
       rect:
         serializedVersion: 2
         x: 7482
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 630591d7b3c0057459f7c35b4921cc61
+      spriteID: d0a0bd056a832454fbb216fb8686eae2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_44
+      name: Lycanthrope_WideArea0_44
       rect:
         serializedVersion: 2
         x: 7656
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23344249c445a7c4b920d51ce8cb1fdc
+      spriteID: ec9ca7e023b71e54480c00d9652dbdd9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_45
+      name: Lycanthrope_WideArea0_45
       rect:
         serializedVersion: 2
         x: 7830
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ce770d672d79a64da914cee0c2f4641
+      spriteID: 2f5e99ee168ab3b4099cd361493b9d9b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_46
+      name: Lycanthrope_WideArea0_46
       rect:
         serializedVersion: 2
         x: 8004
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3b6f6af1a38cb141b9f7ab2f27b170e
+      spriteID: dbdcc717baed57346ab685bbecb558a3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bsprite0_strip48_47
+      name: Lycanthrope_WideArea0_47
       rect:
         serializedVersion: 2
         x: 8178
         y: 0
         width: 174
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5615149, y: 0.1179033}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ca3c914b0a145a4aa012a28a57e05d7
+      spriteID: a626d17258bc06b408f2895e47ade72a
       vertices: []
       indices: 
       edges: []
