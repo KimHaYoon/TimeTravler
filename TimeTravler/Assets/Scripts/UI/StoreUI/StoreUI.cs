@@ -37,15 +37,15 @@ public class StoreUI : MonoBehaviour
             {
                 var slot = slotRoot.GetChild(i).GetComponent<Slot>();
 
-                if (salesList.GetSalesList().Count <= 0)
-                {
-                    slot.SetItem(new ItemData());
-                }
-
-                else if (salesList.GetSalesList().Count > 0)
+                if (salesList.GetSalesList().Count > i)
                 {
                     ItemData data = salesList.GetSalesList()[i];
                     slot.SetItem(data);
+                }
+
+                else
+                {
+                    slot.SetItem(new ItemData());
                 }
 
                 slotList.Add(slot);
