@@ -344,12 +344,14 @@ public class Monster : MonoBehaviour
 
     public void Hurt(GameObject owner, bool knockBack, bool cri, float damagePump)//Player에서 호출
     {
+        if (die)
+            return;
         if (!hurt)//피격여부 ture = 피격, false = 피격x
         {
             CreateDamageUI(gameObject, owner, true, false, cri, damagePump);
             move_Type = false;
             hurt = true;//피격여부 ture = 피격, false = 피격x
-            if(!attack && !die)
+            if(!attack)
             {
                 myAnimator.Play("Hurt");
             }
@@ -359,6 +361,8 @@ public class Monster : MonoBehaviour
     
     public void KnockBackHurt(GameObject owner, bool cri, float damagePump)
     {
+        if (die)
+            return;
         if (!knockBack)
         {
             Hurt(owner, true, cri, damagePump);
