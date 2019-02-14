@@ -46,12 +46,14 @@ public class gg : MonoBehaviour
                     BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
                     //stat
 
+                    defence += opt1 * (buf[1, 0] + buf[1, 1]);
                     _defence += opt1;
                     //opt1 방어력
                     return;
                 case 3://신발
                        //stat
 
+                    defence += opt1 * (buf[1, 0] + buf[1, 1]);
                     _defence += opt1;
                     //opt1 방어력
                     return;
@@ -61,6 +63,8 @@ public class gg : MonoBehaviour
                                                                    //퀵슬롯 바껴야됨
 
 
+                    power += opt1 * (buf[0, 0] + buf[0, 1]);
+                    dex += opt1 * (buf[2, 0] + buf[2, 1]);
                     _power += opt1;
                     _dex += opt2;
                     //opt1 공격력
@@ -69,8 +73,8 @@ public class gg : MonoBehaviour
                     return;
                 case 5://방패
                     ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
-                    //stat
 
+                    defence += opt1 * (buf[1, 0] + buf[1, 1]);
                     _defence += opt1;
                     //opt1 방어력
                     return;
@@ -108,26 +112,33 @@ public class gg : MonoBehaviour
                 case 1://모자
                     HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
                     //stat
+
+                    defence -= opt1 * (buf[1, 0] + buf[1, 1]);
                     _defence -= opt1;
                     return;
                 case 2://갑옷
                     BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/1201", typeof(Sprite));
                     //stat
+                    defence -= opt1 * (buf[1, 0] + buf[1, 1]);
                     _defence -= opt1;
                     return;
                 case 3://신발
                     //stat
+                    defence -= opt1 * (buf[1, 0] + buf[1, 1]);
                     _defence -= opt1;
                     return;
                 case 4://무기
                     SwordSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
                     //stat
+                    power -= opt1 * (buf[0, 0] + buf[0, 1]);
+                    dex -= opt1 * (buf[2, 0] + buf[2, 1]);
                     _power -= opt1;
                     _dex -= opt2;
                     return;
                 case 5://방패
                     ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
                     //stat
+                    defence -= opt1 * (buf[1, 0] + buf[1, 1]);
                     _defence -= opt1;
                     return;
             }
