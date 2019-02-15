@@ -7,7 +7,7 @@ enum Skill
 {
     current,
     splash_force,
-    katana_blade,
+    pierce_spear,
     flare_ball
 }
 
@@ -37,20 +37,31 @@ public class Player : MonoBehaviour
     private float jumpForce;
 
     // skill
+
+    // 검 스킬
     [SerializeField]
     private AuraSword auraSwordPrefab;
     [SerializeField]
     private Transform auraSwordPos;
 
+    // 대검 스킬
     [SerializeField]
-    private PierceSpear pierceSpearPrefab;
+    private KatanaBlade katanaBladePrefab;
     [SerializeField]
-    private Transform pierceSpearPos;
+    private Transform katanaBladePos;
 
+    // 창 스킬
     [SerializeField]
     private DoubleSlash1 doubleSlash1Prefab;
     [SerializeField]
     private Transform doubleSlash1Pos;
+
+
+    [SerializeField]
+    private PierceSpear pierceSpearPrefab;
+    [SerializeField]
+    private Transform pierceSpearPos;
+    private bool isPierceSpear;
 
     [SerializeField]
     private SplashForce splashForcePrefab;
@@ -58,11 +69,7 @@ public class Player : MonoBehaviour
     private Transform splashForcePos;
     private bool isSplashForce;
 
-    [SerializeField]
-    private KatanaBlade katanaBladePrefab;
-    [SerializeField]
-    private Transform katanaBladePos;
-    private bool isKatanaBlade;
+    
 
     [SerializeField]
     private FlareBall flareBallPrefab;
@@ -209,7 +216,7 @@ public class Player : MonoBehaviour
         isCurrentSkill = false;
         isFlareBall = false;
         isSplashForce = false;
-        isKatanaBlade = false;
+        isPierceSpear = false;
         currentSkill = auraSwordPrefab;
         currentSkillPos = auraSwordPos;
 
@@ -249,7 +256,7 @@ public class Player : MonoBehaviour
     {
         Hp = 5000;
         currentHp = Hp;
-        currentHp = 0;
+        //currentHp = 0;
         _Hp = Hp;
         power = 20;
         defence = 10;
@@ -342,15 +349,15 @@ public class Player : MonoBehaviour
         {
             weapon = 2;
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1411", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
-            currentSkill = doubleSlash1Prefab;
-            currentSkillPos = doubleSlash1Pos;
+            currentSkill = katanaBladePrefab;
+            currentSkillPos = katanaBladePos;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             weapon = 3;
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1421", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정1421
-            currentSkill = pierceSpearPrefab;
-            currentSkillPos = pierceSpearPos;
+            currentSkill = doubleSlash1Prefab;
+            currentSkillPos = doubleSlash1Pos;
         }
         if (currentHp > 0)
         {
@@ -453,10 +460,10 @@ public class Player : MonoBehaviour
                     {
                         myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
 
-                        if (!isKatanaBlade)
+                        if (!isPierceSpear)
                         {
-                            isKatanaBlade = InstantiateSkill(katanaBladePrefab, katanaBladePos);
-                            StartCoroutine(SkillCoolTimer(Skill.katana_blade, katanaBladePrefab.coolTime));
+                            isPierceSpear = InstantiateSkill(pierceSpearPrefab, pierceSpearPos);
+                            StartCoroutine(SkillCoolTimer(Skill.pierce_spear, pierceSpearPrefab.coolTime));
                         }
                     }
                 }
@@ -587,9 +594,9 @@ public class Player : MonoBehaviour
         {
             isCurrentSkill = false;
         }
-        else if (skill == Skill.katana_blade)
+        else if (skill == Skill.pierce_spear)
         {
-            isKatanaBlade = false;
+            isPierceSpear = false;
         }
         else if (skill == Skill.splash_force)
         {
