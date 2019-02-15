@@ -16,11 +16,14 @@ public class BufferUI : MonoBehaviour
     private List<GameObject> PosList;
     public Vector3 pos = Vector3.zero;
 
+    private bool[] checkCor;
+
     private void Awake()
     {
-        ObjBuffer = new GameObject[9, 2];
-        buf = new float[9, 2];
+        ObjBuffer = new GameObject[14, 2];
+        buf = new float[14, 2];
         PosList = new List<GameObject>();
+        checkCor = new bool[3];
     }
     
     private void Update()
@@ -31,7 +34,7 @@ public class BufferUI : MonoBehaviour
         }
     }
 
-
+    
     public void StartBuf(GameObject gameObject, bool who, int num, int type, float crease, float time)//버프류
     {
         //who = true player false monster;
@@ -47,6 +50,23 @@ public class BufferUI : MonoBehaviour
         }
         if (who)//player
         {
+            if (buf[num, type] != 0)
+            {
+                ObjBuffer[num, type].GetComponent<Buffer>().time = time;
+                ObjBuffer[num, type].GetComponent<Buffer>().amount = 0;
+            }
+            else
+            {
+                ObjBuffer[num, type] = Instantiate(Resources.Load("UI/Prefabs/Buffer")) as GameObject;
+                PosList.Add(ObjBuffer[num, type]);
+                ObjBuffer[num, type].transform.parent = transform.Find("Canvas");
+                if (num < 3)
+                    ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num * 2 + type, time);
+                else
+                    ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num + 3, time);
+                ObjBuffer[num, type].GetComponent<Buffer>().SetPlayerPos(PosList.Count - 1);
+            }
+
             switch (num)
             {
                 case 0://공격력
@@ -62,28 +82,42 @@ public class BufferUI : MonoBehaviour
 
                 //버프물약
 
-                case 3://회복지속물약
+                case 3://회복지속물약1
+                case 4://회복지속물약2
+                case 5://회복지속물약3
+                    if(!checkCor[num - 3])
+                    {
+                        StartCoroutine(ObjBuffer[num, type].GetComponent<Buffer>().Heal(crease, time));
+                        checkCor[num - 3] = true;
+                    }
+                    break;
+                case 6://공격력버프물약
+                    player.power += (int)(player._power * pm * crease);
+                    break;
+                case 7://방어력버프물약
+                    player.defence += (int)(player._defence * pm * crease);
+                    break;
+                case 8://치명타버프물약
                     player.dex += (int)(player._dex * pm * crease);
                     break;
-                case 4://공격력버프물약
-                    monster.dex += (int)(monster._dex * pm * crease);
+                case 9://체력버프물약
+                    float rate = player.currentHp / player.Hp;
+                    player.Hp = (int)(player._Hp * pm * crease);
+                    player.currentHp = (int)(player.Hp * rate);
                     break;
-                case 5://방어력버프물약
-                    monster.dex += (int)(monster._dex * pm * crease);
-                    break;
-                case 6://치명타버프물약
-                    monster.dex += (int)(monster._dex * pm * crease);
-                    break;
-                case 7://체력버프물약
-                    monster.dex += (int)(monster._dex * pm * crease);
-                    break;
-                case 8://점프물약
-                    monster.dex += (int)(monster._dex * pm * crease);
+                case 10://점프물약
+                    player.extraJumpsValue = 2;
                     break;
             }
+            
+            //buf[num, type] += crease;
+        }
+        else//monster
+        {
             if (buf[num, type] != 0)
             {
-                ObjBuffer[num, type].GetComponent<Buffer>().time += time;
+                ObjBuffer[num, type].GetComponent<Buffer>().time = time;
+                ObjBuffer[num, type].GetComponent<Buffer>().amount = 0;
             }
             else
             {
@@ -91,13 +125,8 @@ public class BufferUI : MonoBehaviour
                 PosList.Add(ObjBuffer[num, type]);
                 ObjBuffer[num, type].transform.parent = transform.Find("Canvas");
                 ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num * 2 + type, time);
-                ObjBuffer[num, type].GetComponent<Buffer>().SetPlayerPos(PosList.Count - 1);
+                ObjBuffer[num, type].GetComponent<Buffer>().SetMonsterPos(PosList.Count - 1);
             }
-            if(num < 3)//버프물약아닐경우에만
-                buf[num, type] += crease;
-        }
-        else//monster
-        {
             switch (num)
             {
                 case 0://공격력
@@ -110,19 +139,9 @@ public class BufferUI : MonoBehaviour
                     monster.dex += (int)(monster._dex * pm * crease);
                     break;
             }
-            if (buf[num, type] != 0)
-            {
-                ObjBuffer[num, type].GetComponent<Buffer>().time += time;
-            }
-            else
-            {
-                ObjBuffer[num, type] = Instantiate(Resources.Load("UI/Prefabs/Buffer")) as GameObject;
-                PosList.Add(ObjBuffer[num, type]);
-                ObjBuffer[num, type].transform.parent = transform.Find("Canvas");
-                ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num * 2 + type, time);
-                ObjBuffer[num, type].GetComponent<Buffer>().SetMonsterPos(PosList.Count - 1);
-            }
-            buf[num, type] += crease;
+            
+
+            //buf[num, type] += crease;
         }
     }
 
@@ -130,7 +149,10 @@ public class BufferUI : MonoBehaviour
     {
         int type = num % 2;
         int pm = 1;
-        num /= 2;
+        if (num < 6)
+            num /= 2;
+        else
+            num -= 3;
         switch (type)//0버프 1디버프
         {
             case 0:
@@ -154,8 +176,28 @@ public class BufferUI : MonoBehaviour
                     player.dex -= (int)(player._dex * pm * buf[num, type]);
                     break;
 
-
-                    //버프뮬약류
+                case 3://회복지속물약1
+                case 4://회복지속물약2
+                case 5://회복지속물약3
+                        checkCor[num - 3] = false;
+                    break;
+                case 6://공격력버프물약
+                    player.power -= (int)(player._power * pm * buf[num, type]);
+                    break;
+                case 7://방어력버프물약
+                    player.defence -= (int)(player._defence * pm * buf[num, type]);
+                    break;
+                case 8://치명타버프물약
+                    player.dex -= (int)(player._dex * pm * buf[num, type]);
+                    break;
+                case 9://체력버프물약
+                    float rate = player.currentHp / player.Hp;
+                    player.Hp = player._Hp;
+                    player.currentHp = (int)(player.Hp * rate);
+                    break;
+                case 10://점프물약
+                    player.extraJumpsValue = 1;
+                    break;
 
 
 
