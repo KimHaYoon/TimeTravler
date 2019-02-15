@@ -29,12 +29,12 @@ public class Monster : MonoBehaviour
     public bool firstAttack;//true 선공 false 비선공
     public float attackTimeValue;//공격시간
     public int hp;//최대체력
-    public int power;//공격력
-    public int defence;//방어력
-    public int dex;//치명타
-    public int _power;
-    public int _defence;
-    public int _dex;
+    public float power;//공격력
+    public float defence;//방어력
+    public float dex;//치명타
+    public float _power;
+    public float _defence;
+    public float _dex;
     public float moveSpeed = 1f;//이동속도
     public Vector3 attackEffectPos = Vector3.zero;//몬스터 AttackEffect 위치
     public float attackEffectXScale;

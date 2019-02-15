@@ -29,9 +29,6 @@ public class Buffer : MonoBehaviour
         StartCoroutine(BufferCount());
     }
     
-
-
-
     public void Init(bool who, int buf, float time)
     {
         target = who;

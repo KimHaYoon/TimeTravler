@@ -17,6 +17,7 @@ public class BufferUI : MonoBehaviour
     public Vector3 pos = Vector3.zero;
 
     private bool[] checkCor;
+    private Coroutine[] CorHeal;
 
     private void Awake()
     {
@@ -24,8 +25,12 @@ public class BufferUI : MonoBehaviour
         buf = new float[14, 2];
         PosList = new List<GameObject>();
         checkCor = new bool[3];
+        CorHeal = new Coroutine[3];
     }
-    
+    private void Start()
+    {
+        StartCoroutine(UpdatePos());
+    }
     private void Update()
     {
         if (monster != null)
@@ -34,161 +39,173 @@ public class BufferUI : MonoBehaviour
         }
     }
 
+    private IEnumerator UpdatePos()
+    {
+        int k = 0;
+        for (int i = 0; i < PosList.Count; i++)
+        {
+            if (PosList[i] == null)
+                continue;
+            if (monster == null)
+                PosList[i].GetComponent<Buffer>().SetPlayerPos(k);
+            else
+                PosList[i].GetComponent<Buffer>().SetMonsterPos(k);
+            k++;
+        }
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(UpdatePos());
+    }
     
     public void StartBuf(GameObject gameObject, bool who, int num, int type, float crease, float time)//버프류
     {
         //who = true player false monster;
-        int pm = 1;//+-
-        switch (type)//0버프 1디버프
-        {
-            case 0:
-                pm = 1;
-                break;
-            case 1:
-                pm = -1;
-                break;
-        }
+        int k = 0;
+        buf[num, type] = crease;
         if (who)//player
         {
-            if (buf[num, type] != 0)
+            if(ObjBuffer[num, type] != null)
             {
-                ObjBuffer[num, type].GetComponent<Buffer>().time = time;
-                ObjBuffer[num, type].GetComponent<Buffer>().amount = 0;
+                PosList.Remove(ObjBuffer[num, type]);
+                Destroy(ObjBuffer[num, type].gameObject);
             }
+            ObjBuffer[num, type] = Instantiate(Resources.Load("UI/Prefabs/Buffer")) as GameObject;
+            PosList.Add(ObjBuffer[num, type]);
+            ObjBuffer[num, type].transform.parent = transform.Find("Canvas");
+            if (num < 3)
+                ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num * 2 + type, time);
             else
+                ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num + 3, time);
+            
+            for (int i = 0; i < PosList.Count; i++)
             {
-                ObjBuffer[num, type] = Instantiate(Resources.Load("UI/Prefabs/Buffer")) as GameObject;
-                PosList.Add(ObjBuffer[num, type]);
-                ObjBuffer[num, type].transform.parent = transform.Find("Canvas");
-                if (num < 3)
-                    ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num * 2 + type, time);
+                if (PosList[i] == null)
+                    continue;
+                if (monster == null)
+                    PosList[i].GetComponent<Buffer>().SetPlayerPos(k);
                 else
-                    ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num + 3, time);
-                ObjBuffer[num, type].GetComponent<Buffer>().SetPlayerPos(PosList.Count - 1);
+                    PosList[i].GetComponent<Buffer>().SetMonsterPos(k);
+                k++;
             }
-
             switch (num)
             {
                 case 0://공격력
-                    player.power += (int)(player._power * pm * crease);
+                    player.power = player._power * (1 + buf[0, 0] + buf[0, 1] + buf[6, 0]);
                     break;
                 case 1://방어력
-                    player.defence += (int)(player._defence * pm * crease);
+                    player.defence = player._defence * (1 + buf[1, 0] + buf[1, 1] + buf[7, 0]);
                     break;
                 case 2://치명타
-                    player.dex += (int)(player._dex * pm * crease);
+                    player.dex = player._dex * (1 + buf[2, 0] + buf[2, 1] + buf[8, 0]);
                     break;
-
-
-                //버프물약
-
                 case 3://회복지속물약1
                 case 4://회복지속물약2
                 case 5://회복지속물약3
                     if(!checkCor[num - 3])
+                        CorHeal[num - 3] = StartCoroutine(ObjBuffer[num, type].GetComponent<Buffer>().Heal(crease, time));
+                    else
                     {
-                        StartCoroutine(ObjBuffer[num, type].GetComponent<Buffer>().Heal(crease, time));
-                        checkCor[num - 3] = true;
+                        StopCoroutine(CorHeal[num - 3]);
+                        CorHeal[num - 3] = StartCoroutine(ObjBuffer[num, type].GetComponent<Buffer>().Heal(crease, time));
                     }
+                    checkCor[num - 3] = true;
                     break;
                 case 6://공격력버프물약
-                    player.power += (int)(player._power * pm * crease);
+                    player.power = player._power * (1 + buf[0, 0] + buf[0, 1] + buf[6, 0]);
                     break;
                 case 7://방어력버프물약
-                    player.defence += (int)(player._defence * pm * crease);
+                    player.defence = player._defence * (1 + buf[1, 0] + buf[1, 1] + buf[7, 0]);
                     break;
                 case 8://치명타버프물약
-                    player.dex += (int)(player._dex * pm * crease);
+                    player.dex = player._dex * (1 + buf[2, 0] + buf[2, 1] + buf[8, 0]);
                     break;
                 case 9://체력버프물약
                     float rate = player.currentHp / player.Hp;
-                    player.Hp = (int)(player._Hp * pm * crease);
+                    player.Hp = (int)(player._Hp * crease);
                     player.currentHp = (int)(player.Hp * rate);
                     break;
                 case 10://점프물약
                     player.extraJumpsValue = 2;
                     break;
             }
-            
-            //buf[num, type] += crease;
         }
         else//monster
         {
-            if (buf[num, type] != 0)
+            if (ObjBuffer[num, type] != null)
             {
-                ObjBuffer[num, type].GetComponent<Buffer>().time = time;
-                ObjBuffer[num, type].GetComponent<Buffer>().amount = 0;
+                Destroy(ObjBuffer[num, type].gameObject);
+                PosList.Remove(ObjBuffer[num, type]);
             }
-            else
-            {
-                ObjBuffer[num, type] = Instantiate(Resources.Load("UI/Prefabs/Buffer")) as GameObject;
-                PosList.Add(ObjBuffer[num, type]);
-                ObjBuffer[num, type].transform.parent = transform.Find("Canvas");
+            ObjBuffer[num, type] = Instantiate(Resources.Load("UI/Prefabs/Buffer")) as GameObject;
+            PosList.Add(ObjBuffer[num, type]);
+            ObjBuffer[num, type].transform.parent = transform.Find("Canvas");
+            if (num < 3)
                 ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num * 2 + type, time);
-                ObjBuffer[num, type].GetComponent<Buffer>().SetMonsterPos(PosList.Count - 1);
+            else
+                ObjBuffer[num, type].GetComponent<Buffer>().Init(who, num + 3, time);
+            for (int i = 0; i < PosList.Count; i++)
+            {
+                if (PosList[i] == null)
+                    continue;
+                if (monster == null)
+                    PosList[i].GetComponent<Buffer>().SetPlayerPos(k);
+                else
+                    PosList[i].GetComponent<Buffer>().SetMonsterPos(k);
+                k++;
             }
             switch (num)
             {
                 case 0://공격력
-                    monster.power += (int)(monster._power * pm * crease);
+                    monster.power = monster._power * (1 + buf[0, 0] + buf[0, 1] + buf[6, 0]);
                     break;
                 case 1://방어력
-                    monster.defence += (int)(monster._defence * pm * crease);
+                    monster.defence = monster._defence * (1 + buf[1, 0] + buf[1, 1] + buf[7, 0]);
                     break;
                 case 2://치명타
-                    monster.dex += (int)(monster._dex * pm * crease);
+                    monster.dex = monster._dex * (1 + buf[2, 0] + buf[2, 1] + buf[8, 0]);
                     break;
             }
-            
-
-            //buf[num, type] += crease;
+            buf[num, type] += crease;
         }
     }
 
     public void EndBuf(bool target, int num)//true player false monster
     {
         int type = num % 2;
-        int pm = 1;
+        int k = 0;
         if (num < 6)
             num /= 2;
         else
             num -= 3;
-        switch (type)//0버프 1디버프
-        {
-            case 0:
-                pm = 1;
-                break;
-            case 1:
-                pm = -1;
-                break;
-        }
+
+        buf[num, type] = 0;
         if (target)//플레이어
         {
             switch (num)//원상태로 복구
             {
                 case 0://공격력
-                    player.power -= (int)(player._power * pm * buf[num, type]);
+                    player.power = player._power * (1 + buf[0, 0] + buf[0, 1] + buf[6, 0]);
                     break;
                 case 1://방어력
-                    player.defence -= (int)(player._defence * pm * buf[num, type]);
+                    player.defence = player._defence * (1 + buf[1, 0] + buf[1, 1] + buf[7, 0]);
                     break;
                 case 2://치명타
-                    player.dex -= (int)(player._dex * pm * buf[num, type]);
+                    player.dex = player._dex * (1 + buf[2, 0] + buf[2, 1] + buf[8, 0]);
                     break;
 
                 case 3://회복지속물약1
                 case 4://회복지속물약2
                 case 5://회복지속물약3
-                        checkCor[num - 3] = false;
+                    StopCoroutine(CorHeal[num - 3]);
+                    checkCor[num - 3] = false;
                     break;
                 case 6://공격력버프물약
-                    player.power -= (int)(player._power * pm * buf[num, type]);
+                    player.power = player._power * (1 + buf[0, 0] + buf[0, 1] + buf[6, 0]);
                     break;
                 case 7://방어력버프물약
-                    player.defence -= (int)(player._defence * pm * buf[num, type]);
+                    player.defence = player._defence * (1 + buf[1, 0] + buf[1, 1] + buf[7, 0]);
                     break;
                 case 8://치명타버프물약
-                    player.dex -= (int)(player._dex * pm * buf[num, type]);
+                    player.dex = player._dex * (1 + buf[2, 0] + buf[2, 1] + buf[8, 0]);
                     break;
                 case 9://체력버프물약
                     float rate = player.currentHp / player.Hp;
@@ -198,9 +215,6 @@ public class BufferUI : MonoBehaviour
                 case 10://점프물약
                     player.extraJumpsValue = 1;
                     break;
-
-
-
             }
         }
         else//몬스터
@@ -208,27 +222,19 @@ public class BufferUI : MonoBehaviour
             switch (num)//원상태로 복구
             {
                 case 0://공격력
-                    monster.power -= (int)(monster._power * pm * buf[num, type]);
+                    monster.power = monster._power * (1 + buf[0, 0] + buf[0, 1] + buf[6, 0]);
                     break;
                 case 1://방어력
-                    monster.defence -= (int)(monster._defence * pm * buf[num, type]);
+                    monster.defence = monster._defence * (1 + buf[1, 0] + buf[1, 1] + buf[7, 0]);
                     break;
                 case 2://치명타
-                    monster.dex -= (int)(monster._dex * pm * buf[num, type]);
+                    monster.dex = monster._dex * (1 + buf[2, 0] + buf[2, 1] + buf[8, 0]);
                     break;
             }
         }
-        buf[num, type] = 0;
         PosList.Remove(ObjBuffer[num, type]);//끝난놈 지우기
-        for(int i = 0; i< PosList.Count; i++)
-        {
-            if(monster == null)
-                PosList[i].GetComponent<Buffer>().SetPlayerPos(i);
-            else
-                PosList[i].GetComponent<Buffer>().SetMonsterPos(i);
-        }
     }
-
+    
 
     public void SetPos(Vector3 pos)
     {

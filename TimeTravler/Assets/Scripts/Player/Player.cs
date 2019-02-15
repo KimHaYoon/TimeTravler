@@ -102,7 +102,6 @@ public class Player : MonoBehaviour
 
     public void Consume(bool onoff, string item, int type, int opt1, int opt2)
     {
-        Debug.Log(onoff + "  " + item + "  " + type + "  " + opt1 + "  " + opt2);
         bf = transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>();
         if (onoff)//착용
         {
@@ -111,30 +110,31 @@ public class Player : MonoBehaviour
                 case 1://모자
                     HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
                     _defence += opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 1]);
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
                     return;
                 case 2://갑옷
                     BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
                     _defence += opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 1]);
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
                     return;
                 case 3://신발
                     _defence += opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 1]);
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
                     return;
                 case 4://무기
                     SwordSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
                     weapon = Convert.ToInt32(item.Substring(2, 1));//무기변경함
                                                                    //퀵슬롯 바껴야됨
                     _power += opt1;
-                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 1]);
+                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 0]);
                     _dex += opt2;
-                    power = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 1]);
+                    power = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 0]);
                     return;
                 case 5://방패
                     ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
                     _defence += opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 1]);
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    Debug.Log(bf.buf[7, 0]);
                     return;
             }
         }
@@ -145,28 +145,28 @@ public class Player : MonoBehaviour
                 case 1://모자
                     HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
                     _defence -= opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 1]);
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
                     return;
                 case 2://갑옷
                     BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/1201", typeof(Sprite));
                     _defence -= opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 1]);
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
                     return;
                 case 3://신발
                     _defence -= opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 1]);
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
                     return;
                 case 4://무기
                     SwordSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
                     _power -= opt1;
-                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 1]);
+                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 0]);
                     _dex -= opt2;
-                    dex = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 1]);
+                    dex = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 0]);
                     return;
                 case 5://방패
                     ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
                     _defence -= opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 1]);
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
                     return;
                 case 6://회복물약
                     currentHp += opt1;
@@ -201,12 +201,23 @@ public class Player : MonoBehaviour
         currentSkillPos = auraSwordPos;
 
         StartCoroutine(FadeIn());
-        Inventory.instance.Add("2203002");
-        Inventory.instance.Add("1103201");
-        Inventory.instance.Add("1401301");
-        Inventory.instance.Add("1413301");
-        Inventory.instance.Add("1425301");
-        Consume(false, "2304", 8, 2, 5);
+        Inventory.instance.Add("1101101");
+        Inventory.instance.Add("1202101");
+        Inventory.instance.Add("1301101");
+        Inventory.instance.Add("1401101");
+        Inventory.instance.Add("1411101");
+        Inventory.instance.Add("1421101");
+        Inventory.instance.Add("1501101");
+
+
+        Inventory.instance.Add("2201005");
+        Inventory.instance.Add("2202005");
+        Inventory.instance.Add("2203005");
+        Inventory.instance.Add("2301005");
+        Inventory.instance.Add("2302005");
+        Inventory.instance.Add("2303005");
+        Inventory.instance.Add("2304005");
+        Inventory.instance.Add("2305005");
     }
     
     void Update()
@@ -225,7 +236,7 @@ public class Player : MonoBehaviour
     {
         Hp = 5000;
         currentHp = Hp;
-        currentHp = 3;
+        currentHp = 0;
         _Hp = Hp;
         power = 20;
         defence = 10;
@@ -233,6 +244,7 @@ public class Player : MonoBehaviour
         _power = power;
         _defence = defence;
         _dex = dex;
+        extraJumpsValue = 1;
     }
     private void CheckHp()
     {
