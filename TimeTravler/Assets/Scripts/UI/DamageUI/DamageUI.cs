@@ -53,7 +53,7 @@ public class DamageUI : MonoBehaviour
             monster = owner.GetComponent<Monster>();
             damage = (int)(monster.power - player.defence);//공-방
             damage = (int)(damage * damagePump);
-            if (Probability(monster.dex) && cri)
+            if (Probability((int)monster.dex) && cri)
             {
                 damage *= 2;
                 color = "RED";

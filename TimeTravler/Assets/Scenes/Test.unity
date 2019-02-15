@@ -10838,10 +10838,10 @@ RectTransform:
   m_Father: {fileID: 1906879119}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 46.97, y: -66}
+  m_SizeDelta: {x: 100, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363270072
 MonoBehaviour:
@@ -12701,10 +12701,10 @@ RectTransform:
   m_Father: {fileID: 1906879119}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 46.97, y: -9}
+  m_SizeDelta: {x: 100, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549503984
 MonoBehaviour:
@@ -29088,7 +29088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1389245780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31129,7 +31129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1597524798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32504,10 +32504,10 @@ RectTransform:
   m_Father: {fileID: 1906879119}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 46.97, y: -28}
+  m_SizeDelta: {x: 100, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1668290424
 MonoBehaviour:
@@ -65491,10 +65491,10 @@ RectTransform:
   m_Father: {fileID: 1906879119}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 46.97, y: -47}
+  m_SizeDelta: {x: 100, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1967620628
 MonoBehaviour:
@@ -68107,8 +68107,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   groundCheck: {fileID: 1359299867362643377}
-  extraJumpsValue: 2
   jumpForce: 8
+  auraSwordPrefab: {fileID: 0}
+  auraSwordPos: {fileID: 0}
+  splashForcePrefab: {fileID: 0}
+  splashForcePos: {fileID: 0}
+  pierceSpearPrefab: {fileID: 0}
+  pierceSpearPos: {fileID: 0}
+  doubleSlash1Prefab: {fileID: 0}
+  doubleSlash1Pos: {fileID: 0}
+  katanaBladePrefab: {fileID: 0}
+  katanaBladePos: {fileID: 0}
+  flareBallPrefab: {fileID: 0}
+  isFlareBall: 0
   facingLeft: 1
   isPassGround: 0
   isNoPassGround: 0
@@ -68119,6 +68130,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   knockBack: 0
+  extraJumpsValue: 2
+  _Hp: 20000
   Hp: 200
   currentHp: 100
   power: 10
