@@ -182,7 +182,7 @@ public class InventorySlot : MonoBehaviour
                 Debug.Log("무기장착");
                 target = Inventory.instance.equipment_weapon.GetComponent<Item_string>();
  
-                if (int.Parse(item_string.Substring(2, 1)) == 1)
+                if (int.Parse(item_string.Substring(2, 1)) != 0)
                 {
                     if (Inventory.instance.current_count >= Inventory.instance.inventory_max - 1 && Inventory.instance.equipment_Shield.GetComponent<Item_string>().code != null)
                     {
