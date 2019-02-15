@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SkillquickSlot : MonoBehaviour
+public class skillChoiceslot : MonoBehaviour
 {
     public void OnPointerClick(BaseEventData Data)
     {
@@ -22,10 +22,22 @@ public class SkillquickSlot : MonoBehaviour
         {
             //오른쪽클릭
             Debug.Log("오른쪽 클릭");
-            Skill_window.instance.slot_now[this.GetComponent<index>().Index - 1].GetComponent<skill_ob>().skill = null;
+            insert(this.GetComponent<skill_ob>());
             skillslot.instance.update();
         }
     }
 
-   
+    void insert(skill_ob choice_skill)
+    {
+        GameObject[] slot_now = Skill_window.instance.slot_now;
+        for (int i = 0, count = skillslot.slotcount ; i < count; i++)
+        {
+            if (slot_now[i].GetComponent<skill_ob>().skill == null)
+            {
+                slot_now[i].GetComponent<skill_ob>().skill = choice_skill.skill;
+                return;
+            }
+        }
+    }
+
 }

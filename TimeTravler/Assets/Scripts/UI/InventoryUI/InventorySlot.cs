@@ -190,16 +190,18 @@ public class InventorySlot : MonoBehaviour
                         return;
                     }
                     Debug.Log("대검이다");
+                    //방패빼기
                     GameObject Shield = Inventory.instance.equipment_Shield;
                     Inventory.instance.Add(Shield.GetComponent<Item_string>().code);
                     part = Shield.GetComponent<Item_string>().code;
                     if (part != null)
                     {
+                        //뺀 방패만큼 방어력 감소
                         Inventory.instance.player.Consume(false, part.Substring(0, 4), InventorySlot.GetType(part),
                                 ItemManager.instance.GetOpt1_1(int.Parse(part.Substring(0, 5))),
                                 ItemManager.instance.GetOpt2_1(int.Parse(part.Substring(0, 5))));
                     }
-
+                    //방패 금지 이미지
                     Shield.GetComponent<Image>().sprite = Inventory.instance.closeImage;
                     Shield.GetComponent<Item_string>().code = null;
                     sheild = false;
@@ -210,9 +212,14 @@ public class InventorySlot : MonoBehaviour
                     Inventory.instance.equipment_Shield.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
                     sheild = true;
                     if (int.Parse(item_string.Substring(2, 1)) == 0)
+                    {
+                        Debug.Log("1번슬롯으로 변경");
                         Skill_window.instance.slot_now = Skill_window.instance.one_slot;
+                    }
                     else if (int.Parse(item_string.Substring(2, 1)) == 2)
+                    {
                         Skill_window.instance.slot_now = Skill_window.instance.three_slot;
+                    }
                 }
                 if (target.code != null)
                 {

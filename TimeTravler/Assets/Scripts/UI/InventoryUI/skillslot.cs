@@ -72,9 +72,14 @@ public class skillslot : MonoBehaviour
 
     public void update()
     {
-        for(int i =0; i < skillslot.slotcount; i++)
+        GameObject[] skill_slot = Skill_window.instance.slot_now;
+        for (int i =0; i < skillslot.slotcount; i++)
         {
-            //Skill_window.instance.slot_now를 slots에 복사
+            slots[i].GetComponent<skill_ob>().skill = skill_slot[i].GetComponent<skill_ob>().skill;
+            if (slots[i].GetComponent<skill_ob>().skill == null)
+                slots[i].GetComponent<Image>().sprite = Inventory.instance.defaultImage;
+            else
+                slots[i].GetComponent<Image>().sprite = slots[i].GetComponent<skill_ob>().skill.GetComponent<Image>().sprite;
         }
     }
 }
