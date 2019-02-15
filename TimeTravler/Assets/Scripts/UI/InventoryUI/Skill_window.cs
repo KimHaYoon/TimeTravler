@@ -24,12 +24,17 @@ public class Skill_window : MonoBehaviour
         one_slot = new GameObject[skillslot.slotcount];
         two_slot = new GameObject[skillslot.slotcount];
         three_slot = new GameObject[skillslot.slotcount];
-        for(int i=0; i < skillslot.slotcount; i++)
+        for (int i=0; i < skillslot.slotcount; i++)
         {
-            one_slot[i] = null;
-            two_slot[i] = null;
-            three_slot[i] = null;
+            one_slot[i] = new GameObject(i + "");
+            two_slot[i] = new GameObject(i + "");
+            three_slot[i] = new GameObject(i + "");
+            one_slot[i].AddComponent<skill_ob>().skill = null;
+            two_slot[i].AddComponent<skill_ob>().skill = null;
+            three_slot[i].AddComponent<skill_ob>().skill = null;
         }
+        slot_now = one_slot;
+        
 
     }
 
@@ -39,6 +44,7 @@ public class Skill_window : MonoBehaviour
         instance.two.SetActive(false);
         instance.three.SetActive(false);
         instance.slot_now = instance.one_slot;
+        skillslot.instance.update();
     }
     public void button2()
     {
@@ -46,6 +52,7 @@ public class Skill_window : MonoBehaviour
         instance.two.SetActive(true);
         instance.three.SetActive(false);
         instance.slot_now = instance.two_slot;
+        skillslot.instance.update();
     }
     public void button3()
     {
@@ -53,5 +60,6 @@ public class Skill_window : MonoBehaviour
         instance.two.SetActive(false);
         instance.three.SetActive(true);
         instance.slot_now = instance.three_slot;
+        skillslot.instance.update();
     }
 }
