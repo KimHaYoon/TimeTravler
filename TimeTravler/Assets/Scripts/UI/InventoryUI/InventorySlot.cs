@@ -18,6 +18,7 @@ public class InventorySlot : MonoBehaviour
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log("왼쪽클릭");
+            if(item.code != null)
             if(item.code.Substring(0,1) == "2")
             for (int i = 0; i < Itemslot.instance.slots.Count; i++)
             {
@@ -91,6 +92,10 @@ public class InventorySlot : MonoBehaviour
     {
         if (this.GetComponent<Item_string>().code != null)
         {
+            ItemData temp = ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5)));
+            Debug.Log(temp.name);
+            Debug.Log(temp.sellprice);
+            Debug.Log(temp.buyprice);
             info.SetItem(ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5))));
             info.gameObject.SetActive(true);
         }
