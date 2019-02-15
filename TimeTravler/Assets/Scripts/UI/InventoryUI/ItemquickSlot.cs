@@ -19,13 +19,13 @@ public class ItemquickSlot : MonoBehaviour
             Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
                             ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
                             ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
+            Inventory.instance.minus_item(item.code);
             minus_item(item);
         }
     }
 
     public void minus_item(Item_string item)
     {
-        Inventory.instance.minus_item(item.code);
         int count = int.Parse(item.code.Substring(5, 2)) - 1;
         if (count <= 0)
         {

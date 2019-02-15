@@ -18,19 +18,35 @@ public class InventorySlot : MonoBehaviour
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log("왼쪽클릭");
-            if(item.code != null)
-            if(item.code.Substring(0,1) == "2")
-            for (int i = 0; i < Itemslot.instance.slots.Count; i++)
-            {
-                if (Itemslot.instance.slots[i].GetComponent<Item_string>().code.Equals(item.code))
+            if (item.code != null)
+                if (item.code.Substring(0, 1) == "2")
                 {
-                        Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
-                            ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
-                            ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
-                        Itemslot.instance.slots[i].GetComponent<ItemquickSlot>().minus_item(Itemslot.instance.slots[i].GetComponent<Item_string>());
-                    break;
+                    //인벤토리의 아이템을 감소 & consume실행
+                    Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
+                                    ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
+                                    ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
+                    int count = int.Parse(item.code.Substring(5, 2)) - 1;
+                    if (count <= 0)
+                    {
+                        Inventory.instance.pop_list(this.GetComponent<index>().Index);
+                        return;
+                    }
+                    string count_string = ((count < 10 ? "0" + count : "" + count));
+                    item.code = Inventory.instance.copy(item.code.Substring(0, 5) + count_string);
+                    //해당 슬롯의 갯수출력변경
+                    this.GetComponentInChildren<Text>().text = (int.Parse(item.code.Substring(5, 2)) > 0 ?
+                        " " + int.Parse(item.code.Substring(5, 2)) : " ");
+                    //퀙슬롯에 아이템이 있으면 감소
+                    for (int i = 0; i < Itemslot.instance.slots.Count; i++)
+                    {
+                        if (Itemslot.instance.slots[i].GetComponent<Item_string>().code != null)
+                            if (Itemslot.instance.slots[i].GetComponent<Item_string>().code.Equals(item.code))
+                            {
+                                Itemslot.instance.slots[i].GetComponent<ItemquickSlot>().minus_item(Itemslot.instance.slots[i].GetComponent<Item_string>());
+                                break;
+                            }
+                    }
                 }
-            }
 
         }
 
@@ -238,15 +254,8 @@ public class InventorySlot : MonoBehaviour
         if (code.Substring(0, 1) == "1")
             return int.Parse(code.Substring(1, 1));
         else if (code.Substring(0, 1) == "2")
-            switch(code.Substring(1, 1))
-            {
-                case "1":
-                case "2":
-                    return 6;
+            return int.Parse(code.Substring(1, 1)) + 5;
 
-                case "3":
-                    return int.Parse(code.Substring(3, 1)) + 6;
-            }
         return 0;
     }
 }
