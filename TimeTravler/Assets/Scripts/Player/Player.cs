@@ -181,8 +181,8 @@ public class Player : MonoBehaviour
         extraJumps = extraJumpsValue;
 
         StartCoroutine(FadeIn());
-        Inventory.instance.Add("1101301");
-        Inventory.instance.Add("1103301");
+        Inventory.instance.Add("1101201");
+        Inventory.instance.Add("1103201");
         Inventory.instance.Add("1401301");
         Inventory.instance.Add("1413301");
         Inventory.instance.Add("1425301");
