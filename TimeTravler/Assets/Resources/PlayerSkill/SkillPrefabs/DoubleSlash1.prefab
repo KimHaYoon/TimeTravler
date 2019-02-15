@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6610833385646874971}
   - component: {fileID: 6610833385646874974}
   - component: {fileID: 6610833385646874975}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: DoubleSlash1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   damageRatio: 1
   isKnockBack: 0
   isCritical: 0
+  coolTime: 2
   skillUser: {fileID: 0}
   doubleSlash2Prefab: {fileID: 3370222512596009016, guid: 8c1440fc930a6384ea8a9aba12beaf91,
     type: 3}

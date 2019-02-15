@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5145687042777339145}
   - component: {fileID: 5145687042777339144}
   - component: {fileID: 6920670578930842931}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: AuraSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,6 +164,7 @@ MonoBehaviour:
   damageRatio: 1
   isKnockBack: 0
   isCritical: 0
+  coolTime: 0.5
   skillUser: {fileID: 0}
   maxRange: 20
   speed: 10

@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum Skill
+{
+    current,
+    splash_force,
+    katana_blade,
+    flare_ball
+}
+
 public class Player : MonoBehaviour
 {
     Coroutine corAttack;
@@ -37,11 +45,6 @@ public class Player : MonoBehaviour
     private Transform auraSwordPos;
 
     [SerializeField]
-    private SplashForce splashForcePrefab;
-    [SerializeField]
-    private Transform splashForcePos;
-
-    [SerializeField]
     private PierceSpear pierceSpearPrefab;
     [SerializeField]
     private Transform pierceSpearPos;
@@ -52,9 +55,16 @@ public class Player : MonoBehaviour
     private Transform doubleSlash1Pos;
 
     [SerializeField]
+    private SplashForce splashForcePrefab;
+    [SerializeField]
+    private Transform splashForcePos;
+    private bool isSplashForce;
+
+    [SerializeField]
     private KatanaBlade katanaBladePrefab;
     [SerializeField]
     private Transform katanaBladePos;
+    private bool isKatanaBlade;
 
     [SerializeField]
     private FlareBall flareBallPrefab;
@@ -64,9 +74,9 @@ public class Player : MonoBehaviour
 
     private PlayerSkill currentSkill;
     private Transform currentSkillPos;
+    private bool isCurrentSkill;
 
-
-
+    
 
     //move
     public bool facingLeft = true;
@@ -211,7 +221,10 @@ public class Player : MonoBehaviour
         extraJumps = extraJumpsValue;
 
         // 스킬 변수 초기화
+        isCurrentSkill = false;
         isFlareBall = false;
+        isSplashForce = false;
+        isKatanaBlade = false;
         currentSkill = auraSwordPrefab;
         currentSkillPos = auraSwordPos;
 
@@ -266,7 +279,7 @@ public class Player : MonoBehaviour
     }
 
     // 스킬 오브젝트 생성 함수
-    void InstantiateSkill(PlayerSkill skillPrefabs, Transform skillPos)
+    bool InstantiateSkill(PlayerSkill skillPrefabs, Transform skillPos)
     {
         if (facingLeft)
         {
@@ -274,6 +287,7 @@ public class Player : MonoBehaviour
             if (tmp)
             {
                 tmp.Initialize(this.gameObject, Vector2.left);
+                return true;
             }
         }
         else
@@ -282,8 +296,11 @@ public class Player : MonoBehaviour
             if (tmp)
             {
                 tmp.Initialize(this.gameObject, Vector2.right);
+                return true;
+
             }
         }
+        return false;
     }
 
     // flareBall 오브젝트 생성 함수
@@ -300,9 +317,13 @@ public class Player : MonoBehaviour
         }
         else
         {
-            flareBall.Shoot();
-            flareBall = null;
-            isFlareBall = false;
+            if (flareBall)
+            {
+                flareBall.Shoot();
+                flareBall = null;
+
+                StartCoroutine(SkillCoolTimer(Skill.flare_ball, flareBallPrefab.coolTime));
+            }
         }
     }
 
@@ -404,9 +425,10 @@ public class Player : MonoBehaviour
                     {
                         myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
 
-                        if (currentSkill != null)
+                        if (currentSkill != null && !isCurrentSkill)
                         {
-                            InstantiateSkill(currentSkill, currentSkillPos);
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
                         }
                     }
 
@@ -419,16 +441,23 @@ public class Player : MonoBehaviour
                     {
                         myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
 
-                        InstantiateSkill(splashForcePrefab, splashForcePos);
+                        if (!isSplashForce)
+                        {
+                            isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
+                            StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
+                        }
                     }
 
                     if (Input.GetKeyDown(KeyCode.T))
                     {
                         myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
 
-                        InstantiateSkill(katanaBladePrefab, katanaBladePos);
+                        if (!isKatanaBlade)
+                        {
+                            isKatanaBlade = InstantiateSkill(katanaBladePrefab, katanaBladePos);
+                            StartCoroutine(SkillCoolTimer(Skill.katana_blade, katanaBladePrefab.coolTime));
+                        }
                     }
-
                 }
                 myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
                 Flip(horizontal);
@@ -547,6 +576,28 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         knockBack = false;
         superArmor = false;
+    }
+
+    IEnumerator SkillCoolTimer(Skill skill, float coolTime)
+    {
+        yield return new WaitForSeconds(coolTime);
+
+        if (skill == Skill.current)
+        {
+            isCurrentSkill = false;
+        }
+        else if (skill == Skill.katana_blade)
+        {
+            isKatanaBlade = false;
+        }
+        else if (skill == Skill.splash_force)
+        {
+            isSplashForce = false;
+        }
+        else if (skill == Skill.flare_ball)
+        {
+            isFlareBall = false;
+        }
     }
 
     public void SetBuf(int num, int type, float crease, float time)//버프류
