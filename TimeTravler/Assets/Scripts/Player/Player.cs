@@ -236,9 +236,9 @@ public class Player : MonoBehaviour
     {
         Hp = 5000;
         currentHp = Hp;
-        currentHp = 0;
+        //currentHp = 0;
         _Hp = Hp;
-        power = 20;
+        power = 13;
         defence = 10;
         dex = 10;
         _power = power;
