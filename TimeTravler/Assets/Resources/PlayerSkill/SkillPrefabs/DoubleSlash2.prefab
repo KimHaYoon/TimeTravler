@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3370222512596009019}
   - component: {fileID: 3370222512596009012}
   - component: {fileID: 3370222512596009015}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: DoubleSlash2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   damageRatio: 1
   isKnockBack: 0
   isCritical: 0
+  coolTime: 0
   skillUser: {fileID: 0}
 --- !u!58 &3370222512596009015
 CircleCollider2D:

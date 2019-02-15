@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6581306043532948228}
   - component: {fileID: 6581306043532948224}
   - component: {fileID: 6581306043532948231}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SplashForce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   damageRatio: 1
   isKnockBack: 0
   isCritical: 0
+  coolTime: 4
   skillUser: {fileID: 0}
 --- !u!58 &6581306043532948231
 CircleCollider2D:

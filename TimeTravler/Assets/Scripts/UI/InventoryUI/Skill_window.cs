@@ -34,11 +34,11 @@ public class Skill_window : MonoBehaviour
             three_slot[i].AddComponent<skill_ob>().skill = null;
         }
         slot_now = one_slot;
-        
+
 
     }
 
-    public void button1()
+        public void button1()
     {
         instance.one.SetActive(true);
         instance.two.SetActive(false);

@@ -14589,7 +14589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &709593087
 Transform:
   m_ObjectHideFlags: 0
@@ -68298,15 +68298,15 @@ MonoBehaviour:
   auraSwordPrefab: {fileID: 6920670578930842931, guid: 91e15e8616af80d43a559bfcc8fe98d6,
     type: 3}
   auraSwordPos: {fileID: 1669623711}
-  splashForcePrefab: {fileID: 6581306043532948224, guid: d61e896bf60fd3f48b9f2aab54cbab66,
-    type: 3}
-  splashForcePos: {fileID: 1604320068}
   pierceSpearPrefab: {fileID: 6138471060161112337, guid: b0d4682733566044aa38a1c0575d0785,
     type: 3}
   pierceSpearPos: {fileID: 1848602391}
   doubleSlash1Prefab: {fileID: 6610833385646874974, guid: 536317f7474e647438aa99186e3747d8,
     type: 3}
   doubleSlash1Pos: {fileID: 1449473730}
+  splashForcePrefab: {fileID: 6581306043532948224, guid: d61e896bf60fd3f48b9f2aab54cbab66,
+    type: 3}
+  splashForcePos: {fileID: 1604320068}
   katanaBladePrefab: {fileID: 9053138277446476298, guid: 3f7b8651badf4104596f107295035e92,
     type: 3}
   katanaBladePos: {fileID: 145507003}

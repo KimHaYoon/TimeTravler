@@ -10,7 +10,7 @@ public abstract class PlayerSkill : MonoBehaviour
     
     public bool isCritical;
 
-    
+    public float coolTime;
 
     [HideInInspector]
     public GameObject skillUser;

@@ -83,6 +83,8 @@ public class Inventory : MonoBehaviour
                 window_show = false;
                 info.gameObject.SetActive(false);
             }
+
+
         }
 
         if (Input.GetKeyDown(KeyCode.G))
