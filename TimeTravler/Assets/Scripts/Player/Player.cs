@@ -92,8 +92,9 @@ public class Player : MonoBehaviour
     private int extraJumps;
     private bool downJump = false;
     private bool isJump = false;
-    private bool isAttack = false;
+    public bool isAttack = false;
     private int weapon = 1;
+    private int skill = 0;
 
     private float checkRadius = 0.1f;
     public LayerMask noPassGround;
@@ -335,6 +336,8 @@ public class Player : MonoBehaviour
         }
     }
 
+    
+
 
     private void InputKey()
     {
@@ -342,22 +345,19 @@ public class Player : MonoBehaviour
         {
             weapon = 1;
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1401", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
-            currentSkill = auraSwordPrefab;
-            currentSkillPos = auraSwordPos;
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             weapon = 2;
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1411", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
-            currentSkill = katanaBladePrefab;
-            currentSkillPos = katanaBladePos;
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             weapon = 3;
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1421", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정1421
-            currentSkill = doubleSlash1Prefab;
-            currentSkillPos = doubleSlash1Pos;
+            
         }
         if (currentHp > 0)
         {
@@ -428,51 +428,131 @@ public class Player : MonoBehaviour
                         }
                     }
 
+                    if (Input.GetKeyDown(KeyCode.V))
+                    {
+                        myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
+                        isAttack = true;
+                        skill =
+                            1;
+                        myAnimator.Play("Player_Skill4_1");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.B))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        isAttack = true;
+                        skill = 2;
+                        myAnimator.Play("Player_Skill4_2");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.N))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        isAttack = true;
+                        skill = 3;
+                        myAnimator.Play("Player_Skill4_3");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        if(weapon == 1)
+                        {
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill1");
+                        }
+                    }
+
                     // 키 입력시 스킬 생성
-                    if (Input.GetKeyDown(KeyCode.Q))
+                    if (Input.GetKeyDown(KeyCode.X))
                     {
                         myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-
-                        if (currentSkill != null && !isCurrentSkill)
+                        if (weapon == 2)
                         {
-                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
-                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill2");
+                        }
+                    }
+                    
+
+                    if (Input.GetKeyDown(KeyCode.C))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        if (weapon == 3)
+                        {
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill3");
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        InstantiateFlareBall();
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.R))
-                    {
-                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-
-                        if (!isSplashForce)
-                        {
-                            isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
-                            StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
-                        }
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.T))
-                    {
-                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-
-                        if (!isPierceSpear)
-                        {
-                            isPierceSpear = InstantiateSkill(pierceSpearPrefab, pierceSpearPos);
-                            StartCoroutine(SkillCoolTimer(Skill.pierce_spear, pierceSpearPrefab.coolTime));
-                        }
-                    }
+                    
                 }
                 myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
                 Flip(horizontal);
             }
         }
     }
-    
+
+    public void StartSkill()
+    {
+        switch (skill)
+        {
+            case 1:
+                if (!isSplashForce)
+                {
+                    isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
+                    StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
+                }
+                break;
+            case 2:
+                InstantiateFlareBall();
+                break;
+            case 3:
+                if (!isPierceSpear)
+                {
+                    isPierceSpear = InstantiateSkill(pierceSpearPrefab, pierceSpearPos);
+                    StartCoroutine(SkillCoolTimer(Skill.pierce_spear, pierceSpearPrefab.coolTime));
+                }
+                break;
+            case 4:
+                switch (weapon)
+                {
+                    case 1:
+                        currentSkill = katanaBladePrefab;
+                        currentSkillPos = katanaBladePos;
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
+                        break;
+                    case 2:
+                        currentSkill = doubleSlash1Prefab;
+                        currentSkillPos = doubleSlash1Pos;
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
+                        break;
+                    case 3:
+                        currentSkill = auraSwordPrefab;
+                        currentSkillPos = auraSwordPos;
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
+                        break;
+                }
+                break;
+        }
+        skill = 0;
+    }
+
     private void Flip(float horizontal)//캐릭터 스프라이트 방향전환용
     {
         if (horizontal != 0 && (horizontal < 0 && !facingLeft || horizontal > 0 && facingLeft))
