@@ -24,7 +24,8 @@ public class SkillquickSlot : MonoBehaviour
             Debug.Log("오른쪽 클릭");
             if (Skill_window.skill_window_show == true)
             {
-                Skill_window.instance.slot_now[this.GetComponent<index>().Index - 1].GetComponent<skill_ob>().skill = null;
+                Skill_window.instance.slot_now[this.GetComponent<index>().Index - 1].GetComponent<skill_ob>().skill = 0;
+                Skill_window.instance.slot_now[this.GetComponent<index>().Index - 1].GetComponent<skill_ob>().skill_img = null;
                 skillslot.instance.update();
             }
         }

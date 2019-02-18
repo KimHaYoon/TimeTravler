@@ -32,9 +32,10 @@ public class skillChoiceslot : MonoBehaviour
         GameObject[] slot_now = Skill_window.instance.slot_now;
         for (int i = 0, count = skillslot.slotcount ; i < count; i++)
         {
-            if (slot_now[i].GetComponent<skill_ob>().skill == null)
+            if (slot_now[i].GetComponent<skill_ob>().skill == 0)
             {
                 slot_now[i].GetComponent<skill_ob>().skill = choice_skill.skill;
+                slot_now[i].GetComponent<skill_ob>().skill_img = choice_skill.skill_img;
                 return;
             }
         }

@@ -17,6 +17,7 @@ public class InventorySlot : MonoBehaviour
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log("왼쪽클릭");
+            if(Inventory.instance.isSHOP == false)
             if (item.code != null)
                 if (item.code.Substring(0, 1) == "2")
                 {
