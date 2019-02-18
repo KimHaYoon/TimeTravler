@@ -7,7 +7,6 @@ public class QuestUI : MonoBehaviour
 {
     public QuestData MainQuest;
     //public List<QuestData> SubQuest = new List<QuestData>();
-    public QuestManager QuestM;
 
     public Text QuestName;
     public Text QuestGoal;
@@ -18,7 +17,7 @@ public class QuestUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetMainQuest("멍청이", "1", "으엑");
+        SetMainQuest("멍청이", 1, "으엑", "나닛");
         gameObject.SetActive(false);
         Active = false;
     }
@@ -45,7 +44,7 @@ public class QuestUI : MonoBehaviour
         }
     }
 
-    public void SetMainQuest(string QuestName, string Goal, string Reward, string ObjName = "NONE")
+    public void SetMainQuest(string QuestName, int Goal, string Reward, string ObjName = "NONE")
     {
         MainQuest = new QuestData();
 
@@ -55,7 +54,8 @@ public class QuestUI : MonoBehaviour
         else
             MainQuest.name = ObjName + " " + QuestName;
 
-        MainQuest.count = "0";
+        MainQuest.objname = ObjName;
+        MainQuest.count = 0;
         MainQuest.goal = Goal;
         MainQuest.reward = Reward;
         MainQuest.clear = false;
@@ -77,6 +77,20 @@ public class QuestUI : MonoBehaviour
         Active = active;
         gameObject.SetActive(Active);
     }
+
+    public void SetCount(int count)
+    {
+        MainQuest.count = count;
+    }
+
+    public void Check(string objName)
+    {
+        if (MainQuest.objname == objName)
+        {
+            MainQuest.count++;
+        }
+    }
+
     //public void AddSubQuest(string QuestName, string Goal, string Reward)
     //{
     //    QuestData subQuest = new QuestData();

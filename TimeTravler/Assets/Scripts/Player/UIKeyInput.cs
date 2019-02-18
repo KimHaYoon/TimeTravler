@@ -11,6 +11,11 @@ public class UIKeyInput : MonoBehaviour
     public GameObject Inventorywindow;
     //public GameObject Skillwindow;
 
+    private void Start()
+    {
+        Inventorywindow.SetActive(false);
+    }
+
     void Update()
     {
         //UI Input Key

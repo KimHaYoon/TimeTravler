@@ -28,6 +28,7 @@ public class StoreUI : MonoBehaviour
             gameObject.SetActive(false);
             inventory.isSHOP = false;
             inventory.gameObject.SetActive(false);
+            info.gameObject.SetActive(false);
         }
 
         if(salesListUpdate)

@@ -4157,7 +4157,7 @@ PrefabInstance:
     - target: {fileID: 4518487854803406337, guid: 873e412b11298634d9a9e81de3e24bfc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 4518487854803406337, guid: 873e412b11298634d9a9e81de3e24bfc,
         type: 3}
@@ -5755,11 +5755,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainQuest:
     name: 
-    count: 
-    goal: 
+    objname: 
+    count: 0
+    goal: 0
     reward: 
     clear: 0
-  QuestM: {fileID: 1142225361}
   QuestName: {fileID: 46579482}
   QuestGoal: {fileID: 1028689054}
   QuestReward: {fileID: 1748335143}
@@ -5966,7 +5966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -269, y: 0}
+  m_AnchoredPosition: {x: -269, y: -21}
   m_SizeDelta: {x: 150, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070460453
@@ -6092,50 +6092,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efe32388f9c0863488fdcbc5ea04ea04, type: 3}
---- !u!1 &1142225360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1142225362}
-  - component: {fileID: 1142225361}
-  m_Layer: 0
-  m_Name: QuestManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1142225361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142225360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d31ee71371f434fbe1cc4b769432b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainQuestList: []
---- !u!4 &1142225362
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142225360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 541.68945, y: 323.23322, z: -3.9609158}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1166967611
 GameObject:
   m_ObjectHideFlags: 0
@@ -6845,7 +6801,7 @@ PrefabInstance:
     - target: {fileID: 8102938163731307534, guid: 5f75430a6e925514aa3d029034b012cb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8102938163731307534, guid: 5f75430a6e925514aa3d029034b012cb,
         type: 3}
