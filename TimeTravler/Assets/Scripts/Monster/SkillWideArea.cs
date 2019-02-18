@@ -7,7 +7,6 @@ public class SkillWideArea : MonoBehaviour
 {
     public GameObject player;
     public GameObject monster;
-    //public int monsterBoss;
 
     float x, y, Objx, Objy;
 

@@ -24,10 +24,6 @@ public class Monster : MonoBehaviour
     public int mNum;//몬스터 개인번호
     public int monsterBoss; //몬스터의 종류 확인 0 일반 1 중간 2 최종
 
-    //MonsterBoss
-    public int pageNum;
-    public int randomEffect;
-
     //MonsterInfo
     public bool moveType;//true 이동 false 고정
     public bool firstAttack;//true 선공 false 비선공
@@ -46,7 +42,6 @@ public class Monster : MonoBehaviour
     public string dropItem;//1,44,2,33,5,6~
     private float[,] buf;//공방치
 
-    public int effectNum; //최보 어택 애니메이터 전환용
 
     private Vector2 colliderSize;//플레이어 점프시 MonsterSight콜라이더 변환용
     public int currentHp;//현재체력
@@ -236,13 +231,7 @@ public class Monster : MonoBehaviour
                         if (monsterBoss == 0)
                             corAttack = StartCoroutine(AttackTimer());//공격 딜레이 코루틴(attackTime)
                         else
-                        {
-                            pageNum = GetPageNum();
-                            attackTime = AttackTime(pageNum);
-                            
-                            corAttack = StartCoroutine(BossAttackEffect(pageNum, attackTime));
-                        }
-
+                            corAttack = StartCoroutine(BossAttackEffect());
                         if (checkMoveCor)
                         {
                             StopCoroutine(corMove);
@@ -303,7 +292,7 @@ public class Monster : MonoBehaviour
                 if (monsterBoss == 0)
                     StopCoroutine(AttackTimer());//AttackTimer코루틴 종료
                 else
-                    StopCoroutine(BossAttackEffect(pageNum, attackTime));
+                    StopCoroutine(BossAttackEffect());
                 attack = false;//공격여부 true = 공격, false = 공격x
                 checkAttackCor = false;//AttackTimer실행여부 true = 실행, false = 실행x
             }
@@ -336,7 +325,7 @@ public class Monster : MonoBehaviour
                     if (monsterBoss == 0)
                         StopCoroutine(AttackTimer());//AttackTimer코루틴 종료
                     else
-                        StopCoroutine(BossAttackEffect(pageNum, attackTime));
+                        StopCoroutine(BossAttackEffect());
                 }
                 myAnimator.Play("Die");
                 transform.Find("MonsterCollider").GetComponent<MonsterCollider>().DestroyObject();//MonsterCollider 삭제
@@ -424,12 +413,28 @@ public class Monster : MonoBehaviour
             CreateDamageUI(player.gameObject, gameObject, false, false, true, 1.5f);
 
         }
-
-        else if (monsterBoss == 1)
-            skillManager.MiddleBoss(pageNum);
-
         else
-            skillManager.LastBoss(randomEffect, pageNum);
+        {
+            switch (skillManager.randomSkill)
+            {
+                case 0:
+                    skillManager.UsingBuffer(skillManager.randomEffect);
+                    break;
+
+                case 1:
+                    skillManager.UsingTargeting(skillManager.randomEffect);
+                    break;
+
+                case 2:
+                    skillManager.UsingWideArea(skillManager.randomEffect);
+                    break;
+
+                case 3:
+                    skillManager.CallMonster(skillManager.randomSubMonsterNum, skillManager.subMonMakeAmount);
+                    break;
+
+            }
+        }
     }
 
     private void EndAttack()
@@ -499,36 +504,16 @@ public class Monster : MonoBehaviour
         checkAttackCor = false;
     }
 
-    IEnumerator BossAttackEffect(int pageNum, float attackTime)//공격 딜레이 코루틴(attackTimeValue)
+    IEnumerator BossAttackEffect()//공격 딜레이 코루틴(attackTimeValue)
     {
         if (die) yield break;
         move = false;
-        Debug.Log(pageNum);
-        Debug.Log(attackTime);
-        
-        if (monsterBoss == 1)
-        {
-            if (attack)//공격여부 true = 공격, false = 공격x
-                myAnimator.Play("Attack");
-            yield return new WaitForSeconds(attackTime);
-        }
-        else
-        {
-            
-            randomEffect = skillManager.LastBossSelect(pageNum);
-            Debug.Log(randomEffect);
-            if (attack)
-            {
-                if (randomEffect == 1)
-                    myAnimator.Play("Attack1");
-                else if (randomEffect == 2)
-                    myAnimator.Play("Attack2");
-                else
-                    myAnimator.Play("Attack0");
-            }
-            yield return new WaitForSeconds(attackTime);
-        }
-       
+
+        if (attack)//공격여부 true = 공격, false = 공격x
+            myAnimator.Play("Attack");
+        skillManager.SelectattackTime();
+        yield return new WaitForSeconds(attackTime);
+
         checkAttackCor = false;
     }
 
@@ -558,43 +543,5 @@ public class Monster : MonoBehaviour
     public void SetBuf(int num, int type, float crease, float time)//버프류
     {
         transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, false, num, type, crease, time);
-    }
-    public int GetPageNum() // 보스들의 체력 페이지 구함
-    {
-        float pageHp = ((float)currentHp / (float)hp);
-        {
-            if (pageHp > 0.75 && pageHp <= 1)//full에 가까움  
-            {
-                pageNum = 1;
-            }
-            else if (pageHp > 0.5 && pageHp <= 0.75)
-            {
-                pageNum = 2;
-            }
-            else if (pageHp > 0.25 && pageHp <= 0.5)
-            {
-                pageNum = 3;
-            }
-            else if (pageHp >= 0 && pageHp <= 0.25)//empty에 가까움
-            {
-                pageNum = 4;
-            }
-
-        }
-        return pageNum;
-    }
-    public float AttackTime(int pageNum)
-    {
-        if (monsterBoss == 2)
-        {//몬스터 어텍타이머 다 수정
-            if (pageNum == 4) attackTime = 2f;
-            else if (pageNum == 3) attackTime = 3f;
-            else if (pageNum == 2) attackTime = 5f;
-            else attackTime = 6f;
-        }
-        else if (monsterBoss == 1)
-            if (pageNum == 4 && pageNum == 3) attackTime = attackTimeValue - 1f;
-
-        return attackTime;
     }
 }
