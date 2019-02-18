@@ -36,7 +36,7 @@ public class skillslot : MonoBehaviour
         for (int i =0; i < skillslot.slotcount; i++)
         {
             skillslot.slots[i].GetComponent<skill_ob>().skill = skill_slot[i].GetComponent<skill_ob>().skill;
-        skillslot.slots[i].GetComponent<skill_ob>().skill_img = skill_slot[i].GetComponent<skill_ob>().skill_img;
+            skillslot.slots[i].GetComponent<skill_ob>().skill_img = skill_slot[i].GetComponent<skill_ob>().skill_img;
 
             if (skillslot.slots[i].GetComponent<skill_ob>().skill == 0)
             skillslot.slots[i].GetComponent<Image>().sprite = Inventory.instance.defaultImage;

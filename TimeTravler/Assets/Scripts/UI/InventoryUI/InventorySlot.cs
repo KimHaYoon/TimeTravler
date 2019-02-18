@@ -91,6 +91,7 @@ public class InventorySlot : MonoBehaviour
                 for (int i = 0; i < Itemslot.instance.slots.Count; i++)
                 {
                     slotnow = Itemslot.instance.slots[i];
+                    if (slotnow.GetComponent<Item_string>().code != null)
                     if (slotnow.GetComponent<Item_string>().code.Equals(item.code))
                     {
                         slotnow.GetComponent<Item_string>().code = null;
