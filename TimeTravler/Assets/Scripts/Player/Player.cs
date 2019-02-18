@@ -1,6 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+enum Skill
+{
+    current,
+    splash_force,
+    pierce_spear,
+    flare_ball
+}
 
 public class Player : MonoBehaviour
 {
@@ -25,14 +34,54 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform groundCheck;
     [SerializeField]
-    private int extraJumpsValue;
-    [SerializeField]
     private float jumpForce;
-    
-    
-    
+
+    // skill
+
+    // 검 스킬
+    [SerializeField]
+    private AuraSword auraSwordPrefab;
+    [SerializeField]
+    private Transform auraSwordPos;
+
+    // 대검 스킬
+    [SerializeField]
+    private KatanaBlade katanaBladePrefab;
+    [SerializeField]
+    private Transform katanaBladePos;
+
+    // 창 스킬
+    [SerializeField]
+    private DoubleSlash1 doubleSlash1Prefab;
+    [SerializeField]
+    private Transform doubleSlash1Pos;
 
 
+    [SerializeField]
+    private PierceSpear pierceSpearPrefab;
+    [SerializeField]
+    private Transform pierceSpearPos;
+    private bool isPierceSpear;
+
+    [SerializeField]
+    private SplashForce splashForcePrefab;
+    [SerializeField]
+    private Transform splashForcePos;
+    private bool isSplashForce;
+
+    
+
+    [SerializeField]
+    private FlareBall flareBallPrefab;
+    [HideInInspector]
+    public bool isFlareBall;
+    private FlareBall flareBall;
+
+    private PlayerSkill currentSkill;
+    private Transform currentSkillPos;
+    private bool isCurrentSkill;
+
+    
 
     //move
     public bool facingLeft = true;
@@ -43,8 +92,9 @@ public class Player : MonoBehaviour
     private int extraJumps;
     private bool downJump = false;
     private bool isJump = false;
-    private bool isAttack = false;
+    public bool isAttack = false;
     private int weapon = 1;
+    private int skill = 0;
 
     private float checkRadius = 0.1f;
     public LayerMask noPassGround;
@@ -55,30 +105,103 @@ public class Player : MonoBehaviour
     private bool superArmor = false;//캐릭터 무적(true = 무적, false = 무적해제)
 
     //stat
-    public int Hp = 20000;
-    public int currentHp;
-    public int power = 20;
-    public int defence;
-    public int dex;
-    public int _power;
-    public int _defence;
-    public int _dex;
+    public int extraJumpsValue = 1;
+    public float _Hp = 20000;
+    public float Hp = 20000;
+    public float currentHp;
+    public float power = 20;
+    public float defence;
+    public float dex;
+    public float _power;
+    public float _defence;
+    public float _dex;
 
+    private BufferUI bf;
 
-    public static void Consume(bool onoff, string item, int type, int opt1, int opt2){
-        /*
-         * onoff (true = 장착, false = 탈착)
-         * item (4자리 코드)
-         * type(1 = 모자, 2 = 갑옷, 3 = 신발, 4 = 무기, 5 = 방패, 6 = 회복물약(2101,2201) 7 >>이후 버프물약)
-         * opt1, opt2 itemData에 적힌 순서대로 없으면 0으로
-         */
-    }
-
-
-    void Awake()
+    public void Consume(bool onoff, string item, int type, int opt1, int opt2)
     {
-        Application.targetFrameRate = 40;
+        bf = transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>();
+        if (onoff)//착용
+        {
+            switch (type)
+            {
+                case 1://모자
+                    HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
+                    _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 2://갑옷
+                    BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
+                    _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 3://신발
+                    _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 4://무기
+                    SwordSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
+                    weapon = Convert.ToInt32(item.Substring(2, 1));//무기변경함
+                                                                   //퀵슬롯 바껴야됨
+                    _power += opt1;
+                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 0]);
+                    _dex += opt2;
+                    power = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 0]);
+                    return;
+                case 5://방패
+                    ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
+                    _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    Debug.Log(bf.buf[7, 0]);
+                    return;
+            }
+        }
+        else//제거
+        {
+            switch (type)
+            {
+                case 1://모자
+                    HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
+                    _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 2://갑옷
+                    BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/1201", typeof(Sprite));
+                    _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 3://신발
+                    _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 4://무기
+                    SwordSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
+                    _power -= opt1;
+                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 0]);
+                    _dex -= opt2;
+                    dex = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 0]);
+                    return;
+                case 5://방패
+                    ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
+                    _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 6://회복물약
+                    currentHp += opt1;
+                    if (currentHp > Hp)
+                        currentHp = Hp;
+                    return;
+                case 7://회복지속물약
+                    SetBuf(Convert.ToInt32(item.Substring(3, 1)) + 2, 0, (float)opt1, (float)opt2);
+                    return;
+                case 8://버프물약
+                    SetBuf(Convert.ToInt32(item.Substring(3, 1)) + 5, 0, (float)opt1, (float)opt2);
+                    return;
+            }
+        }
     }
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -90,14 +213,38 @@ public class Player : MonoBehaviour
 
         extraJumps = extraJumpsValue;
 
-        StartCoroutine(FadeIn());
+        // 스킬 변수 초기화
+        isCurrentSkill = false;
+        isFlareBall = false;
+        isSplashForce = false;
+        isPierceSpear = false;
+        currentSkill = auraSwordPrefab;
+        currentSkillPos = auraSwordPos;
 
+        StartCoroutine(FadeIn());
+        Inventory.instance.Add("1101101");
+        Inventory.instance.Add("1202101");
+        Inventory.instance.Add("1301101");
+        Inventory.instance.Add("1401101");
+        Inventory.instance.Add("1411101");
+        Inventory.instance.Add("1421101");
+        Inventory.instance.Add("1501101");
+
+
+        Inventory.instance.Add("2201005");
+        Inventory.instance.Add("2202005");
+        Inventory.instance.Add("2203005");
+        Inventory.instance.Add("2301005");
+        Inventory.instance.Add("2302005");
+        Inventory.instance.Add("2303005");
+        Inventory.instance.Add("2304005");
+        Inventory.instance.Add("2305005");
     }
     
     void Update()
     {
         CheckGround();
-        //Debug.Log("공" + power + "    방" + defence  + "치" + dex);
+        //Debug.Log(currentHp);
     }
 
     void FixedUpdate()
@@ -108,13 +255,17 @@ public class Player : MonoBehaviour
     }
     private void InitStat()
     {
+        Hp = 5000;
         currentHp = Hp;
-        power = 20;
+        //currentHp = 0;
+        _Hp = Hp;
+        power = 13;
         defence = 10;
-        dex = 50;
+        dex = 10;
         _power = power;
         _defence = defence;
         _dex = dex;
+        extraJumpsValue = 1;
     }
     private void CheckHp()
     {
@@ -136,25 +287,77 @@ public class Player : MonoBehaviour
         }
     }
 
+    // 스킬 오브젝트 생성 함수
+    bool InstantiateSkill(PlayerSkill skillPrefabs, Transform skillPos)
+    {
+        if (facingLeft)
+        {
+            PlayerSkill tmp = Instantiate<PlayerSkill>(skillPrefabs, skillPos.position, Quaternion.Euler(new Vector3(0, 180, 0)));
+            if (tmp)
+            {
+                tmp.Initialize(this.gameObject, Vector2.left);
+                return true;
+            }
+        }
+        else
+        {
+            PlayerSkill tmp = Instantiate<PlayerSkill>(skillPrefabs, skillPos.position, Quaternion.identity);
+            if (tmp)
+            {
+                tmp.Initialize(this.gameObject, Vector2.right);
+                return true;
+
+            }
+        }
+        return false;
+    }
+
+    // flareBall 오브젝트 생성 함수
+    void InstantiateFlareBall()
+    {
+        if (!isFlareBall)
+        {
+            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);  //제자리 정지
+
+            flareBall = Instantiate(flareBallPrefab, transform.position, Quaternion.identity);
+            flareBall.Initialize(this.gameObject, Vector2.right);
+
+            isFlareBall = true;
+        }
+        else
+        {
+            if (flareBall)
+            {
+                flareBall.Shoot();
+                flareBall = null;
+
+                StartCoroutine(SkillCoolTimer(Skill.flare_ball, flareBallPrefab.coolTime));
+            }
+        }
+    }
+
+    
+
 
     private void InputKey()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             weapon = 1;
-
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1401", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             weapon = 2;
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1411", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
-
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             weapon = 3;
             transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1421", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정1421
+            
         }
         if (currentHp > 0)
         {
@@ -224,13 +427,132 @@ public class Player : MonoBehaviour
 
                         }
                     }
+
+                    if (Input.GetKeyDown(KeyCode.V))
+                    {
+                        myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
+                        isAttack = true;
+                        skill =
+                            1;
+                        myAnimator.Play("Player_Skill4_1");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.B))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        isAttack = true;
+                        skill = 2;
+                        myAnimator.Play("Player_Skill4_2");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.N))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        isAttack = true;
+                        skill = 3;
+                        myAnimator.Play("Player_Skill4_3");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        if(weapon == 1)
+                        {
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill1");
+                        }
+                    }
+
+                    // 키 입력시 스킬 생성
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        if (weapon == 2)
+                        {
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill2");
+                        }
+                    }
+                    
+
+                    if (Input.GetKeyDown(KeyCode.C))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        if (weapon == 3)
+                        {
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill3");
+                        }
+                    }
+
+                    
                 }
                 myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
                 Flip(horizontal);
             }
         }
     }
-    
+
+    public void StartSkill()
+    {
+        switch (skill)
+        {
+            case 1:
+                if (!isSplashForce)
+                {
+                    isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
+                    StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
+                }
+                break;
+            case 2:
+                InstantiateFlareBall();
+                break;
+            case 3:
+                if (!isPierceSpear)
+                {
+                    isPierceSpear = InstantiateSkill(pierceSpearPrefab, pierceSpearPos);
+                    StartCoroutine(SkillCoolTimer(Skill.pierce_spear, pierceSpearPrefab.coolTime));
+                }
+                break;
+            case 4:
+                switch (weapon)
+                {
+                    case 1:
+                        currentSkill = katanaBladePrefab;
+                        currentSkillPos = katanaBladePos;
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
+                        break;
+                    case 2:
+                        currentSkill = doubleSlash1Prefab;
+                        currentSkillPos = doubleSlash1Pos;
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
+                        break;
+                    case 3:
+                        currentSkill = auraSwordPrefab;
+                        currentSkillPos = auraSwordPos;
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
+                        break;
+                }
+                break;
+        }
+        skill = 0;
+    }
+
     private void Flip(float horizontal)//캐릭터 스프라이트 방향전환용
     {
         if (horizontal != 0 && (horizontal < 0 && !facingLeft || horizontal > 0 && facingLeft))
@@ -344,14 +666,33 @@ public class Player : MonoBehaviour
         superArmor = false;
     }
 
-    public void SetBuf(int num, int type, float crease, float time)//버프류
+    IEnumerator SkillCoolTimer(Skill skill, float coolTime)
     {
-        transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
+        yield return new WaitForSeconds(coolTime);
+
+        if (skill == Skill.current)
+        {
+            isCurrentSkill = false;
+        }
+        else if (skill == Skill.pierce_spear)
+        {
+            isPierceSpear = false;
+        }
+        else if (skill == Skill.splash_force)
+        {
+            isSplashForce = false;
+        }
+        else if (skill == Skill.flare_ball)
+        {
+            isFlareBall = false;
+        }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void SetBuf(int num, int type, float crease, float time)//버프류
     {
-        Inventory.instance.Add(collision.GetComponent<Item_string>().code);
+        Debug.Log(num + " " + type + " " + crease + " " + time);
+        transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
     }
+    
 }
 

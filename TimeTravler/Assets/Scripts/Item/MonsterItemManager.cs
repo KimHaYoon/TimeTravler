@@ -168,7 +168,7 @@ public class MonsterItemManager : MonoBehaviour
 
                     codes[j] = code;                    
                 }
-                Debug.Log(codes);
+                //Debug.Log(codes);
                 return codes;
             }
         }

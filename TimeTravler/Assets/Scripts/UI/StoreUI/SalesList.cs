@@ -36,6 +36,7 @@ public class SalesList : MonoBehaviour
         if ("장비" == strTag)
         {
             salesList.Clear();
+            Debug.Log(salesList.Count);
             for (int i = 0; i < EquipmentSales.Count; ++i)
                 salesList.Add(EquipmentSales[i]);
         }
@@ -43,6 +44,7 @@ public class SalesList : MonoBehaviour
         else if ("잡화" == strTag)
         {
             salesList.Clear();
+            Debug.Log(salesList.Count);
             for (int i = 0; i < GrocerySales.Count; ++i)
                 salesList.Add(GrocerySales[i]);
         }
@@ -51,21 +53,21 @@ public class SalesList : MonoBehaviour
     private void GetEquipment()
     {
         // 모자
-        int num = 2;
+        int num = 3;
         for (int i = 0; i < num; ++i)
         {
             EquipmentSales.Add(itemManager.GetItem(110, num)[i]);
         }
 
         // 갑옷
-        num = 2;
+        num = 3;
         for (int i = 0; i < num; ++i)
         {
             EquipmentSales.Add(itemManager.GetItem(120, num)[i]);
         }
 
         // 신발
-        num = 2;
+        num = 3;
         for (int i = 0; i < num; ++i)
         {
             EquipmentSales.Add(itemManager.GetItem(130, num)[i]);
