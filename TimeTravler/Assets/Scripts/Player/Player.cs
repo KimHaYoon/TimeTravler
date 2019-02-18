@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
     private bool downJump = false;
     private bool isJump = false;
     public bool isAttack = false;
-    private int weapon = 1;
+    public int weapon = 1;
     private int skill = 0;
 
     private float checkRadius = 0.1f;
@@ -432,8 +432,7 @@ public class Player : MonoBehaviour
                     {
                         myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
                         isAttack = true;
-                        skill =
-                            1;
+                        skill =1;
                         myAnimator.Play("Player_Skill4_1");
                     }
 

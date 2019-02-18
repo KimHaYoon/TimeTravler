@@ -8961,7 +8961,7 @@ MonoBehaviour:
   - 14.28 -0.86
   - -14.57 -2.86
   - -14.57 2.56
-  responseTime: 1
+  responseTime: 10
   dropItem: 1
 --- !u!1 &244161296
 GameObject:
@@ -74827,7 +74827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2023508339
 Transform:
   m_ObjectHideFlags: 0
@@ -77266,6 +77266,7 @@ MonoBehaviour:
   isPassGround: 0
   isNoPassGround: 0
   isAttack: 0
+  weapon: 1
   noPassGround:
     serializedVersion: 2
     m_Bits: 16384
