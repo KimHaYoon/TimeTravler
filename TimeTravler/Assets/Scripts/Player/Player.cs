@@ -116,6 +116,14 @@ public class Player : MonoBehaviour
     public float _defence;
     public float _dex;
 
+
+
+
+
+    public int[] quickSkill;//4칸
+    public string[] quickItem;//아이템 string
+
+
     private BufferUI bf;
 
     public void Consume(bool onoff, string item, int type, int opt1, int opt2)
