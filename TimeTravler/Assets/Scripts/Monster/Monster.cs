@@ -396,7 +396,15 @@ public class Monster : MonoBehaviour
             if (Probability(Convert.ToInt32(stringItem[i].Substring(5, 2))))
             {
                 GameObject item = Instantiate(Resources.Load("Item/Prefabs/DropItem")) as GameObject;
-                item.GetComponent<DropItem>().item = stringItem[i].Substring(0, 5) + "01";
+                item.GetComponent<DropItem>().item = stringItem[i].Substring(0, 4);
+                if (stringItem[i].Substring(0, 1) == "1")
+                {
+                    item.GetComponent<DropItem>().item += stringItem[i].Substring(4, 1);
+                    Debug.Log(item.GetComponent<DropItem>().item);
+                }
+                else
+                    item.GetComponent<DropItem>().item += "0";
+                item.GetComponent<DropItem>().item += "01";
                 item.GetComponent<Transform>().position = new Vector3(transform.position.x + UnityEngine.Random.Range(0f, 0.05f), transform.position.y + 0.2f, 0);//몬스터 위치로 이동
             }
         }

@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
     public float _defence;
     public float _dex;
 
-
+    public float time;
 
 
 
@@ -265,7 +265,6 @@ public class Player : MonoBehaviour
     {
         Hp = 5000;
         currentHp = Hp;
-        //currentHp = 0;
         _Hp = Hp;
         power = 13;
         defence = 10;
@@ -274,10 +273,11 @@ public class Player : MonoBehaviour
         _defence = defence;
         _dex = dex;
         extraJumpsValue = 1;
+        time = 1000f;
     }
     private void CheckHp()
     {
-        if (currentHp <= 0)
+        if (currentHp <= 0 || time <= 0)
         {
             myAnimator.Play("Player_Die");
             myRigidbody.velocity = new Vector2(0, 0);
