@@ -12,16 +12,10 @@ public class UIKeyInput : MonoBehaviour
     private Player player;
     //public GameObject Skillwindow;
 
-<<<<<<< HEAD
     private void Start()
     {
         Inventorywindow.SetActive(false);
-=======
-
-    private void Start()
-    {
         player = GetComponent<Player>();
->>>>>>> 811e4cb3e983f9db7b0e1c38ee3ad1cdcaa4d932
     }
 
     void Update()
