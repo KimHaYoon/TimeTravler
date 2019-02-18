@@ -8,7 +8,7 @@ public class UIKeyInput : MonoBehaviour
     public Text storeTitleText;
     public StoreUI storeUI;
     public QuestUI QuestUI;
-    //public GameObject Inventory;
+    public GameObject Inventorywindow;
     //public GameObject Skillwindow;
 
     void Update()
@@ -59,23 +59,23 @@ public class UIKeyInput : MonoBehaviour
             }
         }
 
-        //// i 버튼을 이용해 아이템창을 여는 함수
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    if (Inventory.window_show == false)
-        //    {
-        //        Inventory.SetActive(true);
-        //        Inventory.window_show = true;
-        //    }
-        //    else
-        //    {
-        //        Inventory.SetActive(false);
-        //        Inventory.window_show = false;
-        //        Inventory.instance.info.gameObject.SetActive(false);
-        //    }
-        //}
+        // i 버튼을 이용해 아이템창을 여는 함수
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (Inventory.window_show == false)
+            {
+                Inventorywindow.SetActive(true);
+                Inventory.window_show = true;
+            }
+            else
+            {
+                Inventorywindow.SetActive(false);
+                Inventory.window_show = false;
+                Inventory.instance.info.gameObject.SetActive(false);
+            }
+        }
 
-        //// k 버튼을 이용해 스킬창을 여는 함수
+        // k 버튼을 이용해 스킬창을 여는 함수
         //if (Input.GetKeyDown(KeyCode.K))
         //{
         //    if (Skill_window.skill_window_show == false)

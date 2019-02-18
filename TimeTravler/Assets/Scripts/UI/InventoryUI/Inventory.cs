@@ -9,8 +9,6 @@ public class Inventory : MonoBehaviour
     public ItemInfo info;
     public Player player;
     public static Inventory instance = null;
-    GameObject inventory_window = null;
-    GameObject status_window = null;
     public int inventory_max = 30;
     public int current_count;
 
@@ -39,9 +37,6 @@ public class Inventory : MonoBehaviour
 
         window_show = false;
         isSHOP = false;
-        //지워야 할 두줄
-        inventory_window = GameObject.Find("item_bg");
-        status_window = GameObject.Find("status_bg");
         slots = new List<GameObject>();
         equipment_Head = GameObject.Find("equipment_Head");
         equipment_weapon = GameObject.Find("equipment_weapon");
@@ -61,35 +56,8 @@ public class Inventory : MonoBehaviour
         }
         defaultImage = slots[0].GetComponentInChildren<Image>().sprite;
         current_count = 0;
-        //지워야할 두줄 과 추가할 this.SetActive(false);
-        inventory_window.SetActive(false);
-        status_window.SetActive(false);
-        
-
     }
 
-    // i 버튼을 이용해 아이템창을 여는 함수
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I)) {
-            if (window_show == false)
-            {
-                inventory_window.SetActive(true);
-                status_window.SetActive(true);
-                window_show = true;
-            }
-            else
-            {
-                inventory_window.SetActive(false);
-                status_window.SetActive(false);
-                window_show = false;
-                info.gameObject.SetActive(false);
-            }
-
-
-        }
-
-    }
 
     //새로운 아이템을 슬롯에 넣기전에 하나씩 밀어서 공간을 확보하는 함수
     void push_list(int start)
