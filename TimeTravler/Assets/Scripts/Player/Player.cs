@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
     private bool downJump = false;
     private bool isJump = false;
     public bool isAttack = false;
-    private int weapon = 1;
+    public int weapon = 1;
     private int skill = 0;
 
     private float checkRadius = 0.1f;
