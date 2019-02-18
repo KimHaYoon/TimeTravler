@@ -45,7 +45,7 @@ public class UIKeyInput : MonoBehaviour
                     storeUI.gameObject.SetActive(true);
                     storeUI.salesList.ItemTag("장비");
                     storeUI.SalesListUpdate();
-
+                    storeUI.InventoryEnable(true);
                 }
 
                 else if (hit.collider.name == "AccessoriesStore")
@@ -55,6 +55,7 @@ public class UIKeyInput : MonoBehaviour
                     storeUI.gameObject.SetActive(true);
                     storeUI.salesList.ItemTag("잡화");
                     storeUI.SalesListUpdate();
+                    storeUI.InventoryEnable(true);
                 }
             }
         }
