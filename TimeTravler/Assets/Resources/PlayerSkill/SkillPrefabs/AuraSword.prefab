@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5145687042777339145}
   - component: {fileID: 5145687042777339144}
   - component: {fileID: 6920670578930842931}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: AuraSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 14
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

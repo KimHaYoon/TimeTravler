@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -132,6 +132,8 @@ MonoBehaviour:
   _dex: 0
   moveSpeed: 2
   attackEffectPos: {x: 0, y: 0, z: 0}
+  attackEffectXScale: 0
+  attackEffectYScale: 0
   dropItem: 3,11,15
   currentHp: 0
   attackTime: 5
@@ -610,7 +612,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &9045170260116189333
 MonoBehaviour:
@@ -829,7 +831,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &8523402522487067727
 MonoBehaviour:

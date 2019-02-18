@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6138471060161112342}
   - component: {fileID: 6138471060161112336}
   - component: {fileID: 6138471060161112337}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: PierceSpear
   m_TagString: Untagged
   m_Icon: {fileID: 0}

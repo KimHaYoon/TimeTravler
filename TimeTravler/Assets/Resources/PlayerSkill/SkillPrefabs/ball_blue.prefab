@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1366630214395285605}
   - component: {fileID: 1366630214395285604}
   - component: {fileID: 1366630214395285607}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: ball_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 14
   m_Sprite: {fileID: 21300000, guid: beed082d30fa59b40b7aae86460b0e09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
