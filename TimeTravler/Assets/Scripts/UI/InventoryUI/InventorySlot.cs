@@ -17,6 +17,7 @@ public class InventorySlot : MonoBehaviour
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log("왼쪽클릭");
+            if(Inventory.instance.isSHOP == false)
             if (item.code != null)
                 if (item.code.Substring(0, 1) == "2")
                 {
@@ -90,6 +91,7 @@ public class InventorySlot : MonoBehaviour
                 for (int i = 0; i < Itemslot.instance.slots.Count; i++)
                 {
                     slotnow = Itemslot.instance.slots[i];
+                    if (slotnow.GetComponent<Item_string>().code != null)
                     if (slotnow.GetComponent<Item_string>().code.Equals(item.code))
                     {
                         slotnow.GetComponent<Item_string>().code = null;

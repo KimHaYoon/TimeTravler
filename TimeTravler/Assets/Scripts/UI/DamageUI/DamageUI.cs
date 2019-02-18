@@ -26,7 +26,7 @@ public class DamageUI : MonoBehaviour
         bool direction;
         if (who)
         {
-            player = owner.GetComponent<Player>();
+            player = GameObject.Find("Player").GetComponent<Player>();
             monster = target.GetComponent<Monster>();
             damage = (int)(player.power - monster.defence);//공-방
             damage = (int)(damage * damagePump);
