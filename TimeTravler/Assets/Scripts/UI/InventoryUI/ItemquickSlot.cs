@@ -48,4 +48,15 @@ public class ItemquickSlot : MonoBehaviour
         this.GetComponentInChildren<Text>().text = (int.Parse(item.code.Substring(5, 2)) > 0 ?
              " " + int.Parse(item.code.Substring(5, 2)) : " ");
     }
+
+    public void consumeItem() {
+        Item_string item = this.GetComponent<Item_string>();
+            Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
+                            ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
+                            ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
+            Inventory.instance.minus_item(item.code);
+            minus_item(item);
+
+
+    }
 }

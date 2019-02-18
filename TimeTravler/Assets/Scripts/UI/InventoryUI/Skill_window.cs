@@ -31,9 +31,12 @@ public class Skill_window : MonoBehaviour
             one_slot[i] = new GameObject(i + "");
             two_slot[i] = new GameObject(i + "");
             three_slot[i] = new GameObject(i + "");
-            one_slot[i].AddComponent<skill_ob>().skill = null;
-            two_slot[i].AddComponent<skill_ob>().skill = null;
-            three_slot[i].AddComponent<skill_ob>().skill = null;
+            one_slot[i].AddComponent<skill_ob>().skill_img = null;
+            two_slot[i].AddComponent<skill_ob>().skill_img = null;
+            three_slot[i].AddComponent<skill_ob>().skill_img = null;
+            one_slot[i].AddComponent<skill_ob>().skill = 0;
+            two_slot[i].AddComponent<skill_ob>().skill = 0;
+            three_slot[i].AddComponent<skill_ob>().skill = 0;
         }
         slot_now = one_slot;
 
