@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class skill_ob : MonoBehaviour
 {
-    public GameObject skill = null;
+    public Sprite skill_img = null;
+    public int skill = 0;
 }

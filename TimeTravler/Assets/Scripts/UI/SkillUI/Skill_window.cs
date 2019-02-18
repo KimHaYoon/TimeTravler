@@ -23,17 +23,21 @@ public class Skill_window : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-        one_slot = new GameObject[skillslot.slotcount];
-        two_slot = new GameObject[skillslot.slotcount];
-        three_slot = new GameObject[skillslot.slotcount];
-        for (int i=0; i < skillslot.slotcount; i++)
+        int slot_size = 3;
+        one_slot = new GameObject[slot_size];
+        two_slot = new GameObject[slot_size];
+        three_slot = new GameObject[slot_size];
+        for (int i=0; i < slot_size; i++)
         {
             one_slot[i] = new GameObject(i + "");
             two_slot[i] = new GameObject(i + "");
             three_slot[i] = new GameObject(i + "");
-            one_slot[i].AddComponent<skill_ob>().skill = null;
-            two_slot[i].AddComponent<skill_ob>().skill = null;
-            three_slot[i].AddComponent<skill_ob>().skill = null;
+            one_slot[i].AddComponent<skill_ob>().skill_img = null;
+            two_slot[i].AddComponent<skill_ob>().skill_img = null;
+            three_slot[i].AddComponent<skill_ob>().skill_img = null;
+            one_slot[i].AddComponent<skill_ob>().skill = 0;
+            two_slot[i].AddComponent<skill_ob>().skill = 0;
+            three_slot[i].AddComponent<skill_ob>().skill = 0;
         }
         slot_now = one_slot;
 
