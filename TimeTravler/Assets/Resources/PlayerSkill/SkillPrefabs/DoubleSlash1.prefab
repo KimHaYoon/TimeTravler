@@ -113,9 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7dbc87245436064990ae1a6b756df35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageRatio: 1
+  damageRatio: 1.5
   isKnockBack: 0
-  isCritical: 0
+  isCritical: 1
   coolTime: 2
   skillUser: {fileID: 0}
   doubleSlash2Prefab: {fileID: 3370222512596009016, guid: 8c1440fc930a6384ea8a9aba12beaf91,

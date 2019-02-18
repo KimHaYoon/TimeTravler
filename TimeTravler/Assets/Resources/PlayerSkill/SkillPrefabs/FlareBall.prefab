@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageRatio: 1
   isKnockBack: 0
-  isCritical: 0
+  isCritical: 1
   coolTime: 5
   skillUser: {fileID: 0}
   rotateSpeed: 2

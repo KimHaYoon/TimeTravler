@@ -113,9 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b440c739bae093a49aa3236d2420b9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageRatio: 1
-  isKnockBack: 0
-  isCritical: 0
+  damageRatio: 3
+  isKnockBack: 1
+  isCritical: 1
   coolTime: 3
   skillUser: {fileID: 0}
   katanaBladeHitPrefab: {fileID: 4062527506682326544, guid: da9deda737ddc9b498962b2c5f65cfc3,
