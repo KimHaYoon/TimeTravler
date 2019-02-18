@@ -67889,7 +67889,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 2125edc215b899d42a94cb7aaa64d745, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4615d2d5f1215db4bbc5ab379f64daa5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -68293,23 +68293,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   groundCheck: {fileID: 1359299867362643377}
-  extraJumpsValue: 2
   jumpForce: 8
   auraSwordPrefab: {fileID: 6920670578930842931, guid: 91e15e8616af80d43a559bfcc8fe98d6,
     type: 3}
   auraSwordPos: {fileID: 1669623711}
-  pierceSpearPrefab: {fileID: 6138471060161112337, guid: b0d4682733566044aa38a1c0575d0785,
-    type: 3}
-  pierceSpearPos: {fileID: 1848602391}
-  doubleSlash1Prefab: {fileID: 6610833385646874974, guid: 536317f7474e647438aa99186e3747d8,
-    type: 3}
-  doubleSlash1Pos: {fileID: 1449473730}
-  splashForcePrefab: {fileID: 6581306043532948224, guid: d61e896bf60fd3f48b9f2aab54cbab66,
-    type: 3}
-  splashForcePos: {fileID: 1604320068}
   katanaBladePrefab: {fileID: 9053138277446476298, guid: 3f7b8651badf4104596f107295035e92,
     type: 3}
   katanaBladePos: {fileID: 145507003}
+  doubleSlash1Prefab: {fileID: 6610833385646874974, guid: 536317f7474e647438aa99186e3747d8,
+    type: 3}
+  doubleSlash1Pos: {fileID: 1449473730}
+  pierceSpearPrefab: {fileID: 6138471060161112337, guid: b0d4682733566044aa38a1c0575d0785,
+    type: 3}
+  pierceSpearPos: {fileID: 1848602391}
+  splashForcePrefab: {fileID: 6581306043532948224, guid: d61e896bf60fd3f48b9f2aab54cbab66,
+    type: 3}
+  splashForcePos: {fileID: 1604320068}
   flareBallPrefab: {fileID: 2471083270294154982, guid: 5a2f61d0790ca354d9108dd1bb56d7d9,
     type: 3}
   isFlareBall: 0
@@ -68323,6 +68322,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   knockBack: 0
+  extraJumpsValue: 2
+  _Hp: 20000
   Hp: 200
   currentHp: 100
   power: 10
@@ -68495,7 +68496,7 @@ Animator:
   m_GameObject: {fileID: 1359299868672336601}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8127c9f3919926548baeef5b7a488315, type: 2}
+  m_Controller: {fileID: 9100000, guid: adfe0584a64da5144b5eb75067590bf6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

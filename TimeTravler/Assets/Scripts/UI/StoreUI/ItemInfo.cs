@@ -40,6 +40,9 @@ public class ItemInfo : MonoBehaviour
         if (item.option2 == "NONE")
             Option2.gameObject.SetActive(false);
         else
+        {
+            Option2.gameObject.SetActive(true);
             Option2.text = itemM.GetOption2Sign(item.code);
+        }
     }
 }
