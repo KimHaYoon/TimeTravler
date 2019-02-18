@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4062527506682326550}
   - component: {fileID: 4062527506682326545}
   - component: {fileID: 4062527506682326548}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: KatanaBlade_Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

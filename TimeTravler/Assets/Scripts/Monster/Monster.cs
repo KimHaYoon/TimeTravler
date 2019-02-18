@@ -416,6 +416,10 @@ public class Monster : MonoBehaviour
         {
             GameObject AttackEffect = Instantiate(Resources.Load("Monster/Prefabs/MonsterAttackEffect")) as GameObject;//몬스터공격이펙트 오브젝트생성
             AttackEffect.GetComponent<MonsterAttackEffect>().monsterNum = monsterNum;//몬스터 번호 동기화
+            if(monsterBoss == 0)
+                AttackEffect.GetComponent<MonsterAttackEffect>().boss = false;//몬스터 번호 동기화
+            else
+                AttackEffect.GetComponent<MonsterAttackEffect>().boss = true;//몬스터 번호 동기화
             AttackEffect.GetComponent<MonsterAttackEffect>().xScale = attackEffectXScale;//몬스터 AttackEffect 크기
             AttackEffect.GetComponent<MonsterAttackEffect>().yScale = attackEffectYScale;//몬스터 AttackEffect 크기
             CreateDamageUI(player.gameObject, gameObject, false, false, true, 1.5f);
