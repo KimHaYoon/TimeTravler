@@ -609,6 +609,65 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+--- !u!1 &140911530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140911532}
+  - component: {fileID: 140911531}
+  m_Layer: 0
+  m_Name: Stage13_Skeleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &140911531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140911530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNum: 9
+  monsterBoss: 1
+  monsterCount: 10
+  monsterPos:
+  - 80.5 2.5
+  - 83.5 2.5
+  - 86.5 2.5
+  - 90.0 2.5
+  - 64.0 -18.0
+  - 67.0 -18.0
+  - 70.0 -14
+  - 73.0 -14
+  - 73.0 -14
+  - 76.0 -14
+  responseTime: 1
+  dropItem: 1
+--- !u!4 &140911532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140911530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 80.7, y: 1.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &216339954
 GameObject:
   m_ObjectHideFlags: 0
@@ -11278,7 +11337,7 @@ GameObject:
   - component: {fileID: 243371552}
   - component: {fileID: 243371553}
   m_Layer: 0
-  m_Name: MonsterManager
+  m_Name: Stage11_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11292,7 +11351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243371551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.48, y: 0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11310,13 +11369,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterNum: 20
+  monsterNum: 10
   monsterBoss: 1
-  monsterCount: 1
+  monsterCount: 5
   monsterPos:
-  - 0 0
-  - 3.5 -1.6
-  - 5.4 2.3
+  - 0.11 -18.2
+  - 6.23 -18.2
+  - 15.0 -18.2
+  - 0.7 -9.5
+  - 3.5 0.3
   responseTime: 1
   dropItem: 1
 --- !u!1 &253682151
@@ -20821,6 +20882,57 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!1 &393040575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 393040577}
+  - component: {fileID: 393040576}
+  m_Layer: 0
+  m_Name: Stage14_GhostWizard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &393040576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393040575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNum: 12
+  monsterBoss: 1
+  monsterCount: 2
+  monsterPos:
+  - 130 -5
+  - 138 -5
+  responseTime: 1
+  dropItem: 1
+--- !u!4 &393040577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393040575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 138.4, y: -5.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &400539542
 GameObject:
   m_ObjectHideFlags: 0
@@ -20998,7 +21110,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915894394
 GameObject:
@@ -39458,6 +39570,60 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1139334450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139334452}
+  - component: {fileID: 1139334451}
+  m_Layer: 0
+  m_Name: Stage13_Ghost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1139334451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139334450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNum: 11
+  monsterBoss: 1
+  monsterCount: 5
+  monsterPos:
+  - 70 -18
+  - 73 -18
+  - 67 -18
+  - 76 -18
+  - 79 -18
+  responseTime: 1
+  dropItem: 1
+--- !u!4 &1139334452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139334450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70.3, y: -17.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1188810167
 GameObject:
   m_ObjectHideFlags: 0
@@ -39536,6 +39702,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 484367664}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1236272260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236272262}
+  - component: {fileID: 1236272261}
+  m_Layer: 0
+  m_Name: Stage13_Zombie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1236272261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236272260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNum: 10
+  monsterBoss: 1
+  monsterCount: 10
+  monsterPos:
+  - 65 -18.0
+  - 67 -18.0
+  - 69 -18.0
+  - 71 -18.0
+  - 45.0 -18.0
+  - 47.0 -18.0
+  - 64.0 -12.5
+  - 67.0 -12.5
+  - 81 1.9
+  - 83 1.9
+  responseTime: 1
+  dropItem: 1
+--- !u!4 &1236272262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236272260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 80.7, y: 1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1261736432
 GameObject:
@@ -44874,6 +45099,183 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!1 &1592837463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1592837465}
+  - component: {fileID: 1592837464}
+  m_Layer: 0
+  m_Name: Stage12_Zombie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1592837464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592837463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNum: 10
+  monsterBoss: 1
+  monsterCount: 10
+  monsterPos:
+  - 40.5 -18.0
+  - 30.5 -18.0
+  - 25.0 -18.0
+  - 27.0 -18.0
+  - 45.0 -18.0
+  - 47.0 -18.0
+  - 40.5 -14
+  - 25.0 -14
+  - 27.0 -14
+  - 35.0 -14
+  responseTime: 1
+  dropItem: 1
+--- !u!4 &1592837465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592837463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.98, y: -14.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1615594240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1615594242}
+  - component: {fileID: 1615594241}
+  m_Layer: 0
+  m_Name: Stage14_Ghost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1615594241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615594240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNum: 11
+  monsterBoss: 1
+  monsterCount: 10
+  monsterPos:
+  - 110 -17
+  - 115 -17
+  - 120 -17
+  - 135 -17
+  - 137 -17
+  - 110 -1
+  - 115 1
+  - 117 1
+  - 112 1
+  - 110 -10
+  responseTime: 1
+  dropItem: 1
+--- !u!4 &1615594242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615594240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 109.9, y: -9.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1764187651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1764187653}
+  - component: {fileID: 1764187652}
+  m_Layer: 0
+  m_Name: Stage11_Zombie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1764187652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764187651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNum: 10
+  monsterBoss: 1
+  monsterCount: 10
+  monsterPos:
+  - 0 0
+  - 0.9 -18
+  - 10.3 -18
+  - -3.0 -9.2
+  - 13.5 0.7
+  - 6.2 0.85
+  - 0.0 0.85
+  - -7.3 0.85
+  - 5.4 2.3
+  - 5.4 2.3
+  responseTime: 1
+  dropItem: 1
+--- !u!4 &1764187653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764187651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.24, y: 1.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1789033140
 GameObject:
   m_ObjectHideFlags: 0
@@ -47937,6 +48339,65 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2089172107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2089172109}
+  - component: {fileID: 2089172108}
+  m_Layer: 0
+  m_Name: Stage12_Skeleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2089172108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089172107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2cad03d05534ea0cbf252e6a756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNum: 9
+  monsterBoss: 1
+  monsterCount: 10
+  monsterPos:
+  - 40.5 -18.0
+  - 30.5 -18.0
+  - 25.0 -18.0
+  - 27.0 -18.0
+  - 45.0 -18.0
+  - 47.0 -18.0
+  - 40.5 -14
+  - 25.0 -14
+  - 27.0 -14
+  - 35.0 -14
+  responseTime: 1
+  dropItem: 1
+--- !u!4 &2089172109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089172107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.98, y: -14.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112433719
 GameObject:
   m_ObjectHideFlags: 0
@@ -57713,7 +58174,7 @@ RectTransform:
   m_Children:
   - {fileID: 3853432852185172436}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -57759,7 +58220,7 @@ GameObject:
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -58218,11 +58679,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   groundCheck: {fileID: 1359299867362643377}
-  extraJumpsValue: 2
   jumpForce: 8
+  auraSwordPrefab: {fileID: 0}
+  auraSwordPos: {fileID: 0}
+  katanaBladePrefab: {fileID: 0}
+  katanaBladePos: {fileID: 0}
+  doubleSlash1Prefab: {fileID: 0}
+  doubleSlash1Pos: {fileID: 0}
+  pierceSpearPrefab: {fileID: 0}
+  pierceSpearPos: {fileID: 0}
+  splashForcePrefab: {fileID: 0}
+  splashForcePos: {fileID: 0}
+  flareBallPrefab: {fileID: 0}
+  isFlareBall: 0
   facingLeft: 1
   isPassGround: 0
   isNoPassGround: 0
+  isAttack: 0
+  weapon: 1
   noPassGround:
     serializedVersion: 2
     m_Bits: 16384
@@ -58230,6 +58704,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   knockBack: 0
+  extraJumpsValue: 2
+  _Hp: 20000
   Hp: 20000
   currentHp: 100
   power: 10
@@ -58238,6 +58714,8 @@ MonoBehaviour:
   _power: 0
   _defence: 0
   _dex: 0
+  quickSkill: 
+  quickItem: []
 --- !u!70 &1359299868558296261
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -58805,7 +59283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e44e2cc28af18848a5fc806143e5f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432851147059757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59096,7 +59573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!222 &3853432851227673633
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59260,7 +59736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432851237277486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59709,7 +60184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432851321669390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59806,7 +60280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432851388634467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60880,6 +61353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 0}
+  player: {fileID: 0}
   inventory_max: 30
   current_count: 0
   defaultImage: {fileID: 0}
@@ -60977,7 +61451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852203366913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61125,7 +61598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852216858593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61482,7 +61954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852235848623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61779,7 +62250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852352785027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62162,7 +62632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e44e2cc28af18848a5fc806143e5f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852438926135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62299,7 +62768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e44e2cc28af18848a5fc806143e5f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852445321619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62396,7 +62864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852457867265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62774,7 +63241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852512727886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63820,7 +64286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852805696880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63859,7 +64324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852805696883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64085,7 +64549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e44e2cc28af18848a5fc806143e5f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852856195634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64483,7 +64946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852889821160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64588,7 +65050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852893925282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64945,7 +65406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e44e2cc28af18848a5fc806143e5f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852934034874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65145,7 +65605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!1 &3853432852953819696
 GameObject:
   m_ObjectHideFlags: 0
@@ -65237,7 +65696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432852973564705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65520,7 +65978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!222 &3853432853004825820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -65720,7 +66177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432853054333644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65847,7 +66303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432853097453346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66061,7 +66516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e487467eec9a30d4c87886f5b9e17349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &3853432853109810185
 MonoBehaviour:
   m_ObjectHideFlags: 0
