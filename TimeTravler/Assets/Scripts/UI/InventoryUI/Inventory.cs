@@ -39,6 +39,7 @@ public class Inventory : MonoBehaviour
 
         window_show = false;
         isSHOP = false;
+        //지워야 할 두줄
         inventory_window = GameObject.Find("item_bg");
         status_window = GameObject.Find("status_bg");
         slots = new List<GameObject>();
@@ -60,6 +61,7 @@ public class Inventory : MonoBehaviour
         }
         defaultImage = slots[0].GetComponentInChildren<Image>().sprite;
         current_count = 0;
+        //지워야할 두줄 과 추가할 this.SetActive(false);
         inventory_window.SetActive(false);
         status_window.SetActive(false);
         
@@ -87,12 +89,7 @@ public class Inventory : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            pop_list(1);
-        }
-
-        }
+    }
 
     //새로운 아이템을 슬롯에 넣기전에 하나씩 밀어서 공간을 확보하는 함수
     void push_list(int start)

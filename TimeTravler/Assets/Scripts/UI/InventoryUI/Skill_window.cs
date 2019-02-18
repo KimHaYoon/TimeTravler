@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class Skill_window : MonoBehaviour
 {
     public static Skill_window instance = null;
+    public static bool skill_window_show = false;
+    public GameObject zero;
     public GameObject one;
     public GameObject[] one_slot;
     public GameObject two;
@@ -38,8 +40,17 @@ public class Skill_window : MonoBehaviour
 
     }
 
-        public void button1()
+
+    public void button0()
     {
+        instance.zero.SetActive(true);
+        instance.one.SetActive(false);
+        instance.two.SetActive(false);
+        instance.three.SetActive(false);
+    }
+    public void button1()
+    {
+        instance.zero.SetActive(false);
         instance.one.SetActive(true);
         instance.two.SetActive(false);
         instance.three.SetActive(false);
@@ -48,6 +59,7 @@ public class Skill_window : MonoBehaviour
     }
     public void button2()
     {
+        instance.zero.SetActive(false);
         instance.one.SetActive(false);
         instance.two.SetActive(true);
         instance.three.SetActive(false);
@@ -56,6 +68,7 @@ public class Skill_window : MonoBehaviour
     }
     public void button3()
     {
+        instance.zero.SetActive(false);
         instance.one.SetActive(false);
         instance.two.SetActive(false);
         instance.three.SetActive(true);
