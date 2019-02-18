@@ -7,6 +7,7 @@ using UnityEngine;
 public class SkillTargeting : MonoBehaviour
 {
     public int monsterNum;//몬스터 번호
+    public int monsterBoss;
     public int effectNum;
     private GameObject player;
     private GameObject monster;

@@ -9,41 +9,40 @@ public class SkillManager : MonoBehaviour
     // 몬스터 hp 600, 1page -> 600~301 2page -> 300~1
 
 
-
-    public int pageNum; // 몬스터 hp 페이지
-    public int skillAmount = 4; // 스킬 갯수
-    public int effectAmount; //페이지 마다 한 스킬당 이펙트 갯수(몬스터 소환 제외) 중보 2, 최보 4
     public int randomSkill; //랜덤하게 뽑은 스킬번호가 담길 변수
     public int randomEffect; //랜덤하게 뽑은 이펙트 번호가 담길 변수
     public int randomSubMonsterNum; // 랜덤하게 뽑은 몬스터 번호가 담길 변수 중보는 3종류 중 하나 최보는 6종류 중 하나 뽑음
-    public int subMonMakeAmount; // 서브몬스터가 한 번 소환 될때 불리는 양 중보 1페이지 3, 2페이지 2
-                                 // 최보 1페이지 6, 2페이지 4, 3페이지 3, 4페이지 2
-    public int monsterNum; // 몬스터 스크립트에서 받아온 현재 보스 몬스터의 번호
-
-    public int monsterBoss; //0은 일반 몬스터 1은 중간 보스 2는 최종보스 
     private string[,] effectPos;
 
+    //MonsterManager에서 설정
+    public int monsterNum; // 몬스터 스크립트에서 받아온 현재 보스 몬스터의 번호
+    public int monsterBoss; //0은 일반 몬스터 1은 중간 보스 2는 최종보스 
 
-    public GameObject player;
+
+
+    //스킬 이펙트
     public GameObject bufferSkill; //스킬번호 0
     public GameObject targeting; //1
     public GameObject[] wideArea; //2
     public GameObject callMonster; //3
     public Vector3 dir; //광역 스킬 생성 간격
     public Vector3 widePos; //광역 스킬 생성 위치
+
+    public GameObject player;
     private Player ScPlayer;
     private Monster monsterBS;
     
     void Awake()
     {
-        effectPos = new string[6, 5]
+        effectPos = new string[7, 5]
         {//pos,xscale,yscale
             { "center,0.5,0.5", "center,1,1", "center,1,1", "center,1.5,1.5", "bottom,0.7,2" },
             { "center,3,3", "center,1,1", "center,1.5,1.5", "center,1,1", "bottom,1,2" },
             { "center,1,1", "center,0.5,0.5", "bottom,1,1", "center,1,1", "bottom,1,3" },
             { "center,2,2", "center,3,3", "center,1,1", "center,1,1", "bottom,2,3" },
             { "center,1,1", "center,1,1", "bottom,1,2", "center,1,1", "bottom,1,2" },
-            { "center,3,3", "center,1,1", "bottom,1,1", "center,3,3", "bottom,2,4" }
+            { "center,3,3", "center,1,1", "bottom,1,1", "center,3,3", "bottom,2,4" },
+            { "bottom,1,1", "center,1,1", "center,3,3", "bottom,2,4", "0,0,0"} 
         };
     }
 
@@ -55,102 +54,74 @@ public class SkillManager : MonoBehaviour
         player = GameObject.Find("Player");
         ScPlayer = player.GetComponent<Player>();
     }
-
-    public void SkillInfo(int num)
+    public void MiddleBoss(int pageNum)
     {
-        monsterBoss = num;
-        if (monsterBoss == 2)
-            effectAmount = 4;
-        else if (monsterBoss == 1)
-            effectAmount = 2;
-    }
+        if (pageNum == 4 && pageNum == 3) //empty
+            pageNum = 2;
+        else //full
+            pageNum = 1;
 
-    public void SelectattackTime() // 보스들의 공격 딜레이 시간 계산
-    {
-
-        pageNum = GetPageNum(monsterBoss);
-        SelectkillandEffect(pageNum);
-
-        if (monsterBoss == 2)
-        {//몬스터 어텍타이머 다 수정
-            if (pageNum == 1) monsterBS.attackTime = 2f;
-            else if (pageNum == 2) monsterBS.attackTime = 3f;
-            else if (pageNum == 3) monsterBS.attackTime = 5f;
-        }
-        else if (monsterBoss == 1)
+        randomSkill = UnityEngine.Random.Range(0, 4); //0~3번까지 스킬 선택
+        randomEffect = UnityEngine.Random.Range(0, pageNum); // 해당 스킬의 effect 선택 0,1
+        //Debug.Log(randomSkill);
+        //Debug.Log(randomEffect);
+        switch (randomSkill)
         {
-            if (pageNum == 1) monsterBS.attackTime = monsterBS.attackTimeValue - 1f;
-        } 
-    }
-
-
-    public void SelectkillandEffect(int pageNum) // 스킬과 이펙트 랜덤 선택
-    {
-        monsterNum = GetComponent<Monster>().monsterNum;
-        randomSkill = UnityEngine.Random.Range(0, skillAmount); //0~3번까지 스킬 선택
-        randomEffect = UnityEngine.Random.Range(0, effectAmount); // 해당 스킬의 effect 선택 0,1
-        
-
-        // 중보 일시 자신의 테마 서브 몬스터 4개 중 하나를 선택하고(submonnum 배열의 인덱스만 선택) 페이지에 맞는 몬스터 갯수(getpagenum함수에서) 생성
-        // 최보 일시 중간 보스 몬스터 6개 중 하나를 선택하고 페이지에 맞는 몬스터 갯수 생성
-        if (monsterBoss == 2)
-        {
-            int[] middleBossNum = {4,8,12,16,20,24};
-            randomSubMonsterNum = middleBossNum[UnityEngine.Random.Range(0, middleBossNum.Length)];
-        }
-        else if (monsterBoss == 1)
-        {
-            randomSubMonsterNum = UnityEngine.Random.Range(monsterNum - 3, monsterNum);
+            case 0:
+                UsingBuffer(randomEffect);
+                break;
+            case 1:
+                UsingTargeting(randomEffect);
+                break;
+            case 2:
+                UsingWideArea();
+                break;
+            case 3:
+                randomSubMonsterNum = UnityEngine.Random.Range(monsterNum - 3, monsterNum);
+                //Debug.Log(randomSubMonsterNum);
+                CallMonster(randomSubMonsterNum, pageNum);
+                break;
         }
 
 
     }
 
-
-    public int GetPageNum(int monsterBoss) // 보스들의 체력 페이지 구함
+    public int LastBossSelect(int pageNum)
     {
-        if (monsterBoss == 2)
-        {
-            if ((monsterBS.currentHp / monsterBS.hp) > 0.75)//full에 가까움  
-            {
-                pageNum = 4;
-                subMonMakeAmount = 2;
-            }
-            else if ((monsterBS.currentHp / monsterBS.hp) > 0.5)
-            {
-                pageNum = 3;
-                subMonMakeAmount = 3;
-            }
-            else if ((monsterBS.currentHp / monsterBS.hp) > 0.25)
-            {
-                pageNum = 2;
-                subMonMakeAmount = 4;
-            }
-            else//empty에 가까움
-            {
-                pageNum = 1;
-                subMonMakeAmount = 6;
-            }
-            
-        }
-        else if (monsterBoss == 1)
-        {
-            if ((monsterBS.currentHp / monsterBS.hp) > 0.5) //full에 가까움
-            {
-                pageNum = 2;
-                subMonMakeAmount = 2;
-            }
-
-            else if ((monsterBS.currentHp / monsterBS.hp) < 0.5) //empty에 가까움
-            {
-                pageNum = 1;
-                subMonMakeAmount = 3;
-            }
-        }
-        
-        return pageNum;
+        if (pageNum == 4) //empty
+            randomEffect = UnityEngine.Random.Range(0, pageNum + 1); //0~4번 까지 공격에 맞는 effect선택
+        else //full
+            randomEffect = UnityEngine.Random.Range(0, pageNum); //0~4번 까지 공격에 맞는 effect선택
+        Debug.Log(randomEffect);
+        return randomEffect;
     }
 
+    public void LastBoss(int radomEffect, int pageNum)
+    {
+
+        switch (randomEffect)
+        {
+            case 0:
+                UsingTargeting(randomEffect);
+                break;
+            case 1:
+                UsingTargeting(randomEffect);
+                break;
+            case 2:
+                UsingTargeting(randomEffect);
+                break;
+            case 3:
+                UsingWideArea();
+                break;
+            case 4:
+                int[] middleBossNum = { 4, 8, 12, 16, 20, 24 };
+                randomSubMonsterNum = middleBossNum[UnityEngine.Random.Range(0, middleBossNum.Length)];
+                //Debug.Log(randomSubMonsterNum);
+                CallMonster(randomSubMonsterNum, pageNum);
+                break;
+        }
+    }
+    
 
     public void UsingBuffer(int effectNum) //버퍼 스킬 오브젝트 생성
     {
@@ -176,20 +147,33 @@ public class SkillManager : MonoBehaviour
 
     public void UsingTargeting(int effectNum) //타겟팅 스킬 오브젝트 생성
     {
-        string[] transfrom = effectPos[GetComponent<Monster>().monsterNum / 4 - 1, 2 + randomEffect].Split(',');
+
+        string[] transfrom;
+        if(monsterBoss == 1)
+            transfrom = effectPos[GetComponent<Monster>().monsterNum / 4 - 1, 2 + randomEffect].Split(',');
+        else
+            transfrom = effectPos[6, randomEffect].Split(',');
+
         targeting = Instantiate(Resources.Load("Monster/Prefabs/SkillTargeting")) as GameObject;
         targeting.transform.parent = transform;
+        targeting.GetComponent<SkillTargeting>().monsterBoss = monsterBoss;
         targeting.GetComponent<SkillTargeting>().monsterNum = GetComponent<Monster>().monsterNum;
-        targeting.GetComponent<SkillTargeting>().effectNum = randomEffect;
+        targeting.GetComponent<SkillTargeting>().effectNum = effectNum;
         targeting.GetComponent<SkillTargeting>().setPos = SetMonAttackEffectPos(true, transfrom[0]);
         targeting.GetComponent<SkillTargeting>().xScale = (float)Convert.ToDouble(transfrom[1]);
         targeting.GetComponent<SkillTargeting>().yScale = (float)Convert.ToDouble(transfrom[2]);
     }
 
 
-    public void UsingWideArea(int effectNum) // 광역 스킬 오브젝트 생성
+    public void UsingWideArea() // 광역 스킬 오브젝트 생성
     {
-        string[] transfrom = effectPos[GetComponent<Monster>().monsterNum / 4 - 1, 4].Split(',');
+        string[] transfrom;
+
+        if (monsterBoss == 1)
+            transfrom = effectPos[GetComponent<Monster>().monsterNum / 4 - 1, 4].Split(',');
+        else
+            transfrom = effectPos[6,3].Split(',');
+         
         wideArea = new GameObject[5];
         widePos = transform.position + new Vector3(-9, 0, 0);
         dir = new Vector3(3,0,0);
@@ -198,8 +182,8 @@ public class SkillManager : MonoBehaviour
             wideArea[i] = Instantiate(Resources.Load("Monster/Prefabs/SkillWideAreaArrow"), dir, Quaternion.identity) as GameObject;
             wideArea[i].GetComponent<SkillWideAreaArrow>().player = player;
             wideArea[i].GetComponent<SkillWideAreaArrow>().monster = gameObject;
+            //wideArea[i].GetComponent<SkillWideArea>().monsterBoss = monsterBoss;
             wideArea[i].GetComponent<SkillWideAreaArrow>().monsterNum = GetComponent<Monster>().monsterNum;
-            wideArea[i].GetComponent<SkillWideAreaArrow>().effectNum = 0;
             wideArea[i].GetComponent<SkillWideAreaArrow>().setPos = SetMonAttackEffectPos(false, transfrom[0]);
             wideArea[i].GetComponent<SkillWideAreaArrow>().xScale = (float)Convert.ToDouble(transfrom[1]);
             wideArea[i].GetComponent<SkillWideAreaArrow>().yScale = (float)Convert.ToDouble(transfrom[2]);
