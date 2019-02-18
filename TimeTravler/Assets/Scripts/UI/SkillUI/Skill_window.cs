@@ -23,10 +23,11 @@ public class Skill_window : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-        one_slot = new GameObject[skillslot.slotcount];
-        two_slot = new GameObject[skillslot.slotcount];
-        three_slot = new GameObject[skillslot.slotcount];
-        for (int i=0; i < skillslot.slotcount; i++)
+        int slot_size = 3;
+        one_slot = new GameObject[slot_size];
+        two_slot = new GameObject[slot_size];
+        three_slot = new GameObject[slot_size];
+        for (int i=0; i < slot_size; i++)
         {
             one_slot[i] = new GameObject(i + "");
             two_slot[i] = new GameObject(i + "");
