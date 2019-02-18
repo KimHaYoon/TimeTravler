@@ -6,18 +6,23 @@ public class KatanaBlade : PlayerSkill
 {
     [SerializeField]
     private GameObject katanaBladeHitPrefab;
+    private Player player;
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
         OffCollider();
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+            transform.position = GameObject.Find("PlayerPart").transform.position + GameObject.Find("Pos_KatanaBlade").transform.position;
+
+        if (player.facingLeft)
+            transform.position -= new Vector3(GameObject.Find("Pos_KatanaBlade").transform.position.x * 2, 0, 0);
     }
 
     public override void OnTriggerEnter2D(Collider2D other)

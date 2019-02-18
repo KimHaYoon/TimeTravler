@@ -110,7 +110,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 14
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,3 +137,5 @@ MonoBehaviour:
   monsterNum: 0
   setPos: {x: 0, y: 0, z: 0}
   damage: 0
+  xScale: 0
+  yScale: 0
