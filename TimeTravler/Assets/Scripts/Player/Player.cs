@@ -432,8 +432,7 @@ public class Player : MonoBehaviour
                     {
                         myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
                         isAttack = true;
-                        skill =
-                            1;
+                        skill =1;
                         myAnimator.Play("Player_Skill4_1");
                     }
 
