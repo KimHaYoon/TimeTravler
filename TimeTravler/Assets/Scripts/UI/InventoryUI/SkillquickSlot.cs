@@ -22,8 +22,11 @@ public class SkillquickSlot : MonoBehaviour
         {
             //오른쪽클릭
             Debug.Log("오른쪽 클릭");
-            Skill_window.instance.slot_now[this.GetComponent<index>().Index - 1].GetComponent<skill_ob>().skill = null;
-            skillslot.instance.update();
+            if (Skill_window.skill_window_show == true)
+            {
+                Skill_window.instance.slot_now[this.GetComponent<index>().Index - 1].GetComponent<skill_ob>().skill = null;
+                skillslot.instance.update();
+            }
         }
     }
 

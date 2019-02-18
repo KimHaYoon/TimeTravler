@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class equipslot : MonoBehaviour
 {
-    public ItemInfo info;
 
     public void OnPointerClick(BaseEventData Data)
     {
@@ -43,20 +42,20 @@ public class equipslot : MonoBehaviour
     {
         if (this.GetComponent<Item_string>().code != null)
         {
-            info.SetItem(ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5))));
-            info.gameObject.SetActive(true);
+            Inventory.instance.info.SetItem(ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5))));
+            Inventory.instance.info.gameObject.SetActive(true);
         }
     
         //info.gameObject.GetComponent<RectTransform>().position = 
 
         Vector3 position = gameObject.GetComponent<RectTransform>().position;
 
-        info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x - 120, position.y - 40);
+        Inventory.instance.info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x - 120, position.y - 40);
     }
 
     public void OnTriggerExit2D()
     {
-        info.gameObject.SetActive(false);
+        Inventory.instance.info.gameObject.SetActive(false);
     }
 
 }

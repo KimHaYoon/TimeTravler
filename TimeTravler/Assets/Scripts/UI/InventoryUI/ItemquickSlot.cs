@@ -11,16 +11,24 @@ public class ItemquickSlot : MonoBehaviour
         Item_string item = this.GetComponent<Item_string>();
         PointerEventData eventData = Data as PointerEventData;
 
-        if (eventData.button == PointerEventData.InputButton.Left) ;
-        //왼쪽클릭
-
-        if (eventData.button == PointerEventData.InputButton.Right && item.code != null)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
             Inventory.instance.player.Consume(false, item.code.Substring(0, 4), InventorySlot.GetType(item.code),
                             ItemManager.instance.GetOpt1_1(int.Parse(item.code.Substring(0, 5))),
                             ItemManager.instance.GetOpt2_1(int.Parse(item.code.Substring(0, 5))));
             Inventory.instance.minus_item(item.code);
             minus_item(item);
+        }
+
+        if (eventData.button == PointerEventData.InputButton.Right && item.code != null)
+        {
+            if (Inventory.window_show == true)
+            {
+                item.code = null;
+                this.GetComponent<Image>().sprite = Inventory.instance.defaultImage;
+                this.GetComponentInChildren<Text>().text = " ";
+            }
+
         }
     }
 

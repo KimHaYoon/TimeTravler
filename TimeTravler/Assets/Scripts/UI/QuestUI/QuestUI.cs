@@ -13,10 +13,14 @@ public class QuestUI : MonoBehaviour
     public Text QuestGoal;
     public Text QuestReward;
 
+    private bool Active;
+
     // Start is called before the first frame update
     void Start()
     {
         SetMainQuest("멍청이", "1", "으엑");
+        gameObject.SetActive(false);
+        Active = false;
     }
 
     // Update is called once per frame
@@ -63,6 +67,16 @@ public class QuestUI : MonoBehaviour
             MainQuest.clear = true;
     }
 
+    public bool GetActive()
+    {
+        return Active;
+    }
+
+    public void SetActive(bool active)
+    {
+        Active = active;
+        gameObject.SetActive(Active);
+    }
     //public void AddSubQuest(string QuestName, string Goal, string Reward)
     //{
     //    QuestData subQuest = new QuestData();

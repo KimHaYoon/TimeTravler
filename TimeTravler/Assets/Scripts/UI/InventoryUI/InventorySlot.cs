@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour
 {
-    public ItemInfo info;
     public static bool sheild = true;
 
     public void OnPointerClick(BaseEventData Data)
@@ -112,19 +111,19 @@ public class InventorySlot : MonoBehaviour
             Debug.Log(temp.name);
             Debug.Log(temp.sellprice);
             Debug.Log(temp.buyprice);
-            info.SetItem(ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5))));
-            info.gameObject.SetActive(true);
+            Inventory.instance.info.SetItem(ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5))));
+            Inventory.instance.info.gameObject.SetActive(true);
         }
         //info.gameObject.GetComponent<RectTransform>().position = 
 
         Vector3 position = gameObject.GetComponent<RectTransform>().position;
 
-        info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x -120, position.y - 40);
+        Inventory.instance.info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x -120, position.y - 40);
     }
 
     public void OnTriggerExit2D()
     {
-        info.gameObject.SetActive(false);
+        Inventory.instance.info.gameObject.SetActive(false);
     }
 
 
