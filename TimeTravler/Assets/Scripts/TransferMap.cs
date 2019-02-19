@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TransferScene : MonoBehaviour
+public class TransferMap : MonoBehaviour
 {
     public string transferMapName;  // 이동할 맵의 이름.
 
@@ -30,7 +30,6 @@ public class TransferScene : MonoBehaviour
     {
         if(collision.gameObject.name == "Player")
         {
-           // thePlayer.currentMapName = transferMapName;
             //thePlayer.currentMapName = transferMapName;
             theCamera.SetBound(targetBound);
 
