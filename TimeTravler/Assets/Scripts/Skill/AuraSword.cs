@@ -10,6 +10,9 @@ public class AuraSword : PlayerSkill
     [SerializeField]
     private float speed;
 
+    [SerializeField]
+    private GameObject auraSwordHitPrefab;
+
     private Vector2 startPos;
 
     private Rigidbody2D myRigidbody;
@@ -42,7 +45,33 @@ public class AuraSword : PlayerSkill
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-        base.OnTriggerEnter2D(other);
+        if (other.gameObject.tag == "Monster")
+        {
+            Monster monster = other.gameObject.transform.parent.GetComponent<Monster>();
+            if (!monster.superArmor)
+            {
+                monster.Hurt(skillUser, isKnockBack, isCritical, damageRatio);
+                Vector3 pos = monster.transform.position;
+                if (transform.position.x - pos.x < 0)
+                {
+                    monster.direction = true;
+                    if (monster.moveType)
+                        pos.x += 0.1f;
+                }
+                else
+                {
+                    monster.direction = false;
+                    if (monster.moveType)
+                        pos.x -= 0.1f;
+                }
+                monster.transform.position = pos;
+
+                if (direction == Vector2.right)
+                    Instantiate(auraSwordHitPrefab, other.transform.position, Quaternion.identity);
+                else if (direction == Vector2.left)
+                    Instantiate(auraSwordHitPrefab, other.transform.position, Quaternion.Euler(new Vector3(0, 0, 180)));
+            }
+        }
 
         if (other.gameObject.layer == LayerMask.NameToLayer("NoPassGround"))
         {
