@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5145687042777339145}
   - component: {fileID: 5145687042777339144}
   - component: {fileID: 6920670578930842931}
-  m_Layer: 16
+  m_Layer: 15
   m_Name: AuraSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

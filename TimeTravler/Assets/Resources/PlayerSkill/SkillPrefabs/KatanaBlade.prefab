@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9053138277446476302}
   - component: {fileID: 9053138277446476298}
   - component: {fileID: 9053138277446476299}
-  m_Layer: 16
+  m_Layer: 15
   m_Name: KatanaBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

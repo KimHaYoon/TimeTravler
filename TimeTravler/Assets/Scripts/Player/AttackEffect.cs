@@ -14,8 +14,6 @@ public class AttackEffect : MonoBehaviour
     private void CreateAttackEffect()
     {
         transform.Find("Body").transform.Find("Weapon").transform.Find("Effect").gameObject.SetActive(true);
-        if(player.weapon == 3)
-            transform.Find("Body").transform.Find("Weapon").transform.Find("Effect").gameObject.SetActive(false);
         transform.parent.transform.Find("PlayerAttackCollider").gameObject.SetActive(true);
     }
 

@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
     private bool downJump = false;
     private bool isJump = false;
     public bool isAttack = false;
-    public int weapon = 1;
+    private int weapon = 1;
     private int skill = 0;
 
     private float checkRadius = 0.1f;
@@ -115,14 +115,6 @@ public class Player : MonoBehaviour
     public float _power;
     public float _defence;
     public float _dex;
-
-    public float time;
-
-
-
-    public int[] quickSkill;//4칸
-    public string[] quickItem;//아이템 string
-
 
     private BufferUI bf;
 
@@ -265,6 +257,7 @@ public class Player : MonoBehaviour
     {
         Hp = 5000;
         currentHp = Hp;
+        //currentHp = 0;
         _Hp = Hp;
         power = 13;
         defence = 10;
@@ -273,11 +266,10 @@ public class Player : MonoBehaviour
         _defence = defence;
         _dex = dex;
         extraJumpsValue = 1;
-        time = 1000f;
     }
     private void CheckHp()
     {
-        if (currentHp <= 0 || time <= 0)
+        if (currentHp <= 0)
         {
             myAnimator.Play("Player_Die");
             myRigidbody.velocity = new Vector2(0, 0);
@@ -440,7 +432,8 @@ public class Player : MonoBehaviour
                     {
                         myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
                         isAttack = true;
-                        skill =1;
+                        skill =
+                            1;
                         myAnimator.Play("Player_Skill4_1");
                     }
 

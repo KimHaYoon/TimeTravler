@@ -20,7 +20,7 @@ public class DropItem : MonoBehaviour
 
     void Update()
     {
-        if (Inventory.instance.current_count >= 30)
+        if (Inventory.instance.current_count >= 20)
         {
             Physics2D.IgnoreLayerCollision(10, 12, true);//충돌무시
         }

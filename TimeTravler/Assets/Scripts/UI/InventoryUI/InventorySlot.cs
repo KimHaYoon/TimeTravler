@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour
 {
+    public ItemInfo info;
     public static bool sheild = true;
 
     public void OnPointerClick(BaseEventData Data)
@@ -17,7 +18,6 @@ public class InventorySlot : MonoBehaviour
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log("왼쪽클릭");
-            if(Inventory.instance.isSHOP == false)
             if (item.code != null)
                 if (item.code.Substring(0, 1) == "2")
                 {
@@ -91,7 +91,6 @@ public class InventorySlot : MonoBehaviour
                 for (int i = 0; i < Itemslot.instance.slots.Count; i++)
                 {
                     slotnow = Itemslot.instance.slots[i];
-                    if (slotnow.GetComponent<Item_string>().code != null)
                     if (slotnow.GetComponent<Item_string>().code.Equals(item.code))
                     {
                         slotnow.GetComponent<Item_string>().code = null;
@@ -113,19 +112,19 @@ public class InventorySlot : MonoBehaviour
             Debug.Log(temp.name);
             Debug.Log(temp.sellprice);
             Debug.Log(temp.buyprice);
-            Inventory.instance.info.SetItem(ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5))));
-            Inventory.instance.info.gameObject.SetActive(true);
+            info.SetItem(ItemManager.instance.GetItemInfo(int.Parse(this.GetComponent<Item_string>().code.Substring(0, 5))));
+            info.gameObject.SetActive(true);
         }
         //info.gameObject.GetComponent<RectTransform>().position = 
 
         Vector3 position = gameObject.GetComponent<RectTransform>().position;
 
-        Inventory.instance.info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x -120, position.y - 40);
+        info.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x -120, position.y - 40);
     }
 
     public void OnTriggerExit2D()
     {
-        Inventory.instance.info.gameObject.SetActive(false);
+        info.gameObject.SetActive(false);
     }
 
 

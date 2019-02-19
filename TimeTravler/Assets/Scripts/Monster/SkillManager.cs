@@ -89,6 +89,7 @@ public class SkillManager : MonoBehaviour
         monsterNum = GetComponent<Monster>().monsterNum;
         randomSkill = UnityEngine.Random.Range(0, skillAmount); //0~3번까지 스킬 선택
         randomEffect = UnityEngine.Random.Range(0, effectAmount); // 해당 스킬의 effect 선택 0,1
+        
 
         // 중보 일시 자신의 테마 서브 몬스터 4개 중 하나를 선택하고(submonnum 배열의 인덱스만 선택) 페이지에 맞는 몬스터 갯수(getpagenum함수에서) 생성
         // 최보 일시 중간 보스 몬스터 6개 중 하나를 선택하고 페이지에 맞는 몬스터 갯수 생성
