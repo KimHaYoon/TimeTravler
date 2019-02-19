@@ -42,7 +42,16 @@ public class MonsterManager : MonoBehaviour
             else if (monsterBoss == 1)// 중간 보스
             {
                 mon[i] = Instantiate(Resources.Load("Monster/Prefabs/MonsterBoss")) as GameObject;//몬스터 보스(보스) 오브젝트생성
-                mon[i].transform.Find("Monster").GetComponent<SkillManager>().SkillInfo(monsterBoss);//몬스터 번호
+                mon[i].transform.Find("Monster").GetComponent<SkillManager>().monsterBoss = monsterBoss;//몬스터 종류
+                mon[i].transform.Find("Monster").GetComponent<SkillManager>().monsterNum = monsterNum;//몬스터 종류
+
+            }
+            else
+            {
+                mon[i] = Instantiate(Resources.Load("Monster/Prefabs/LastMonsterBoss")) as GameObject;//몬스터 보스(보스) 오브젝트생성
+                mon[i].transform.Find("Monster").GetComponent<SkillManager>().monsterBoss = monsterBoss;//몬스터 종류
+                mon[i].transform.Find("Monster").GetComponent<SkillManager>().monsterNum = monsterNum;//몬스터 종류
+
             }
             mon[i].transform.parent = transform;//MonsterManager의 자식으로 설정
             mon[i].transform.Find("Monster").GetComponent<Monster>().monsterNum = monsterNum;//몬스터 번호
@@ -59,24 +68,8 @@ public class MonsterManager : MonoBehaviour
     
     IEnumerator ResponeMonster(int num)//부활 코루틴
     {
-
         Destroy(mon[num]);//죽은 몬스터 오브젝트 제거
-
-        if (dropItem)//잡몹들
-        {
-            //mon[num].name 몬스터이름 quest에 전달
-        }
-        else//보스가 소환한 몬스터들
-        {
-            monsterCount--;
-            Debug.Log(monsterCount);
-            if (monsterCount == 0) Destroy(gameObject);//해당 매니저 삭제
-        }
-
         if (responseTime == 0) yield break;//부활시간 0이면 부활x
-
-        
-        mon[num] = null;
 
         yield return new WaitForSeconds(responseTime);//부활시간만큼 대기
 

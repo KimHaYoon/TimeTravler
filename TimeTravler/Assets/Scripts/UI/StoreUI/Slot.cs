@@ -8,16 +8,10 @@ public class Slot : MonoBehaviour
     public ItemData item;
     public ItemInfo info;
     public Image slotItemImage;
-    public Inventory inventory;
 
     private void Start()
     {
         item = new ItemData();
-    }
-
-    private void Update()
-    {
-       
     }
 
     public void SetItem(ItemData Item)
@@ -63,12 +57,5 @@ public class Slot : MonoBehaviour
     public void OnTriggerExit2D()
     {
         info.gameObject.SetActive(false);
-    }
-
-    public void InventoryAdd()
-    {
-        Debug.Log(item.code);
-        string itemcode = item.code.ToString() + "01";
-        inventory.Add(itemcode);
     }
 }

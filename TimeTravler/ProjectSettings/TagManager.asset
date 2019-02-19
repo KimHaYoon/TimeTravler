@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
-  - Inventory_slot
   layers:
   - Default
   - TransparentFX
@@ -22,8 +21,8 @@ TagManager:
   - Item
   - PassGround
   - NoPassGround
-  - MonsterOkSkillEffect
-  - MonsterNoSkillEffect
+  - SkillEffect
+  - 
   - 
   - 
   - 

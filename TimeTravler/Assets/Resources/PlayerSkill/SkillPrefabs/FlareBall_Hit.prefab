@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 171256378999194446}
   - component: {fileID: 171256378999194447}
   - component: {fileID: 8427685212355183445}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: FlareBall_Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

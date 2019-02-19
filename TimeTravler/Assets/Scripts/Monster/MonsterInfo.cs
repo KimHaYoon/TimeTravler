@@ -43,7 +43,6 @@ public class MonsterInfo : MonoBehaviour
         defence;//방어력
         moveSpeed;//이동속도
         */
-
         uiPos = new Vector3(0, -0.7f, 0);
         switch (num)
         {
@@ -53,7 +52,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "검은뱀";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -68,7 +66,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "사막뱀";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -83,7 +80,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 2f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "드워프";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -98,7 +94,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 9f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "미노타우로스";
                 uiPos = new Vector3(0, -0.5f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -114,7 +109,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "냐옹이";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -129,7 +123,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 7f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "근육돌";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -144,7 +137,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 3f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "나무귀신";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -159,14 +151,13 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 7f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "박쥐골렘";
                 uiPos = new Vector3(0, -0.5f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
-                mon.hp = 500;
-                mon.power = 30;
-                mon.defence = 50;
+                mon.hp = 100;
+                mon.power = 10;
+                mon.defence = 10;
                 mon.moveSpeed = 2;
                 break;
             case 9://Zombie
@@ -175,7 +166,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 2f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "좀비";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -190,7 +180,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 2f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "해골";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -205,7 +194,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 7f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "유령";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -220,7 +208,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 10f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "유령마법사";
                 uiPos = new Vector3(0, 0.2f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -236,7 +223,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 4f, 2.62f);
                 SetMonAttackEffect(monster, "bottom", 1f, 1f);
-                mon.monName = "예티";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -250,7 +236,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonCollider(monster, 0.02328157f, 0.3738607f, 0.5434368f, 0.7377214f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0.1f, 1.16f, 0.1f, 2.62f);
-                mon.monName = "눈사람";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 0f;
@@ -264,7 +249,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonCollider(monster, 0f, 0.1541149f, 0.3f, 0.29822f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 0.1f, 2.62f);
-                mon.monName = "팽귄";
                 uiPos = new Vector3(0, -0.8f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -280,7 +264,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "늑대인간";
                 uiPos = new Vector3(0, 0.2f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -296,7 +279,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 4f, 2.62f);
                 uiPos = new Vector3(0, -0.6f, 0);
-                mon.monName = "토끼";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -311,7 +293,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 2f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "곰";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -326,7 +307,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 3f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "광대";
                 uiPos = new Vector3(0, -0.3f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -342,7 +322,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 10f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "저주받은광대";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -357,7 +336,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonCollider(monster, 0f, 0.3094977f, 0.6826694f, 0.6089953f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 0.1f, 2.62f);
-                mon.monName = "버섯";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 0f;
@@ -372,7 +350,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 7f, 2.62f);
                 SetMonAttackEffect(monster, "bottom", 2f, 1.5f);
-                mon.monName = "와이번";
                 uiPos = new Vector3(0, 0f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
@@ -388,7 +365,6 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffect(monster, "center", 2f, 2f);
-                mon.monName = "드레이크";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -403,12 +379,26 @@ public class MonsterInfo : MonoBehaviour
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
                 SetMonAttackEffect(monster, "center", 1f, 1f);
-                mon.monName = "레드드래곤";
                 uiPos = new Vector3(0, 0.3f, 0);
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
                 mon.hp = 100;
+                mon.power = 10;
+                mon.defence = 10;
+                mon.moveSpeed = 2;
+                break;
+            case 25://RageInner
+                mon.transform.localScale = new Vector3(1f, 1f, 1);
+                SetMonCollider(monster, -0.1000729f, 1.058178f, 1.533021f, 2.106355f);
+                SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
+                SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
+                SetMonAttackEffect(monster, "center", 1f, 1f);
+                uiPos = new Vector3(0, 0.3f, 0);
+                mon.moveType = true;
+                mon.firstAttack = true;
+                mon.attackTimeValue = 3f;
+                mon.hp = 1000;
                 mon.power = 10;
                 mon.defence = 10;
                 mon.moveSpeed = 2;
@@ -421,8 +411,7 @@ public class MonsterInfo : MonoBehaviour
         for (int i = 0; i < dropItemCode.Length; i++)
         {
             dropItem += Convert.ToString(dropItemCode[i]).Substring(0, 4);
-            
-            dropItem += Convert.ToString(UnityEngine.Random.Range(0, monsterItemManager.GetItemCount(num, dropItemCode[i] / 100)));//7
+            dropItem += Convert.ToString(UnityEngine.Random.Range(0, monsterItemManager.GetItemCount(num, dropItemCode[i] / 100) + 1));//7
             dropItem += Convert.ToString(dropItemCode[i]).Substring(4, 2);
             if(i != dropItemCode.Length - 1)
                 dropItem += ",";

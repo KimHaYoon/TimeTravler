@@ -113,10 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887b0f7db4e49654aa122e1afed33d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageRatio: 10
-  isKnockBack: 1
+  damageRatio: 1
+  isKnockBack: 0
   isCritical: 0
-  coolTime: 10
+  coolTime: 4
   skillUser: {fileID: 0}
 --- !u!58 &6581306043532948231
 CircleCollider2D:
