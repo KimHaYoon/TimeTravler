@@ -8,6 +8,8 @@ public class QuestUI : MonoBehaviour
     public QuestData MainQuest;
     //public List<QuestData> SubQuest = new List<QuestData>();
 
+    public List<QuestData> MainQuestList = new List<QuestData>();
+
     public Text QuestName;
     public Text QuestGoal;
     public Text QuestReward;
@@ -17,7 +19,7 @@ public class QuestUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetMainQuest("멍청이", 1, "으엑", "나닛");
+        AddMainQuest("소탕하기", 1, "StageClear", "냐옹이");
         gameObject.SetActive(false);
         Active = false;
     }
@@ -33,7 +35,8 @@ public class QuestUI : MonoBehaviour
         }
 
         MainQuestCountCheck();
-        MainQuestClearCheck();
+        SetMainQuest(0);
+        //MainQuestClearCheck();
     }
 
     private void MainQuestClearCheck()
@@ -44,25 +47,33 @@ public class QuestUI : MonoBehaviour
         }
     }
 
-    public void SetMainQuest(string QuestName, int Goal, string Reward, string ObjName = "NONE")
+    public void SetMainQuest(int index)
     {
-        MainQuest = new QuestData();
+        MainQuest = MainQuestList[index];
+    }
+
+    public void AddMainQuest(string QuestName, int Goal, string Reward, string ObjName = "NONE")
+    {
+        QuestData Quest = new QuestData();
 
         if (ObjName == "NONE")
-            MainQuest.name = QuestName;
+            Quest.name = QuestName;
 
         else
-            MainQuest.name = ObjName + " " + QuestName;
+            Quest.name = ObjName + " " + QuestName;
 
-        MainQuest.objname = ObjName;
-        MainQuest.count = 0;
-        MainQuest.goal = Goal;
-        MainQuest.reward = Reward;
-        MainQuest.clear = false;
+        Quest.objname = ObjName;
+        Quest.count = 0;
+        Quest.goal = Goal;
+        Quest.reward = Reward;
+        Quest.clear = false;
+
+        MainQuestList.Add(Quest);
     }
 
     private void MainQuestCountCheck()
     {
+        if(MainQuest.objname == )
         if (MainQuest.count == MainQuest.goal)
             MainQuest.clear = true;
     }
@@ -81,6 +92,16 @@ public class QuestUI : MonoBehaviour
     public void SetCount(int count)
     {
         MainQuest.count = count;
+    }
+
+    public void SetGoal(int goal)
+    {
+        MainQuest.goal = goal;
+    }
+
+    public void SetReward(string reward)
+    {
+        MainQuest.reward = reward;
     }
 
     public void Check(string objName)
