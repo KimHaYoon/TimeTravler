@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6138471060161112342}
   - component: {fileID: 6138471060161112336}
   - component: {fileID: 6138471060161112337}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: PierceSpear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070402ed09e23834c92e2a88b56720eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageRatio: 1
-  isKnockBack: 0
-  isCritical: 0
+  damageRatio: 2.5
+  isKnockBack: 1
+  isCritical: 1
   coolTime: 1
   skillUser: {fileID: 0}
