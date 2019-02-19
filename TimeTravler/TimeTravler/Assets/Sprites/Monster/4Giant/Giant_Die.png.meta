@@ -1,0 +1,320 @@
+fileFormatVersion: 2
+guid: 20632c62658542745abb698522cb26e8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Giant_Die_0
+    21300002: Giant_Die_1
+    21300004: Giant_Die_2
+    21300006: Giant_Die_3
+    21300008: Giant_Die_4
+    21300010: Giant_Die_5
+    21300012: Giant_Die_6
+    21300014: Giant_Die_7
+    21300016: Giant_Die_8
+    21300018: Giant_Die_9
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Giant_Die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 162
+        height: 128
+      alignment: 9
+      pivot: {x: 0.66212183, y: 0.012824095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2ea24686da1d54f9f1553c9c6a972e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 172
+        height: 119
+      alignment: 9
+      pivot: {x: 0.56441873, y: 0.041381896}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095592300e89c2b459eb30e4b04dbaaf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_2
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 0
+        width: 172
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5548752, y: 0.04559672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ca75aa6a5958546a97b6af7ec98916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_3
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 0
+        width: 179
+        height: 119
+      alignment: 9
+      pivot: {x: 0.5939955, y: 0.06552132}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650915ab9a98db043b62fcb3573aa0b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_4
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 0
+        width: 179
+        height: 111
+      alignment: 9
+      pivot: {x: 0.53209597, y: 0.073940605}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28c7846d436fa349b2471a08a66459a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 189
+        height: 52
+      alignment: 9
+      pivot: {x: 0.49565777, y: 0.2130769}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b3cf5ed304aa0443b16062aea323d12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_6
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 0
+        width: 189
+        height: 52
+      alignment: 9
+      pivot: {x: 0.49131492, y: 0.22886036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71176bf9d60f55c42a4900a7a017bda6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_7
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 0
+        width: 189
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18150996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b21fbf75ba566f42bd978eea2dd02f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_8
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 0
+        width: 189
+        height: 52
+      alignment: 9
+      pivot: {x: 0.49782857, y: 0.23675211}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049aebefb4e22ce4ca85e43bb28f000f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Giant_Die_9
+      rect:
+        serializedVersion: 2
+        x: 1852
+        y: 0
+        width: 189
+        height: 52
+      alignment: 9
+      pivot: {x: 0.4891435, y: 0.22886036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a41ac939140a2547985fa055fe06f90
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 46954096d1eee4b46aed792ba4108e4d
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

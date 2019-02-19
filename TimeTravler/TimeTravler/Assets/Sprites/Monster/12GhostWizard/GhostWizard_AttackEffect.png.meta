@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 70e2d924521797c40b3fcb46757e530c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GhostWizard_AttackEffect_0
+    21300002: GhostWizard_AttackEffect_1
+    21300004: GhostWizard_AttackEffect_2
+    21300006: GhostWizard_AttackEffect_3
+    21300008: GhostWizard_AttackEffect_4
+    21300010: GhostWizard_AttackEffect_5
+    21300012: GhostWizard_AttackEffect_6
+    21300014: GhostWizard_AttackEffect_7
+    21300016: GhostWizard_AttackEffect_8
+    21300018: GhostWizard_AttackEffect_9
+    21300020: GhostWizard_AttackEffect_10
+    21300022: GhostWizard_AttackEffect_11
+    21300024: GhostWizard_AttackEffect_12
+    21300026: GhostWizard_AttackEffect_13
+    21300028: GhostWizard_AttackEffect_14
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GhostWizard_AttackEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 92
+        height: 145
+      alignment: 9
+      pivot: {x: 0.8341115, y: 0.07353226}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a48284ceb7ca594382ccd239dbc32dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_AttackEffect_1
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 102
+        height: 145
+      alignment: 9
+      pivot: {x: 0.7695329, y: 0.22462508}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a347a0c3d83f524fbbcf1bb934d149c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_AttackEffect_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 152
+        height: 145
+      alignment: 9
+      pivot: {x: 0.6033548, y: 0.31942627}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea6871c183eceb4abcb1e947fb6836a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_AttackEffect_3
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 0
+        width: 128
+        height: 145
+      alignment: 9
+      pivot: {x: 0.6149347, y: 0.29282868}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad91902113695b74c9db1f9ddcf779ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_AttackEffect_4
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 133
+        height: 145
+      alignment: 9
+      pivot: {x: 0.5984332, y: 0.30136892}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063890d7300931a46916b02b67f1eb77
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GhostWizard_AttackEffect_5
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 0
+        width: 165
+        height: 145
+      alignment: 9
+      pivot: {x: 0.56535864, y: 0.3061093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff99f0e26fb27c64383ec0bbe671ef0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 640b4cf2b926d8e409e92945bf77fc37
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
