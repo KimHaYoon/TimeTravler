@@ -56,7 +56,6 @@ public class SkillManager : MonoBehaviour
     }
     public void MiddleBoss(int pageNum)
     {
-<<<<<<< HEAD
         if (pageNum == 4 && pageNum == 3) //empty
             pageNum = 2;
         else //full
@@ -67,34 +66,6 @@ public class SkillManager : MonoBehaviour
         //Debug.Log(randomSkill);
         //Debug.Log(randomEffect);
         switch (randomSkill)
-=======
-
-        pageNum = GetPageNum(monsterBoss);
-        SelectkillandEffect(pageNum);
-
-        if (monsterBoss == 2)
-        {//몬스터 어텍타이머 다 수정
-            if (pageNum == 1) monsterBS.attackTime = 2f;
-            else if (pageNum == 2) monsterBS.attackTime = 3f;
-            else if (pageNum == 3) monsterBS.attackTime = 5f;
-        }
-        else if (monsterBoss == 1)
-        {
-            if (pageNum == 1) monsterBS.attackTime = monsterBS.attackTimeValue - 1f;
-        } 
-    }
-
-
-    public void SelectkillandEffect(int pageNum) // 스킬과 이펙트 랜덤 선택
-    {
-        monsterNum = GetComponent<Monster>().monsterNum;
-        randomSkill = UnityEngine.Random.Range(0, skillAmount); //0~3번까지 스킬 선택
-        randomEffect = UnityEngine.Random.Range(0, effectAmount); // 해당 스킬의 effect 선택 0,1
-
-        // 중보 일시 자신의 테마 서브 몬스터 4개 중 하나를 선택하고(submonnum 배열의 인덱스만 선택) 페이지에 맞는 몬스터 갯수(getpagenum함수에서) 생성
-        // 최보 일시 중간 보스 몬스터 6개 중 하나를 선택하고 페이지에 맞는 몬스터 갯수 생성
-        if (monsterBoss == 2)
->>>>>>> e752f843d15a80ec666e382dbbc2211c7aa44942
         {
             case 0:
                 UsingBuffer(randomEffect);

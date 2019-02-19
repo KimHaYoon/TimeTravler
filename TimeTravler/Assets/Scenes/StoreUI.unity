@@ -818,7 +818,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &375212176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,7 +967,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &375500311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,7 +1195,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &421643622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1347,7 +1344,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &494773141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1943,7 +1939,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &655135951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,7 +2348,6 @@ MonoBehaviour:
   slotList: []
   salesList: {fileID: 1935399179}
   info: {fileID: 1594999417}
-  inventory: {fileID: 0}
 --- !u!114 &1070460455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2790,7 +2784,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &1225759652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,7 +2933,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &1317296326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3265,7 +3257,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &1566720229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,7 +3406,6 @@ MonoBehaviour:
     option2_1: 0
   info: {fileID: 1594999417}
   slotItemImage: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!114 &1573190104
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,7 +30,6 @@ public class TransferMap : MonoBehaviour
     {
         if(collision.gameObject.name == "Player")
         {
-           // thePlayer.currentMapName = transferMapName;
             //thePlayer.currentMapName = transferMapName;
             theCamera.SetBound(targetBound);
 
