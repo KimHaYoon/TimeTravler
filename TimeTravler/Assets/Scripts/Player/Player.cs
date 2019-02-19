@@ -402,7 +402,6 @@ public class Player : MonoBehaviour
             PlayerSkill tmp = Instantiate<PlayerSkill>(skillPrefabs, skillPos.position, Quaternion.Euler(new Vector3(0, 180, 0)));
             if (tmp)
             {
-                Debug.Log("ㅎㅎㅎ");
                 tmp.Initialize(this.gameObject, Vector2.left);
                 return true;
             }
@@ -412,7 +411,6 @@ public class Player : MonoBehaviour
             PlayerSkill tmp = Instantiate<PlayerSkill>(skillPrefabs, skillPos.position, Quaternion.identity);
             if (tmp)
             {
-                Debug.Log("ㅎㅎㅎ");
                 tmp.Initialize(this.gameObject, Vector2.right);
                 return true;
 
@@ -453,7 +451,7 @@ public class Player : MonoBehaviour
                 if (!isSplashForce)
                 {
                     isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
-                    Debug.Log("ㅁㅇㄴㄹㄴㄹ");
+                    Debug.Log(isSplashForce);
                     StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
                 }
                 break;

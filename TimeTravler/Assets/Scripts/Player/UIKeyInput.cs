@@ -127,27 +127,27 @@ public class UIKeyInput : MonoBehaviour
         switch (skill)
         {
             case 1:
-                if (player.isCurrentSkill)
+                if (player.isSplashForce)
                 return;
                 break;
             case 2:
-                if (player.isCurrentSkill)
-                    return;
-                break;
-            case 3:
-                if (player.isCurrentSkill)
-                    return;
-                break;
-            case 4:
-                if (player.isSplashForce)
-                    return;
-                break;
-            case 5:
                 if (player.isFlareBall)
                     return;
                 break;
-            case 6:
+            case 3:
                 if (player.isPierceSpear)
+                    return;
+                break;
+            case 4:
+                if (player.isCurrentSkill)
+                    return;
+                break;
+            case 5:
+                if (player.isCurrentSkill)
+                    return;
+                break;
+            case 6:
+                if (player.isCurrentSkill)
                     return;
                 break;
         }
