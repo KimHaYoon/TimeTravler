@@ -23,6 +23,7 @@ public class Monster : MonoBehaviour
     public int monsterNum;//몬스터 번호
     public int mNum;//몬스터 개인번호
     public int monsterBoss; //몬스터의 종류 확인 0 일반 1 중간 2 최종
+    public string monName;
 
     //MonsterInfo
     public bool moveType;//true 이동 false 고정
@@ -389,15 +390,22 @@ public class Monster : MonoBehaviour
     private void DestroyMonster()//Monster_Die애니메이션에서 호출
     {
         transform.parent.transform.parent.GetComponent<MonsterManager>().DestroyMonster(mNum);//MonsterManager에 본인 번호 전송
-        if (!transform.parent.transform.parent.GetComponent<MonsterManager>().dropItem) return;
-        string[] stringItem = dropItem.Split(',');//','단위로 분할
-        for (int i = 0; i< stringItem.Length; i++)
+        if (transform.parent.transform.parent.GetComponent<MonsterManager>().dropItem)//드랍아이템 있을경우(보스몹소환x 잡몹들)
         {
-            if (Probability(Convert.ToInt32(stringItem[i].Substring(5, 2))))
+            string[] stringItem = dropItem.Split(',');//','단위로 분할
+            for (int i = 0; i < stringItem.Length; i++)
             {
-                GameObject item = Instantiate(Resources.Load("Item/Prefabs/DropItem")) as GameObject;
-                item.GetComponent<DropItem>().item = stringItem[i].Substring(0, 5) + "01";
-                item.GetComponent<Transform>().position = new Vector3(transform.position.x + UnityEngine.Random.Range(0f, 0.05f), transform.position.y + 0.2f, 0);//몬스터 위치로 이동
+                if (Probability(Convert.ToInt32(stringItem[i].Substring(5, 2))))
+                {
+                    GameObject item = Instantiate(Resources.Load("Item/Prefabs/DropItem")) as GameObject;
+                    item.GetComponent<DropItem>().item = stringItem[i].Substring(0, 4);
+                    if (stringItem[i].Substring(0, 1) == "1")
+                        item.GetComponent<DropItem>().item += stringItem[i].Substring(4, 1);
+                    else
+                        item.GetComponent<DropItem>().item += "0";
+                    item.GetComponent<DropItem>().item += "01";
+                    item.GetComponent<Transform>().position = new Vector3(transform.position.x + UnityEngine.Random.Range(0f, 0.05f), transform.position.y + 0.2f, 0);//몬스터 위치로 이동
+                }
             }
         }
     }

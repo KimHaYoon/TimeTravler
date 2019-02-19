@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
         Hp = 5000;
         currentHp = Hp;
         _Hp = Hp;
-        power = 13;
+        power = 130;
         defence = 10;
         dex = 10;
         _power = power;
@@ -173,7 +173,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         CheckGround();
-        //Debug.Log(currentHp);
     }
 
     void FixedUpdate()
