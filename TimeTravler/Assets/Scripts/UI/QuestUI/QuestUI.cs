@@ -73,7 +73,7 @@ public class QuestUI : MonoBehaviour
 
     private void MainQuestCountCheck()
     {
-        if(MainQuest.objname == )
+        //if(MainQuest.objname == )
         if (MainQuest.count == MainQuest.goal)
             MainQuest.clear = true;
     }
