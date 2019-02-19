@@ -132,7 +132,7 @@ public class Player : MonoBehaviour
         _defence = defence;
         _dex = dex;
         extraJumpsValue = 1;
-        time = 1000f;
+        time = 100f;
         isCurrentSkill = false;
         isFlareBall = false;
         isSplashForce = false;
@@ -147,7 +147,8 @@ public class Player : MonoBehaviour
 
         InitSpriteRenderer();
         InitStat();
-
+        StartCoroutine(TimeCounter());
+        StartCoroutine(FadeIn());
         extraJumps = extraJumpsValue;
         
 
@@ -528,7 +529,17 @@ public class Player : MonoBehaviour
         LeftLegSpriteRenderer.color = new Color32(255, 255, 255, alpha);//투명도
         RightLegSpriteRenderer.color = new Color32(255, 255, 255, alpha);//투명도
     }
-    
+
+
+    IEnumerator TimeCounter()
+    {
+        while(time < 0)
+        {
+            time -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
     IEnumerator FadeIn()//몬스터 생성시 슈퍼아머 FadeIn코루틴 (2초)
     {
         int time = 1;
