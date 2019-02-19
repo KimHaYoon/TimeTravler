@@ -625,7 +625,6 @@ public class Player : MonoBehaviour
 
     public void SetBuf(int num, int type, float crease, float time)//버프류
     {
-        Debug.Log(num + " " + type + " " + crease + " " + time);
         transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
     }
     

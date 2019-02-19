@@ -41,7 +41,7 @@ public class Monster : MonoBehaviour
     public float attackEffectYScale;
     public string dropItem;//1,44,2,33,5,6~
     private float[,] buf;//공방치
-
+    public string monName;
 
     private Vector2 colliderSize;//플레이어 점프시 MonsterSight콜라이더 변환용
     public int currentHp;//현재체력
@@ -389,23 +389,22 @@ public class Monster : MonoBehaviour
     private void DestroyMonster()//Monster_Die애니메이션에서 호출
     {
         transform.parent.transform.parent.GetComponent<MonsterManager>().DestroyMonster(mNum);//MonsterManager에 본인 번호 전송
-        if (!transform.parent.transform.parent.GetComponent<MonsterManager>().dropItem) return;
-        string[] stringItem = dropItem.Split(',');//','단위로 분할
-        for (int i = 0; i< stringItem.Length; i++)
+        if (transform.parent.transform.parent.GetComponent<MonsterManager>().dropItem)//드랍아이템 있을경우(보스몹소환x 잡몹들)
         {
-            if (Probability(Convert.ToInt32(stringItem[i].Substring(5, 2))))
+            string[] stringItem = dropItem.Split(',');//','단위로 분할
+            for (int i = 0; i < stringItem.Length; i++)
             {
-                GameObject item = Instantiate(Resources.Load("Item/Prefabs/DropItem")) as GameObject;
-                item.GetComponent<DropItem>().item = stringItem[i].Substring(0, 4);
-                if (stringItem[i].Substring(0, 1) == "1")
+                if (Probability(Convert.ToInt32(stringItem[i].Substring(5, 2))))
                 {
-                    item.GetComponent<DropItem>().item += stringItem[i].Substring(4, 1);
-                    Debug.Log(item.GetComponent<DropItem>().item);
+                    GameObject item = Instantiate(Resources.Load("Item/Prefabs/DropItem")) as GameObject;
+                    item.GetComponent<DropItem>().item = stringItem[i].Substring(0, 4);
+                    if (stringItem[i].Substring(0, 1) == "1")
+                        item.GetComponent<DropItem>().item += stringItem[i].Substring(4, 1);
+                    else
+                        item.GetComponent<DropItem>().item += "0";
+                    item.GetComponent<DropItem>().item += "01";
+                    item.GetComponent<Transform>().position = new Vector3(transform.position.x + UnityEngine.Random.Range(0f, 0.05f), transform.position.y + 0.2f, 0);//몬스터 위치로 이동
                 }
-                else
-                    item.GetComponent<DropItem>().item += "0";
-                item.GetComponent<DropItem>().item += "01";
-                item.GetComponent<Transform>().position = new Vector3(transform.position.x + UnityEngine.Random.Range(0f, 0.05f), transform.position.y + 0.2f, 0);//몬스터 위치로 이동
             }
         }
     }

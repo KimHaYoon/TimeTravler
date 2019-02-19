@@ -12,9 +12,9 @@ public class UIKeyInput : MonoBehaviour
     private Player player;
     //public GameObject Skillwindow;
 
-
     private void Start()
     {
+        Inventorywindow.SetActive(false);
         player = GetComponent<Player>();
     }
 
