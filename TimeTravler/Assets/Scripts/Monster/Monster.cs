@@ -45,8 +45,13 @@ public class Monster : MonoBehaviour
     public float attackEffectYScale;
     public string dropItem;//1,44,2,33,5,6~
     private float[,] buf;//공방치
+<<<<<<< HEAD
     public int effectNum; //최보 어택 애니메이터 전환용
     public string monName;
+=======
+
+    public int effectNum; //최보 어택 애니메이터 전환용
+>>>>>>> parent of d473a19... test
 
     private Vector2 colliderSize;//플레이어 점프시 MonsterSight콜라이더 변환용
     public int currentHp;//현재체력
