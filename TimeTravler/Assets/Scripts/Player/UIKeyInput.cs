@@ -142,40 +142,40 @@ public class UIKeyInput : MonoBehaviour
         switch (skill)
         {
             case 1:
-                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
-                player.myAnimator.Play("Player_Skill4_1");
-                break;
-            case 2:
-                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
-                player.myAnimator.Play("Player_Skill4_2");
-                break;
-            case 3:
-                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
-                player.myAnimator.Play("Player_Skill4_3");
-                break;
-            case 4:
                 if (player.weapon == 1)
                 {
-                    player.myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
-                    player.myAnimator.Play("Player_Skill1");
+                    player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                    player.myAnimator.Play("Player_Skill4_1");
                 }
                 break;
-            case 5:
+            case 2:
                 if (player.weapon == 2)
                 {
                     player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
-                    player.myAnimator.Play("Player_Skill2");
+                    player.myAnimator.Play("Player_Skill4_2");
                 }
                 break;
-            case 6:
+            case 3:
                 if (player.weapon == 3)
                 {
                     player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
-                    player.myAnimator.Play("Player_Skill3");
+                    player.myAnimator.Play("Player_Skill4_3");
                 }
                 break;
+            case 4:
+                player.myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
+                player.myAnimator.Play("Player_Skill1");
+                break;
+            case 5:
+                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                player.myAnimator.Play("Player_Skill2");
+                break;
+            case 6:
+                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                player.myAnimator.Play("Player_Skill3");
+                break;
         }
-        if (skill > 3) skill = 3;
+        if (skill > 3) skill = 4;
         player.skill = skill;
         player.isAttack = true;
     }
