@@ -10,6 +10,13 @@ public class UIKeyInput : MonoBehaviour
     public QuestUI QuestUI;
     //public GameObject Inventory;
     //public GameObject Skillwindow;
+    public GameObject Player;
+    private Player player;
+
+    void Start()
+    {
+        player = Player.GetComponent<Player>();
+    }
 
     void Update()
     {
@@ -27,6 +34,19 @@ public class UIKeyInput : MonoBehaviour
                 QuestUI.SetActive(false);
             }
         }
+
+        //스킬 단축키 Input
+        if (Input.GetKeyDown(KeyCode.X))
+            QuickSkill(0);
+        if (Input.GetKeyDown(KeyCode.C))
+            QuickSkill(1);
+        if (Input.GetKeyDown(KeyCode.V))
+            QuickSkill(2);
+        if (Input.GetKeyDown(KeyCode.B))
+            QuickItem(0);
+        if (Input.GetKeyDown(KeyCode.N))
+            QuickItem(1);
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -58,6 +78,7 @@ public class UIKeyInput : MonoBehaviour
                 }
             }
         }
+    
 
         //// i 버튼을 이용해 아이템창을 여는 함수
         //if (Input.GetKeyDown(KeyCode.I))
@@ -92,5 +113,76 @@ public class UIKeyInput : MonoBehaviour
         //}
 
 
+    }
+
+
+    private void QuickSkill(int num)
+    {
+        int skill = skillslot.slots[num].GetComponent<skill_ob>().skill;
+        Debug.Log(skillslot.slots[num].GetComponent<skill_ob>().skill);
+        //쿨타임체크
+        switch (skill)
+        {
+            case 1:
+            case 2:
+            case 3:
+                if (player.isCurrentSkill) return;
+                break;
+            case 4:
+                if (player.isPierceSpear) return; 
+                break;
+            case 5:
+                if (player.isFlareBall) return;
+                break;
+            case 6:
+                if (player.isSplashForce) return;
+                break;
+        }
+        //쿨타임 아니면
+        switch (skill)
+        {
+            case 1:
+                player.myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
+                player.myAnimator.Play("Player_Skill1");
+                break;
+            case 2:
+                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                player.myAnimator.Play("Player_Skill2");
+                break;
+            case 3:
+                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                player.myAnimator.Play("Player_Skill3");
+                break;
+            case 4:
+                if (player.weapon == 1)
+                {
+                    player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                    player.myAnimator.Play("Player_Skill4_1");
+                }
+                break;
+            case 5:
+                if (player.weapon == 2)
+                {
+                    player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                    player.myAnimator.Play("Player_Skill4_2");
+                }
+                break;
+            case 6:
+                if (player.weapon == 3)
+                {
+                    player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                    player.myAnimator.Play("Player_Skill4_3");
+                }
+                break;
+        }
+        if (skill > 3) skill = 4;
+        player.skill = skill;
+        player.isAttack = true;
+    }
+
+    private void QuickItem(int num)
+    {
+        Itemslot.instance.slots[num].GetComponent<ItemquickSlot>().consumeItem();
+        Debug.Log(Itemslot.instance.slots[num].GetComponent<Item_string>().code);
     }
 }

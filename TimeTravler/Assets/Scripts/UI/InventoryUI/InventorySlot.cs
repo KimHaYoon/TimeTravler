@@ -91,7 +91,6 @@ public class InventorySlot : MonoBehaviour
                 for (int i = 0; i < Itemslot.instance.slots.Count; i++)
                 {
                     slotnow = Itemslot.instance.slots[i];
-                    if (slotnow.GetComponent<Item_string>().code != null)
                     if (slotnow.GetComponent<Item_string>().code.Equals(item.code))
                     {
                         slotnow.GetComponent<Item_string>().code = null;
@@ -206,7 +205,10 @@ public class InventorySlot : MonoBehaviour
                     Shield.GetComponent<Image>().sprite = Inventory.instance.closeImage;
                     Shield.GetComponent<Item_string>().code = null;
                     sheild = false;
-                    Skill_window.instance.slot_now = Skill_window.instance.two_slot;
+                    if (int.Parse(item_string.Substring(2, 1)) == 1)
+                        Skill_window.instance.slot_now = Skill_window.instance.two_slot;
+                    else if (int.Parse(item_string.Substring(2, 1)) == 2)
+                        Skill_window.instance.slot_now = Skill_window.instance.three_slot;
                 }
                 else if (Inventory.instance.equipment_Shield.GetComponent<Item_string>().code == null)
                 {
@@ -216,10 +218,6 @@ public class InventorySlot : MonoBehaviour
                     {
                         Debug.Log("1번슬롯으로 변경");
                         Skill_window.instance.slot_now = Skill_window.instance.one_slot;
-                    }
-                    else if (int.Parse(item_string.Substring(2, 1)) == 2)
-                    {
-                        Skill_window.instance.slot_now = Skill_window.instance.three_slot;
                     }
                 }
                 if (target.code != null)

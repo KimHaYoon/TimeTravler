@@ -59,24 +59,9 @@ public class MonsterManager : MonoBehaviour
     
     IEnumerator ResponeMonster(int num)//부활 코루틴
     {
-
-
-
         Destroy(mon[num]);//죽은 몬스터 오브젝트 제거
-        if (dropItem)//잡몹들
-        {
-            //mon[num].name 몬스터이름 quest에 전달
-        }
-        else//보스가 소환한 몬스터들
-        {
-            monsterCount--;
-            if (monsterCount == 0) Destroy(gameObject);//해당 매니저 삭제
-        }
-
         if (responseTime == 0) yield break;//부활시간 0이면 부활x
 
-
-        mon[num] = null;
         yield return new WaitForSeconds(responseTime);//부활시간만큼 대기
 
         string[] pos = monsterPos[num].Split(' ');//몬스터 위치 split

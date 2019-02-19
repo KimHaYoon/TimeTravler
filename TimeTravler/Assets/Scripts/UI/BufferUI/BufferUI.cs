@@ -120,7 +120,7 @@ public class BufferUI : MonoBehaviour
                     break;
                 case 9://체력버프물약
                     float rate = player.currentHp / player.Hp;
-                    player.Hp = (int)(player._Hp * (1 + crease));
+                    player.Hp = (int)(player._Hp * crease);
                     player.currentHp = (int)(player.Hp * rate);
                     break;
                 case 10://점프물약
