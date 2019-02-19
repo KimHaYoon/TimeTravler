@@ -10,7 +10,7 @@ public class StoreUI : MonoBehaviour
     public SalesList salesList;
     public ItemInfo info;
     private bool salesListUpdate;
-    //public Inventory inventory;
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,9 @@ public class StoreUI : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             gameObject.SetActive(false);
+            inventory.isSHOP = false;
+            inventory.gameObject.SetActive(false);
+            info.gameObject.SetActive(false);
         }
 
         if(salesListUpdate)
@@ -60,5 +63,11 @@ public class StoreUI : MonoBehaviour
     public void SalesListUpdate()
     {
         salesListUpdate = true;
+    }
+
+    public void InventoryEnable(bool Enable)
+    {
+        inventory.gameObject.SetActive(Enable);
+        inventory.isSHOP = Enable;
     }
 }

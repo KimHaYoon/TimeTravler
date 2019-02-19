@@ -59,7 +59,6 @@ public class Inventory : MonoBehaviour
     }
     
 
-
     //새로운 아이템을 슬롯에 넣기전에 하나씩 밀어서 공간을 확보하는 함수
     void push_list(int start)
     {

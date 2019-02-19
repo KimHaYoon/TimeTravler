@@ -61,13 +61,13 @@ public class Player : MonoBehaviour
     private PierceSpear pierceSpearPrefab;
     [SerializeField]
     private Transform pierceSpearPos;
-    public bool isPierceSpear;
+    public bool isPierceSpear;//4_3
 
     [SerializeField]
     private SplashForce splashForcePrefab;
     [SerializeField]
     private Transform splashForcePos;
-    public bool isSplashForce;
+    public bool isSplashForce;//4_1
 
     
 
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     private FlareBall flareBallPrefab;
     [HideInInspector]
     public bool isFlareBall;
-    private FlareBall flareBall;
+    private FlareBall flareBall;//4_2
 
     private PlayerSkill currentSkill;
     private Transform currentSkillPos;
@@ -117,27 +117,32 @@ public class Player : MonoBehaviour
     public float _dex;
     public float time;
 
+    
     private BufferUI bf;
-
 
     private void InitStat()
     {
         Hp = 5000;
         currentHp = Hp;
         _Hp = Hp;
-        power = 130;
+        power = 150;
         defence = 10;
         dex = 10;
         _power = power;
         _defence = defence;
         _dex = dex;
         extraJumpsValue = 1;
-        time = 100f;
+        time = 1000f;
+
+
+        // 스킬 변수 초기화
         isCurrentSkill = false;
         isFlareBall = false;
         isSplashForce = false;
         isPierceSpear = false;
+
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -147,12 +152,12 @@ public class Player : MonoBehaviour
 
         InitSpriteRenderer();
         InitStat();
-        StartCoroutine(TimeCounter());
-        StartCoroutine(FadeIn());
+
         extraJumps = extraJumpsValue;
         
-
         StartCoroutine(FadeIn());
+
+
         Inventory.instance.Add("1101101");
         Inventory.instance.Add("1202101");
         Inventory.instance.Add("1301101");
@@ -172,6 +177,7 @@ public class Player : MonoBehaviour
         Inventory.instance.Add("2305005");
     }
     
+
     void Update()
     {
         CheckGround();
@@ -184,6 +190,7 @@ public class Player : MonoBehaviour
         
     }
     
+
     private void CheckHp()
     {
         if (currentHp <= 0 || time <= 0)
@@ -203,58 +210,7 @@ public class Player : MonoBehaviour
             isJump = false;
         }
     }
-
-    // 스킬 오브젝트 생성 함수
-    bool InstantiateSkill(PlayerSkill skillPrefabs, Transform skillPos)
-    {
-        if (facingLeft)
-        {
-            PlayerSkill tmp = Instantiate<PlayerSkill>(skillPrefabs, skillPos.position, Quaternion.Euler(new Vector3(0, 180, 0)));
-            if (tmp)
-            {
-                tmp.Initialize(this.gameObject, Vector2.left);
-                return true;
-            }
-        }
-        else
-        {
-            PlayerSkill tmp = Instantiate<PlayerSkill>(skillPrefabs, skillPos.position, Quaternion.identity);
-            if (tmp)
-            {
-                tmp.Initialize(this.gameObject, Vector2.right);
-                return true;
-
-            }
-        }
-        return false;
-    }
-
-    // flareBall 오브젝트 생성 함수
-    void InstantiateFlareBall()
-    {
-        if (!isFlareBall)
-        {
-            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);  //제자리 정지
-
-            flareBall = Instantiate(flareBallPrefab, transform.position, Quaternion.identity);
-            flareBall.Initialize(this.gameObject, Vector2.right);
-
-            isFlareBall = true;
-        }
-        else
-        {
-            if (flareBall)
-            {
-                flareBall.Shoot();
-                flareBall = null;
-
-                StartCoroutine(SkillCoolTimer(Skill.flare_ball, flareBallPrefab.coolTime));
-            }
-        }
-    }
-
     
-
 
     private void InputKey()
     {
@@ -435,33 +391,94 @@ public class Player : MonoBehaviour
     }
 
 
+    // 스킬 오브젝트 생성 함수
+    bool InstantiateSkill(PlayerSkill skillPrefabs, Transform skillPos)
+    {
+        if (facingLeft)
+        {
+            PlayerSkill tmp = Instantiate<PlayerSkill>(skillPrefabs, skillPos.position, Quaternion.Euler(new Vector3(0, 180, 0)));
+            if (tmp)
+            {
+                tmp.Initialize(this.gameObject, Vector2.left);
+                return true;
+            }
+        }
+        else
+        {
+            PlayerSkill tmp = Instantiate<PlayerSkill>(skillPrefabs, skillPos.position, Quaternion.identity);
+            if (tmp)
+            {
+                tmp.Initialize(this.gameObject, Vector2.right);
+                return true;
+
+            }
+        }
+        return false;
+    }
+
+    // flareBall 오브젝트 생성 함수
+    void InstantiateFlareBall()
+    {
+        if (!isFlareBall)
+        {
+            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);  //제자리 정지
+
+            flareBall = Instantiate(flareBallPrefab, transform.position, Quaternion.identity);
+            flareBall.Initialize(this.gameObject, Vector2.right);
+
+            isFlareBall = true;
+        }
+        else
+        {
+            if (flareBall)
+            {
+                flareBall.Shoot();
+                flareBall = null;
+
+                StartCoroutine(SkillCoolTimer(Skill.flare_ball, flareBallPrefab.coolTime));
+            }
+        }
+    }
+
     public void StartSkill()
     {
         switch (skill)
         {
             case 1:
-                isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
-                StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
+                if (!isSplashForce)
+                {
+                    isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
+                    StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
+                }
                 break;
             case 2:
                 InstantiateFlareBall();
                 break;
             case 3:
-                isPierceSpear = InstantiateSkill(pierceSpearPrefab, pierceSpearPos);
-                StartCoroutine(SkillCoolTimer(Skill.pierce_spear, pierceSpearPrefab.coolTime));
+                if (!isPierceSpear)
+                {
+                    isPierceSpear = InstantiateSkill(pierceSpearPrefab, pierceSpearPos);
+                    StartCoroutine(SkillCoolTimer(Skill.pierce_spear, pierceSpearPrefab.coolTime));
+                }
                 break;
             case 4:
                 switch (weapon)
                 {
                     case 1:
+                        currentSkill = katanaBladePrefab;
+                        currentSkillPos = katanaBladePos;
                         isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
                         StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
                         break;
                     case 2:
+                        currentSkill = doubleSlash1Prefab;
+                        currentSkillPos = doubleSlash1Pos;
                         isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
                         StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
                         break;
                     case 3:
+                        currentSkill = auraSwordPrefab;
+                        currentSkillPos = auraSwordPos;
                         isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
                         StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
                         break;
@@ -529,17 +546,7 @@ public class Player : MonoBehaviour
         LeftLegSpriteRenderer.color = new Color32(255, 255, 255, alpha);//투명도
         RightLegSpriteRenderer.color = new Color32(255, 255, 255, alpha);//투명도
     }
-
-
-    IEnumerator TimeCounter()
-    {
-        while(time > 0)
-        {
-            time -= Time.deltaTime;
-            yield return null;
-        }
-    }
-
+    
     IEnumerator FadeIn()//몬스터 생성시 슈퍼아머 FadeIn코루틴 (2초)
     {
         int time = 1;
@@ -618,7 +625,6 @@ public class Player : MonoBehaviour
 
     public void SetBuf(int num, int type, float crease, float time)//버프류
     {
-        Debug.Log(num + " " + type + " " + crease + " " + time);
         transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
     }
     
