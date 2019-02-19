@@ -12,7 +12,6 @@ public class SkillWideAreaArrow : MonoBehaviour
     private GameObject start;
 
     public int monsterNum;//몬스터 번호
-    public int effectNum;
     public Vector3 setPos;
     public Vector3 widePos;
     public float xScale;
@@ -32,7 +31,7 @@ public class SkillWideAreaArrow : MonoBehaviour
         SkillWideArea.GetComponent<SkillWideArea>().xScale = xScale;
         SkillWideArea.GetComponent<SkillWideArea>().yScale = yScale;
         SkillWideArea.transform.position = start.transform.position - new Vector3(0, 0.2f, 0);
-        SkillWideArea.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Monster/AnimationControllers/" + Convert.ToString(monsterNum) + "/" + Convert.ToString(monsterNum) + "WideArea" + Convert.ToString(effectNum)) as RuntimeAnimatorController;
+        SkillWideArea.GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Monster/AnimationControllers/" + Convert.ToString(monsterNum) + "/" + Convert.ToString(monsterNum) + "WideArea.") as RuntimeAnimatorController;
         Destroy(gameObject);
     }
 }
