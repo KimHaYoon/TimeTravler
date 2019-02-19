@@ -124,55 +124,55 @@ public class UIKeyInput : MonoBehaviour
         switch (skill)
         {
             case 1:
+                if (player.isPierceSpear) return;
+                break;
             case 2:
-            case 3:
-                if (player.isCurrentSkill) return;
-                break;
-            case 4:
-                if (player.isPierceSpear) return; 
-                break;
-            case 5:
                 if (player.isFlareBall) return;
                 break;
-            case 6:
+            case 3:
                 if (player.isSplashForce) return;
+                break;
+            case 4:
+            case 5:
+            case 6:
+                if (player.isCurrentSkill) return;
                 break;
         }
         //쿨타임 아니면
         switch (skill)
         {
             case 1:
-                player.myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
-                player.myAnimator.Play("Player_Skill1");
-                break;
-            case 2:
-                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
-                player.myAnimator.Play("Player_Skill2");
-                break;
-            case 3:
-                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
-                player.myAnimator.Play("Player_Skill3");
-                break;
-            case 4:
                 if (player.weapon == 1)
                 {
                     player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
                     player.myAnimator.Play("Player_Skill4_1");
                 }
                 break;
-            case 5:
+            case 2:
                 if (player.weapon == 2)
                 {
                     player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
                     player.myAnimator.Play("Player_Skill4_2");
                 }
                 break;
-            case 6:
+            case 3:
                 if (player.weapon == 3)
                 {
                     player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
                     player.myAnimator.Play("Player_Skill4_3");
                 }
+                break;
+            case 4:
+                player.myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
+                player.myAnimator.Play("Player_Skill1");
+                break;
+            case 5:
+                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                player.myAnimator.Play("Player_Skill2");
+                break;
+            case 6:
+                player.myRigidbody.velocity = new Vector2(0, player.myRigidbody.velocity.y);//제자리 정지
+                player.myAnimator.Play("Player_Skill3");
                 break;
         }
         if (skill > 3) skill = 4;

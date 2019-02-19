@@ -533,7 +533,7 @@ public class Player : MonoBehaviour
 
     IEnumerator TimeCounter()
     {
-        while(time < 0)
+        while(time > 0)
         {
             time -= Time.deltaTime;
             yield return null;
