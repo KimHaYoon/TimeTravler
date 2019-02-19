@@ -39,10 +39,18 @@ public class MonsterManager : MonoBehaviour
             {
                 mon[i] = Instantiate(Resources.Load("Monster/Prefabs/MonsterDummy")) as GameObject;//몬스터 더미(일반몬스터) 오브젝트생성
             }
-            else if (monsterBoss == 1)// 중간 보스
+            else if (monsterBoss == 1)// 중보
             {
                 mon[i] = Instantiate(Resources.Load("Monster/Prefabs/MonsterBoss")) as GameObject;//몬스터 보스(보스) 오브젝트생성
-                mon[i].transform.Find("Monster").GetComponent<SkillManager>().SkillInfo(monsterBoss);//몬스터 번호
+                mon[i].transform.Find("Monster").GetComponent<SkillManager>().monsterBoss = monsterBoss;//몬스터 종류
+                mon[i].transform.Find("Monster").GetComponent<SkillManager>().monsterNum = monsterNum;//몬스터 종류
+
+            }
+            else //막보
+            {
+                mon[i] = Instantiate(Resources.Load("Monster/Prefabs/LastMonsterBoss")) as GameObject;//몬스터 보스(보스) 오브젝트생성
+                mon[i].transform.Find("Monster").GetComponent<SkillManager>().monsterBoss = monsterBoss;//몬스터 종류
+                mon[i].transform.Find("Monster").GetComponent<SkillManager>().monsterNum = monsterNum;//몬스터 종류
             }
             mon[i].transform.parent = transform;//MonsterManager의 자식으로 설정
             mon[i].transform.Find("Monster").GetComponent<Monster>().monsterNum = monsterNum;//몬스터 번호

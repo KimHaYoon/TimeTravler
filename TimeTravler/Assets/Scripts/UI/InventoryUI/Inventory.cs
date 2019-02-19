@@ -189,7 +189,7 @@ public class Inventory : MonoBehaviour
                 " " + int.Parse(slots[current_count].GetComponent<Item_string>().code.Substring(5, 2)) : " ");
             current_count++;
             Push = true;
-            Debug.Log("아이템마지막추가");
+            //Debug.Log("아이템마지막추가");
         }
         
                

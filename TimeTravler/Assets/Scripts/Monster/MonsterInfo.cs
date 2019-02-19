@@ -388,6 +388,21 @@ public class MonsterInfo : MonoBehaviour
                 mon.defence = 10;
                 mon.moveSpeed = 2;
                 break;
+            case 25://RageInner
+                mon.transform.localScale = new Vector3(1f, 1f, 1);
+                SetMonCollider(monster, -0.1000729f, 1.058178f, 1.533021f, 2.106355f);
+                SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
+                SetMonAttackSight(monster, 0f, 1.16f, 5f, 2.62f);
+                SetMonAttackEffect(monster, "center", 1f, 1f);
+                uiPos = new Vector3(0, 0.3f, 0);
+                mon.moveType = true;
+                mon.firstAttack = true;
+                mon.attackTimeValue = 3f;
+                mon.hp = 1000;
+                mon.power = 10;
+                mon.defence = 10;
+                mon.moveSpeed = 2;
+                break;
         }
         monsterUI.GetComponent<MonsterUI>().SetPos(uiPos);
         monster.transform.parent.Find("BufferUI").GetComponent<BufferUI>().SetPos(uiPos);
