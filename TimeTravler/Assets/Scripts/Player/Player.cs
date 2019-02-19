@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
 {
     Coroutine corAttack;
 
-    private Rigidbody2D myRigidbody;
-    private Animator myAnimator;
+    public Rigidbody2D myRigidbody;
+    public Animator myAnimator;
 
 
     private SpriteRenderer BodySpriteRenderer;
@@ -61,13 +61,13 @@ public class Player : MonoBehaviour
     private PierceSpear pierceSpearPrefab;
     [SerializeField]
     private Transform pierceSpearPos;
-    private bool isPierceSpear;
+    public bool isPierceSpear;
 
     [SerializeField]
     private SplashForce splashForcePrefab;
     [SerializeField]
     private Transform splashForcePos;
-    private bool isSplashForce;
+    public bool isSplashForce;
 
     
 
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
 
     private PlayerSkill currentSkill;
     private Transform currentSkillPos;
-    private bool isCurrentSkill;
+    public bool isCurrentSkill;
 
     
 
@@ -93,8 +93,8 @@ public class Player : MonoBehaviour
     private bool downJump = false;
     private bool isJump = false;
     public bool isAttack = false;
-    private int weapon = 1;
-    private int skill = 0;
+    public int weapon = 1;
+    public int skill = 0;
 
     private float checkRadius = 0.1f;
     public LayerMask noPassGround;
@@ -118,90 +118,25 @@ public class Player : MonoBehaviour
 
     private BufferUI bf;
 
-    public void Consume(bool onoff, string item, int type, int opt1, int opt2)
+
+    private void InitStat()
     {
-        bf = transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>();
-        if (onoff)//착용
-        {
-            switch (type)
-            {
-                case 1://모자
-                    HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
-                    _defence += opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
-                    return;
-                case 2://갑옷
-                    BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
-                    _defence += opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
-                    return;
-                case 3://신발
-                    _defence += opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
-                    return;
-                case 4://무기
-                    SwordSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
-                    weapon = Convert.ToInt32(item.Substring(2, 1));//무기변경함
-                                                                   //퀵슬롯 바껴야됨
-                    _power += opt1;
-                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 0]);
-                    _dex += opt2;
-                    power = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 0]);
-                    return;
-                case 5://방패
-                    ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
-                    _defence += opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
-                    Debug.Log(bf.buf[7, 0]);
-                    return;
-            }
-        }
-        else//제거
-        {
-            switch (type)
-            {
-                case 1://모자
-                    HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
-                    _defence -= opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
-                    return;
-                case 2://갑옷
-                    BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/1201", typeof(Sprite));
-                    _defence -= opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
-                    return;
-                case 3://신발
-                    _defence -= opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
-                    return;
-                case 4://무기
-                    SwordSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
-                    _power -= opt1;
-                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 0]);
-                    _dex -= opt2;
-                    dex = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 0]);
-                    return;
-                case 5://방패
-                    ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
-                    _defence -= opt1;
-                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
-                    return;
-                case 6://회복물약
-                    currentHp += opt1;
-                    if (currentHp > Hp)
-                        currentHp = Hp;
-                    return;
-                case 7://회복지속물약
-                    SetBuf(Convert.ToInt32(item.Substring(3, 1)) + 2, 0, (float)opt1, (float)opt2);
-                    return;
-                case 8://버프물약
-                    SetBuf(Convert.ToInt32(item.Substring(3, 1)) + 5, 0, (float)opt1, (float)opt2);
-                    return;
-            }
-        }
+        Hp = 5000;
+        currentHp = Hp;
+        _Hp = Hp;
+        power = 13;
+        defence = 10;
+        dex = 10;
+        _power = power;
+        _defence = defence;
+        _dex = dex;
+        extraJumpsValue = 1;
+        isCurrentSkill = false;
+        isFlareBall = false;
+        isSplashForce = false;
+        isPierceSpear = false;
     }
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -214,12 +149,6 @@ public class Player : MonoBehaviour
         extraJumps = extraJumpsValue;
 
         // 스킬 변수 초기화
-        isCurrentSkill = false;
-        isFlareBall = false;
-        isSplashForce = false;
-        isPierceSpear = false;
-        currentSkill = auraSwordPrefab;
-        currentSkillPos = auraSwordPos;
 
         StartCoroutine(FadeIn());
         Inventory.instance.Add("1101101");
@@ -253,20 +182,7 @@ public class Player : MonoBehaviour
         CheckHp();
         
     }
-    private void InitStat()
-    {
-        Hp = 5000;
-        currentHp = Hp;
-        //currentHp = 0;
-        _Hp = Hp;
-        power = 13;
-        defence = 10;
-        dex = 10;
-        _power = power;
-        _defence = defence;
-        _dex = dex;
-        extraJumpsValue = 1;
-    }
+    
     private void CheckHp()
     {
         if (currentHp <= 0)
@@ -368,7 +284,7 @@ public class Player : MonoBehaviour
                 {
                     if (isPassGround || isNoPassGround)
                     {
-                        if (Input.GetKey(KeyCode.LeftControl))
+                        if (Input.GetKey(KeyCode.Z))
                         {
                             myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
                             switch (weapon)
@@ -392,7 +308,7 @@ public class Player : MonoBehaviour
                         {
                             myAnimator.Play("Player_Sit");//Sit 애니메이션 실행
                             myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-                            if (Input.GetKeyDown(KeyCode.LeftShift) && isPassGround)
+                            if (Input.GetKeyDown(KeyCode.Space) && isPassGround)
                             {
                                 downJump = true;
                                 myAnimator.Play("Player_Jump");
@@ -400,7 +316,7 @@ public class Player : MonoBehaviour
                             }
                             return;
                         }
-                        if (Input.GetKeyDown(KeyCode.LeftShift) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
+                        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
                         {
                             myAnimator.Play("Player_Jump");
                             extraJumps--;
@@ -410,7 +326,7 @@ public class Player : MonoBehaviour
                         }
                         
                     }
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
+                    if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
                     {
                         myAnimator.Play("Player_Jump");
                         extraJumps--;
@@ -427,68 +343,6 @@ public class Player : MonoBehaviour
 
                         }
                     }
-
-                    if (Input.GetKeyDown(KeyCode.V))
-                    {
-                        myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
-                        isAttack = true;
-                        skill =
-                            1;
-                        myAnimator.Play("Player_Skill4_1");
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.B))
-                    {
-                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-                        isAttack = true;
-                        skill = 2;
-                        myAnimator.Play("Player_Skill4_2");
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.N))
-                    {
-                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-                        isAttack = true;
-                        skill = 3;
-                        myAnimator.Play("Player_Skill4_3");
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.Z))
-                    {
-                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-                        if(weapon == 1)
-                        {
-                            isAttack = true;
-                            skill = 4;
-                            myAnimator.Play("Player_Skill1");
-                        }
-                    }
-
-                    // 키 입력시 스킬 생성
-                    if (Input.GetKeyDown(KeyCode.X))
-                    {
-                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-                        if (weapon == 2)
-                        {
-                            isAttack = true;
-                            skill = 4;
-                            myAnimator.Play("Player_Skill2");
-                        }
-                    }
-                    
-
-                    if (Input.GetKeyDown(KeyCode.C))
-                    {
-                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-                        if (weapon == 3)
-                        {
-                            isAttack = true;
-                            skill = 4;
-                            myAnimator.Play("Player_Skill3");
-                        }
-                    }
-
-                    
                 }
                 myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
                 Flip(horizontal);
@@ -496,56 +350,119 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Consume(bool onoff, string item, int type, int opt1, int opt2)
+    {
+        bf = transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>();
+        if (onoff)//착용
+        {
+            switch (type)
+            {
+                case 1://모자
+                    HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
+                    _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 2://갑옷
+                    BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
+                    _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 3://신발
+                    _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 4://무기
+                    SwordSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
+                    weapon = Convert.ToInt32(item.Substring(2, 1));//무기변경함
+                                                                   //퀵슬롯 바껴야됨
+                    _power += opt1;
+                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 0]);
+                    _dex += opt2;
+                    power = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 0]);
+                    return;
+                case 5://방패
+                    ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/" + item, typeof(Sprite));
+                    _defence += opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    Debug.Log(bf.buf[7, 0]);
+                    return;
+            }
+        }
+        else//제거
+        {
+            switch (type)
+            {
+                case 1://모자
+                    HelmetSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
+                    _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 2://갑옷
+                    BodySpriteRenderer.sprite = (Sprite)Resources.Load("Item/ItemUse/1201", typeof(Sprite));
+                    _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 3://신발
+                    _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 4://무기
+                    SwordSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
+                    _power -= opt1;
+                    power = _power * (1 + bf.buf[0, 0] + bf.buf[0, 1] + bf.buf[6, 0]);
+                    _dex -= opt2;
+                    dex = _dex * (1 + bf.buf[2, 0] + bf.buf[2, 1] + bf.buf[8, 0]);
+                    return;
+                case 5://방패
+                    ShieldSpriteRenderer.sprite = (Sprite)Resources.Load("None", typeof(Sprite));
+                    _defence -= opt1;
+                    defence = _defence * (1 + bf.buf[1, 0] + bf.buf[1, 1] + bf.buf[7, 0]);
+                    return;
+                case 6://회복물약
+                    currentHp += opt1;
+                    if (currentHp > Hp)
+                        currentHp = Hp;
+                    return;
+                case 7://회복지속물약
+                    SetBuf(Convert.ToInt32(item.Substring(3, 1)) + 2, 0, (float)opt1, (float)opt2);
+                    return;
+                case 8://버프물약
+                    SetBuf(Convert.ToInt32(item.Substring(3, 1)) + 5, 0, (float)opt1, (float)opt2);
+                    return;
+            }
+        }
+    }
+
+
     public void StartSkill()
     {
         switch (skill)
         {
             case 1:
-                if (!isSplashForce)
-                {
-                    isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
-                    StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
-                }
+                isSplashForce = InstantiateSkill(splashForcePrefab, splashForcePos);
+                StartCoroutine(SkillCoolTimer(Skill.splash_force, splashForcePrefab.coolTime));
                 break;
             case 2:
                 InstantiateFlareBall();
                 break;
             case 3:
-                if (!isPierceSpear)
-                {
-                    isPierceSpear = InstantiateSkill(pierceSpearPrefab, pierceSpearPos);
-                    StartCoroutine(SkillCoolTimer(Skill.pierce_spear, pierceSpearPrefab.coolTime));
-                }
+                isPierceSpear = InstantiateSkill(pierceSpearPrefab, pierceSpearPos);
+                StartCoroutine(SkillCoolTimer(Skill.pierce_spear, pierceSpearPrefab.coolTime));
                 break;
             case 4:
                 switch (weapon)
                 {
                     case 1:
-                        currentSkill = katanaBladePrefab;
-                        currentSkillPos = katanaBladePos;
-                        if (currentSkill != null && !isCurrentSkill)
-                        {
-                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
-                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
-                        }
+                        isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                        StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
                         break;
                     case 2:
-                        currentSkill = doubleSlash1Prefab;
-                        currentSkillPos = doubleSlash1Pos;
-                        if (currentSkill != null && !isCurrentSkill)
-                        {
-                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
-                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
-                        }
+                        isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                        StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
                         break;
                     case 3:
-                        currentSkill = auraSwordPrefab;
-                        currentSkillPos = auraSwordPos;
-                        if (currentSkill != null && !isCurrentSkill)
-                        {
-                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
-                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
-                        }
+                        isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                        StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
                         break;
                 }
                 break;
