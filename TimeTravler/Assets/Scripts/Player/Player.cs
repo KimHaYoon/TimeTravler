@@ -115,6 +115,7 @@ public class Player : MonoBehaviour
     public float _power;
     public float _defence;
     public float _dex;
+    public float time;
 
     private BufferUI bf;
 
@@ -131,6 +132,7 @@ public class Player : MonoBehaviour
         _defence = defence;
         _dex = dex;
         extraJumpsValue = 1;
+        time = 1000f;
         isCurrentSkill = false;
         isFlareBall = false;
         isSplashForce = false;
@@ -147,8 +149,7 @@ public class Player : MonoBehaviour
         InitStat();
 
         extraJumps = extraJumpsValue;
-
-        // 스킬 변수 초기화
+        
 
         StartCoroutine(FadeIn());
         Inventory.instance.Add("1101101");
@@ -184,7 +185,7 @@ public class Player : MonoBehaviour
     
     private void CheckHp()
     {
-        if (currentHp <= 0)
+        if (currentHp <= 0 || time <= 0)
         {
             myAnimator.Play("Player_Die");
             myRigidbody.velocity = new Vector2(0, 0);

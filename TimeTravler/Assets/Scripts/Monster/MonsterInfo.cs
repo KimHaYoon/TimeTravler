@@ -420,7 +420,7 @@ public class MonsterInfo : MonoBehaviour
         for (int i = 0; i < dropItemCode.Length; i++)
         {
             dropItem += Convert.ToString(dropItemCode[i]).Substring(0, 4);
-            dropItem += Convert.ToString(UnityEngine.Random.Range(0, monsterItemManager.GetItemCount(num, dropItemCode[i] / 100) + 1));//7
+            dropItem += Convert.ToString(UnityEngine.Random.Range(0, monsterItemManager.GetItemCount(num, dropItemCode[i] / 100)));//7
             dropItem += Convert.ToString(dropItemCode[i]).Substring(4, 2);
             if(i != dropItemCode.Length - 1)
                 dropItem += ",";
