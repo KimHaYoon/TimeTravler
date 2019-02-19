@@ -43,6 +43,7 @@ public class MonsterInfo : MonoBehaviour
         defence;//방어력
         moveSpeed;//이동속도
         */
+
         uiPos = new Vector3(0, -0.7f, 0);
         switch (num)
         {
@@ -163,9 +164,9 @@ public class MonsterInfo : MonoBehaviour
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
-                mon.hp = 100;
-                mon.power = 10;
-                mon.defence = 10;
+                mon.hp = 500;
+                mon.power = 30;
+                mon.defence = 50;
                 mon.moveSpeed = 2;
                 break;
             case 9://Zombie
@@ -294,8 +295,8 @@ public class MonsterInfo : MonoBehaviour
                 SetMonCollider(monster, 0.03f, 0.1882393f, 0.29f, 0.3664786f);
                 SetMonSight(monster, 0f, 1.16f, 12.47f, 2.62f);
                 SetMonAttackSight(monster, 0f, 1.16f, 4f, 2.62f);
-                mon.monName = "토끼";
                 uiPos = new Vector3(0, -0.6f, 0);
+                mon.monName = "토끼";
                 mon.moveType = true;
                 mon.firstAttack = true;
                 mon.attackTimeValue = 3f;
@@ -420,6 +421,7 @@ public class MonsterInfo : MonoBehaviour
         for (int i = 0; i < dropItemCode.Length; i++)
         {
             dropItem += Convert.ToString(dropItemCode[i]).Substring(0, 4);
+            
             dropItem += Convert.ToString(UnityEngine.Random.Range(0, monsterItemManager.GetItemCount(num, dropItemCode[i] / 100)));//7
             dropItem += Convert.ToString(dropItemCode[i]).Substring(4, 2);
             if(i != dropItemCode.Length - 1)

@@ -23,7 +23,6 @@ public class Monster : MonoBehaviour
     public int monsterNum;//몬스터 번호
     public int mNum;//몬스터 개인번호
     public int monsterBoss; //몬스터의 종류 확인 0 일반 1 중간 2 최종
-    public string monName;
 
     //MonsterInfo
     public bool moveType;//true 이동 false 고정
@@ -42,7 +41,7 @@ public class Monster : MonoBehaviour
     public float attackEffectYScale;
     public string dropItem;//1,44,2,33,5,6~
     private float[,] buf;//공방치
-
+    public string monName;
 
     private Vector2 colliderSize;//플레이어 점프시 MonsterSight콜라이더 변환용
     public int currentHp;//현재체력
@@ -416,7 +415,7 @@ public class Monster : MonoBehaviour
         {
             GameObject AttackEffect = Instantiate(Resources.Load("Monster/Prefabs/MonsterAttackEffect")) as GameObject;//몬스터공격이펙트 오브젝트생성
             AttackEffect.GetComponent<MonsterAttackEffect>().monsterNum = monsterNum;//몬스터 번호 동기화
-            if (monsterBoss == 0)
+            if(monsterBoss == 0)
                 AttackEffect.GetComponent<MonsterAttackEffect>().boss = false;//몬스터 번호 동기화
             else
                 AttackEffect.GetComponent<MonsterAttackEffect>().boss = true;//몬스터 번호 동기화

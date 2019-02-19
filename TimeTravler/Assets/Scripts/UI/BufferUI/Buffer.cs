@@ -38,7 +38,7 @@ public class Buffer : MonoBehaviour
 
     public void SetPlayerPos(int num)
     {
-        GetComponent<RectTransform>().localPosition = new Vector3(220 - num * 35, 160, 0);
+        GetComponent<RectTransform>().localPosition = new Vector3(280 - num * 35, 200, 0);
         GetComponent<RectTransform>().localScale = new Vector3(1, 1, 0);
     }
     public void SetMonsterPos(int num)

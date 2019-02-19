@@ -21,11 +21,12 @@ public class MonsterAttackEffect : MonoBehaviour
         transform.localScale = new Vector3(xScale, yScale, 1);
 
         GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Monster/AnimationControllers/" + Convert.ToString(monsterNum) + "/" + Convert.ToString(monsterNum) + "AttackEffect") as RuntimeAnimatorController;//애니메니터 몬스터 번호에 맞춰서 설정
-
-        if (boss)
+        if(boss)
             transform.position = player.transform.position + setPos + new Vector3(0, -0.5f, 0);//AttackEffectPosition 
         else
             transform.position = player.transform.position + setPos;//AttackEffectPosition 
+
+
     }
     
     void Update()
