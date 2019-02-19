@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
 {
     Coroutine corAttack;
 
-    public Rigidbody2D myRigidbody;
-    public Animator myAnimator;
+    private Rigidbody2D myRigidbody;
+    private Animator myAnimator;
 
 
     private SpriteRenderer BodySpriteRenderer;
@@ -61,13 +61,13 @@ public class Player : MonoBehaviour
     private PierceSpear pierceSpearPrefab;
     [SerializeField]
     private Transform pierceSpearPos;
-    public bool isPierceSpear;//4_3
+    private bool isPierceSpear;
 
     [SerializeField]
     private SplashForce splashForcePrefab;
     [SerializeField]
     private Transform splashForcePos;
-    public bool isSplashForce;//4_1
+    private bool isSplashForce;
 
     
 
@@ -75,11 +75,11 @@ public class Player : MonoBehaviour
     private FlareBall flareBallPrefab;
     [HideInInspector]
     public bool isFlareBall;
-    private FlareBall flareBall;//4_2
+    private FlareBall flareBall;
 
     private PlayerSkill currentSkill;
     private Transform currentSkillPos;
-    public bool isCurrentSkill;
+    private bool isCurrentSkill;
 
     
 
@@ -93,8 +93,8 @@ public class Player : MonoBehaviour
     private bool downJump = false;
     private bool isJump = false;
     public bool isAttack = false;
-    public int weapon = 1;
-    public int skill = 0;
+    private int weapon = 1;
+    private int skill = 0;
 
     private float checkRadius = 0.1f;
     public LayerMask noPassGround;
@@ -115,197 +115,8 @@ public class Player : MonoBehaviour
     public float _power;
     public float _defence;
     public float _dex;
-    public float time;
 
-    
     private BufferUI bf;
-
-    private void InitStat()
-    {
-        Hp = 5000;
-        currentHp = Hp;
-        _Hp = Hp;
-        power = 150;
-        defence = 10;
-        dex = 10;
-        _power = power;
-        _defence = defence;
-        _dex = dex;
-        extraJumpsValue = 1;
-        time = 1000f;
-
-
-        // 스킬 변수 초기화
-        isCurrentSkill = false;
-        isFlareBall = false;
-        isSplashForce = false;
-        isPierceSpear = false;
-
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        myRigidbody = GetComponent<Rigidbody2D>();
-        myAnimator = transform.Find("PlayerPart").GetComponent<Animator>();
-
-        InitSpriteRenderer();
-        InitStat();
-
-        extraJumps = extraJumpsValue;
-        
-        StartCoroutine(FadeIn());
-
-
-        Inventory.instance.Add("1101101");
-        Inventory.instance.Add("1202101");
-        Inventory.instance.Add("1301101");
-        Inventory.instance.Add("1401101");
-        Inventory.instance.Add("1411101");
-        Inventory.instance.Add("1421101");
-        Inventory.instance.Add("1501101");
-
-
-        Inventory.instance.Add("2201005");
-        Inventory.instance.Add("2202005");
-        Inventory.instance.Add("2203005");
-        Inventory.instance.Add("2301005");
-        Inventory.instance.Add("2302005");
-        Inventory.instance.Add("2303005");
-        Inventory.instance.Add("2304005");
-        Inventory.instance.Add("2305005");
-    }
-    
-
-    void Update()
-    {
-        CheckGround();
-    }
-
-    void FixedUpdate()
-    {
-        InputKey();
-        CheckHp();
-        
-    }
-    
-
-    private void CheckHp()
-    {
-        if (currentHp <= 0 || time <= 0)
-        {
-            myAnimator.Play("Player_Die");
-            myRigidbody.velocity = new Vector2(0, 0);
-        }
-    }
-
-    private void CheckGround()
-    {
-        isPassGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, passGround);
-        isNoPassGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, noPassGround);
-        if ((isPassGround || isNoPassGround) && myRigidbody.velocity.y <= 0) // 캐릭터가 지면일때 
-        {
-            extraJumps = extraJumpsValue; // extrajumps를 설정한 extraJumpValue로 초기화
-            isJump = false;
-        }
-    }
-    
-
-    private void InputKey()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            weapon = 1;
-            transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1401", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            weapon = 2;
-            transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1411", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            weapon = 3;
-            transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1421", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정1421
-            
-        }
-        if (currentHp > 0)
-        {
-            float horizontal = Input.GetAxis("Horizontal");
-            if (!isAttack)
-            {
-                if (!downJump)
-                {
-                    if (isPassGround || isNoPassGround)
-                    {
-                        if (Input.GetKey(KeyCode.Z))
-                        {
-                            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-                            switch (weapon)
-                            {
-                                case 1:
-                                    myAnimator.Play("Player_Attack1");
-                                    break;
-                                case 2:
-                                    myAnimator.Play("Player_Attack2");
-                                    break;
-                                case 3:
-                                    myAnimator.Play("Player_Attack3");
-                                    break;
-                            }
-                            isAttack = true;
-                            StartCoroutine(AttackTimer());
-                            return;
-                        }
-
-                        if (Input.GetKey(KeyCode.S))//아래 방향키
-                        {
-                            myAnimator.Play("Player_Sit");//Sit 애니메이션 실행
-                            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
-                            if (Input.GetKeyDown(KeyCode.Space) && isPassGround)
-                            {
-                                downJump = true;
-                                myAnimator.Play("Player_Jump");
-                                StartCoroutine(DownJumpTimer());//아래로 점프시 DownJumpTimer코루틴 (0.5초)
-                            }
-                            return;
-                        }
-                        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
-                        {
-                            myAnimator.Play("Player_Jump");
-                            extraJumps--;
-                            myRigidbody.velocity = Vector2.up * jumpForce;
-                            isJump = true;
-                            return;
-                        }
-                        
-                    }
-                    if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
-                    {
-                        myAnimator.Play("Player_Jump");
-                        extraJumps--;
-                        myRigidbody.velocity = Vector2.up * jumpForce;
-                        isJump = true;
-                    }
-                    if (!isJump)
-                    {
-                        if (horizontal == 0)
-                            myAnimator.Play("Player_Idle");
-                        else
-                        {
-                            myAnimator.Play("Player_Move");
-
-                        }
-                    }
-                }
-                myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
-                Flip(horizontal);
-            }
-        }
-    }
 
     public void Consume(bool onoff, string item, int type, int opt1, int opt2)
     {
@@ -390,6 +201,91 @@ public class Player : MonoBehaviour
         }
     }
 
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        myRigidbody = GetComponent<Rigidbody2D>();
+        myAnimator = transform.Find("PlayerPart").GetComponent<Animator>();
+
+        InitSpriteRenderer();
+        InitStat();
+
+        extraJumps = extraJumpsValue;
+
+        // 스킬 변수 초기화
+        isCurrentSkill = false;
+        isFlareBall = false;
+        isSplashForce = false;
+        isPierceSpear = false;
+        currentSkill = auraSwordPrefab;
+        currentSkillPos = auraSwordPos;
+
+        StartCoroutine(FadeIn());
+        Inventory.instance.Add("1101101");
+        Inventory.instance.Add("1202101");
+        Inventory.instance.Add("1301101");
+        Inventory.instance.Add("1401101");
+        Inventory.instance.Add("1411101");
+        Inventory.instance.Add("1421101");
+        Inventory.instance.Add("1501101");
+
+
+        Inventory.instance.Add("2201005");
+        Inventory.instance.Add("2202005");
+        Inventory.instance.Add("2203005");
+        Inventory.instance.Add("2301005");
+        Inventory.instance.Add("2302005");
+        Inventory.instance.Add("2303005");
+        Inventory.instance.Add("2304005");
+        Inventory.instance.Add("2305005");
+    }
+    
+    void Update()
+    {
+        CheckGround();
+        //Debug.Log(currentHp);
+    }
+
+    void FixedUpdate()
+    {
+        InputKey();
+        CheckHp();
+        
+    }
+    private void InitStat()
+    {
+        Hp = 5000;
+        currentHp = Hp;
+        //currentHp = 0;
+        _Hp = Hp;
+        power = 13;
+        defence = 10;
+        dex = 10;
+        _power = power;
+        _defence = defence;
+        _dex = dex;
+        extraJumpsValue = 1;
+    }
+    private void CheckHp()
+    {
+        if (currentHp <= 0)
+        {
+            myAnimator.Play("Player_Die");
+            myRigidbody.velocity = new Vector2(0, 0);
+        }
+    }
+
+    private void CheckGround()
+    {
+        isPassGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, passGround);
+        isNoPassGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, noPassGround);
+        if ((isPassGround || isNoPassGround) && myRigidbody.velocity.y <= 0) // 캐릭터가 지면일때 
+        {
+            extraJumps = extraJumpsValue; // extrajumps를 설정한 extraJumpValue로 초기화
+            isJump = false;
+        }
+    }
 
     // 스킬 오브젝트 생성 함수
     bool InstantiateSkill(PlayerSkill skillPrefabs, Transform skillPos)
@@ -440,6 +336,166 @@ public class Player : MonoBehaviour
         }
     }
 
+    
+
+
+    private void InputKey()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            weapon = 1;
+            transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1401", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
+            
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            weapon = 2;
+            transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1411", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정
+            
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            weapon = 3;
+            transform.Find("PlayerPart").transform.Find("Body").transform.Find("Weapon").transform.Find("WeaponPart").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("Item/ItemUse/1421", typeof(Sprite));//몬스터 이름 번호에 맞춰서 설정1421
+            
+        }
+        if (currentHp > 0)
+        {
+            float horizontal = Input.GetAxis("Horizontal");
+            if (!isAttack)
+            {
+                if (!downJump)
+                {
+                    if (isPassGround || isNoPassGround)
+                    {
+                        if (Input.GetKey(KeyCode.LeftControl))
+                        {
+                            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                            switch (weapon)
+                            {
+                                case 1:
+                                    myAnimator.Play("Player_Attack1");
+                                    break;
+                                case 2:
+                                    myAnimator.Play("Player_Attack2");
+                                    break;
+                                case 3:
+                                    myAnimator.Play("Player_Attack3");
+                                    break;
+                            }
+                            isAttack = true;
+                            StartCoroutine(AttackTimer());
+                            return;
+                        }
+
+                        if (Input.GetKey(KeyCode.S))//아래 방향키
+                        {
+                            myAnimator.Play("Player_Sit");//Sit 애니메이션 실행
+                            myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                            if (Input.GetKeyDown(KeyCode.LeftShift) && isPassGround)
+                            {
+                                downJump = true;
+                                myAnimator.Play("Player_Jump");
+                                StartCoroutine(DownJumpTimer());//아래로 점프시 DownJumpTimer코루틴 (0.5초)
+                            }
+                            return;
+                        }
+                        if (Input.GetKeyDown(KeyCode.LeftShift) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
+                        {
+                            myAnimator.Play("Player_Jump");
+                            extraJumps--;
+                            myRigidbody.velocity = Vector2.up * jumpForce;
+                            isJump = true;
+                            return;
+                        }
+                        
+                    }
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && extraJumps > 0)//점프키를 눌렀을때 extraJumps가 0이상이면
+                    {
+                        myAnimator.Play("Player_Jump");
+                        extraJumps--;
+                        myRigidbody.velocity = Vector2.up * jumpForce;
+                        isJump = true;
+                    }
+                    if (!isJump)
+                    {
+                        if (horizontal == 0)
+                            myAnimator.Play("Player_Idle");
+                        else
+                        {
+                            myAnimator.Play("Player_Move");
+
+                        }
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.V))
+                    {
+                        myRigidbody.velocity = new Vector2(0, -10);//제자리 정지
+                        isAttack = true;
+                        skill =
+                            1;
+                        myAnimator.Play("Player_Skill4_1");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.B))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        isAttack = true;
+                        skill = 2;
+                        myAnimator.Play("Player_Skill4_2");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.N))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        isAttack = true;
+                        skill = 3;
+                        myAnimator.Play("Player_Skill4_3");
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Z))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        if(weapon == 1)
+                        {
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill1");
+                        }
+                    }
+
+                    // 키 입력시 스킬 생성
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        if (weapon == 2)
+                        {
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill2");
+                        }
+                    }
+                    
+
+                    if (Input.GetKeyDown(KeyCode.C))
+                    {
+                        myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);//제자리 정지
+                        if (weapon == 3)
+                        {
+                            isAttack = true;
+                            skill = 4;
+                            myAnimator.Play("Player_Skill3");
+                        }
+                    }
+
+                    
+                }
+                myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);//방향키 눌렀을때 가속도설정(이동)
+                Flip(horizontal);
+            }
+        }
+    }
+
     public void StartSkill()
     {
         switch (skill)
@@ -467,20 +523,29 @@ public class Player : MonoBehaviour
                     case 1:
                         currentSkill = katanaBladePrefab;
                         currentSkillPos = katanaBladePos;
-                        isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
-                        StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
                         break;
                     case 2:
                         currentSkill = doubleSlash1Prefab;
                         currentSkillPos = doubleSlash1Pos;
-                        isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
-                        StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
                         break;
                     case 3:
                         currentSkill = auraSwordPrefab;
                         currentSkillPos = auraSwordPos;
-                        isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
-                        StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        if (currentSkill != null && !isCurrentSkill)
+                        {
+                            isCurrentSkill = InstantiateSkill(currentSkill, currentSkillPos);
+                            StartCoroutine(SkillCoolTimer(Skill.current, currentSkill.coolTime));
+                        }
                         break;
                 }
                 break;
@@ -625,6 +690,7 @@ public class Player : MonoBehaviour
 
     public void SetBuf(int num, int type, float crease, float time)//버프류
     {
+        Debug.Log(num + " " + type + " " + crease + " " + time);
         transform.parent.transform.Find("BufferUI").GetComponent<BufferUI>().StartBuf(gameObject, true, num, type, crease, time);
     }
     

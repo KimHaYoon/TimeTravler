@@ -21,7 +21,7 @@ public class ItemDrag : MonoBehaviour
         {
             if (!drag)
             {
-                if (Inventory.instance.current_count < 30)
+                if (Inventory.instance.current_count < 20)
                 {
                     Inventory.instance.Add(item);
                     StartCoroutine(Drag(other.gameObject));
