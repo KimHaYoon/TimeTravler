@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3370222512596009019}
   - component: {fileID: 3370222512596009012}
   - component: {fileID: 3370222512596009015}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: DoubleSlash2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,9 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a644f9633b0014e80e886958e7e0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageRatio: 1
-  isKnockBack: 0
-  isCritical: 0
+  damageRatio: 3
+  isKnockBack: 1
+  isCritical: 1
   coolTime: 0
   skillUser: {fileID: 0}
 --- !u!58 &3370222512596009015
