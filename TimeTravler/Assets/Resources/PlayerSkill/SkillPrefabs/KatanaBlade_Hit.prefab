@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4062527506682326551}
   - component: {fileID: 4062527506682326550}
   - component: {fileID: 4062527506682326545}
-  - component: {fileID: 4062527506682326548}
+  - component: {fileID: 7377840384543537675}
   m_Layer: 16
   m_Name: KatanaBlade_Hit
   m_TagString: Untagged
@@ -100,7 +100,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4062527506682326548
+--- !u!114 &7377840384543537675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,6 +109,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4062527506682326544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5197279a4c4f9604eab32c3b042531ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 24a7cce29a244d64e92b2aa3abb1a38b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
