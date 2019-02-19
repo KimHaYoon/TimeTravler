@@ -168,3 +168,5 @@ MonoBehaviour:
   skillUser: {fileID: 0}
   maxRange: 10
   speed: 10
+  auraSwordHitPrefab: {fileID: 4176287256431892972, guid: 887bf7238b3448d4093ab12a29c0226d,
+    type: 3}

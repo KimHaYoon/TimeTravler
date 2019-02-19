@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 171256378999194445}
   - component: {fileID: 171256378999194446}
   - component: {fileID: 171256378999194447}
-  - component: {fileID: 8427685212355183445}
+  - component: {fileID: 1148872579464239932}
   m_Layer: 16
   m_Name: FlareBall_Hit
   m_TagString: Untagged
@@ -100,7 +100,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8427685212355183445
+--- !u!114 &1148872579464239932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,6 +109,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 171256378999194440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3406ecc61d61a734abe64e9e45770d5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 24a7cce29a244d64e92b2aa3abb1a38b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

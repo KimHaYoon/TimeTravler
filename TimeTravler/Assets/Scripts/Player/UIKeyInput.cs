@@ -10,10 +10,11 @@ public class UIKeyInput : MonoBehaviour
     public QuestUI QuestUI;
     public GameObject Inventorywindow;
     private Player player;
-    //public GameObject Skillwindow;
+    public GameObject Skillwindow;
 
     private void Start()
     {
+        Skillwindow.SetActive(false);
         Inventorywindow.SetActive(false);
         player = GetComponent<Player>();
     }
@@ -89,32 +90,32 @@ public class UIKeyInput : MonoBehaviour
         if (Input.GetKey(KeyCode.C))//퀵슬롯 스킬2
             QuickSkill(1);
 
-        if (Input.GetKey(KeyCode.C))//퀵슬롯 스킬3
+        if (Input.GetKey(KeyCode.V))//퀵슬롯 스킬3
             QuickSkill(2);
 
-        if (Input.GetKey(KeyCode.V))//퀵슬롯 아이템1
+        if (Input.GetKey(KeyCode.B))//퀵슬롯 아이템1
             QuickItem(0);
 
-        if (Input.GetKey(KeyCode.B))//퀵슬롯 아이템2
+        if (Input.GetKey(KeyCode.N))//퀵슬롯 아이템2
             QuickItem(0);
 
 
 
-        // k 버튼을 이용해 스킬창을 여는 함수
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    if (Skill_window.skill_window_show == false)
-        //    {
-        //        Skillwindow.SetActive(true);
-        //        Skill_window.instance.button0();
-        //        Skill_window.skill_window_show = true;
-        //    }
-        //    else
-        //    {
-        //        Skillwindow.SetActive(false);
-        //        Skill_window.skill_window_show = false;
-        //    }
-        //}
+        //k 버튼을 이용해 스킬창을 여는 함수
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (Skill_window.skill_window_show == false)
+            {
+                Skillwindow.SetActive(true);
+                Skill_window.instance.button0();
+                Skill_window.skill_window_show = true;
+            }
+            else
+            {
+                Skillwindow.SetActive(false);
+                Skill_window.skill_window_show = false;
+            }
+        }
     }
 
     private void QuickSkill(int num)//num 몇번째 슬롯 호출하는지
@@ -122,30 +123,31 @@ public class UIKeyInput : MonoBehaviour
         if (player.isAttack) return;//플레이어가 공격중(스킬 or 평타)이라면 종료
         int skill = skillslot.slots[num].GetComponent<skill_ob>().skill;
         //쿨타임체크먼저해야됨 안되면 return 해서 종료;
+       
         switch (skill)
         {
             case 1:
-                if (player.isCurrentSkill)
-                    return;
+                if (player.isSplashForce)
+                return;
                 break;
             case 2:
-                if (player.isCurrentSkill)
-                    return;
-                break;
-            case 3:
-                if (player.isCurrentSkill)
-                    return;
-                break;
-            case 4:
-                if (player.isSplashForce)
-                    return;
-                break;
-            case 5:
                 if (player.isFlareBall)
                     return;
                 break;
-            case 6:
+            case 3:
                 if (player.isPierceSpear)
+                    return;
+                break;
+            case 4:
+                if (player.isCurrentSkill)
+                    return;
+                break;
+            case 5:
+                if (player.isCurrentSkill)
+                    return;
+                break;
+            case 6:
+                if (player.isCurrentSkill)
                     return;
                 break;
         }
@@ -173,14 +175,20 @@ public class UIKeyInput : MonoBehaviour
             case 4:
                 if (player.weapon == 1)
                     player.myAnimator.Play("Player_Skill1");
+                else
+                    return;
                 break;
             case 5:
                 if (player.weapon == 2)
                     player.myAnimator.Play("Player_Skill2");
+                else
+                    return;
                 break;
             case 6:
                 if (player.weapon == 3)
                     player.myAnimator.Play("Player_Skill3");
+                else
+                    return;
                 break;
         }
         player.isAttack = true;

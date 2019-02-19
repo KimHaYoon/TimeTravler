@@ -58584,7 +58584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359299868304679715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.3, y: -4.9, z: 0}
+  m_LocalPosition: {x: -0.2, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1359299868558296258}
@@ -58677,6 +58677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f05b2cb38f3764c9ec23985983c973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 0}
+  myAnimator: {fileID: 0}
   movementSpeed: 3
   groundCheck: {fileID: 1359299867362643377}
   jumpForce: 8
@@ -58688,15 +58690,19 @@ MonoBehaviour:
   doubleSlash1Pos: {fileID: 0}
   pierceSpearPrefab: {fileID: 0}
   pierceSpearPos: {fileID: 0}
+  isPierceSpear: 0
   splashForcePrefab: {fileID: 0}
   splashForcePos: {fileID: 0}
+  isSplashForce: 0
   flareBallPrefab: {fileID: 0}
   isFlareBall: 0
+  isCurrentSkill: 0
   facingLeft: 1
   isPassGround: 0
   isNoPassGround: 0
   isAttack: 0
   weapon: 1
+  skill: 0
   noPassGround:
     serializedVersion: 2
     m_Bits: 16384
@@ -58714,8 +58720,7 @@ MonoBehaviour:
   _power: 0
   _defence: 0
   _dex: 0
-  quickSkill: 
-  quickItem: []
+  time: 0
 --- !u!70 &1359299868558296261
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
